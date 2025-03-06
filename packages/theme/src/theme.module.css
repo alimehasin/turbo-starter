@@ -1,0 +1,77 @@
+.input {
+  &:focus-within {
+    outline: none;
+    transition: box-shadow 150ms ease;
+    box-shadow: 0 0 0 2px var(--mantine-primary-color-filled);
+  }
+
+  &[data-variant="unstyled"] {
+    outline: none;
+    box-shadow: 0 0 0 0 !important;
+  }
+}
+
+.noInputRing {
+  outline: none;
+  box-shadow: 0 0 0 0 !important;
+}
+
+.numberInput {
+  &:focus-within {
+    z-index: 1;
+  }
+}
+
+.menuDropdown {
+  border-radius: var(--mantine-radius-sm);
+  min-width: 120px;
+}
+
+.menuItem {
+  border-radius: var(--mantine-radius-sm);
+  padding: 4px var(--mantine-spacing-xs);
+}
+
+.actionIcon {
+  &[data-variant="natural"] {
+    background-color: transparent;
+    color: var(--mantine-color-gray-6) !important;
+
+    &:hover {
+      background-color: var(--mantine-color-gray-2);
+    }
+
+    @mixin dark {
+      background-color: transparent;
+      color: var(--mantine-color-dark-3) !important;
+
+      &:hover {
+        background-color: var(--mantine-color-dark-6);
+      }
+    }
+  }
+
+  &[data-variant="shell-link"] {
+    background-color: transparent;
+    color: var(--mantine-color-gray-9);
+
+    &:hover {
+      background-color: var(--mantine-color-gray-0);
+    }
+
+    &[data-active="true"] {
+      background-color: var(--mantine-primary-color-filled);
+      color: var(--mantine-color-white);
+    }
+  }
+}
+
+.navLink {
+  border-radius: var(--mantine-radius-md);
+}
+
+.container {
+  @media (max-width: 62em) {
+    padding: 0;
+  }
+}

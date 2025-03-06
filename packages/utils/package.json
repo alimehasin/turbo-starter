@@ -1,0 +1,23 @@
+{
+  "name": "@repo/utils",
+  "private": true,
+  "version": "0.0.0",
+  "exports": {
+    ".": "./src/helpers.ts",
+    "./constants": "./src/constants.ts",
+    "./ui-helpers": "./src/ui-helpers.tsx"
+  },
+  "scripts": {
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@mantine/core": "^7.17.1",
+    "@tabler/icons-react": "^3.31.0",
+    "dayjs": "^1.11.13",
+    "libphonenumber-js": "^1.12.5"
+  },
+  "devDependencies": {
+    "@repo/tsconfig": "workspace:*",
+    "@types/bun": "^1.2.4"
+  }
+}

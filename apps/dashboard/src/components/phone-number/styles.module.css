@@ -1,0 +1,11 @@
+.root {
+  font-size: var(--mantine-font-size-sm);
+  font-family: var(--font-roboto);
+
+  color: light-dark(var(--mantine-color-gray-7), var(--mantine-color-dark-1));
+
+  @mixin rtl {
+    direction: ltr;
+    text-align: right;
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "recommendations": [
+    "biomejs.biome",
+    "Prisma.prisma",
+    "vunguyentuan.vscode-postcss",
+    "vunguyentuan.vscode-css-variables",
+    "lokalise.i18n-ally"
+  ]
+}

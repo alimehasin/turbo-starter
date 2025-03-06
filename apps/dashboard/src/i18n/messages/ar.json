@@ -1,0 +1,25 @@
+{
+  "actionCannotBeUndone": "لا يمكن التراجع عن هذا الإجراء.",
+  "areYouSureAboutThisAction": "هل أنت متأكد أنك تريد القيام بهذا الإجراء؟",
+  "cancel": "إلغاء",
+  "clickToCallWhatsApp": "اضغط للاتصال على واتساب",
+  "confirm": "تأكيد",
+  "dataTable": {
+    "noRecords": "لا توجد سجلات لعرضها",
+    "recordsPerPageLabel": "عدد السجلات في الصفحة"
+  },
+  "done": "تم",
+  "error": "خطأ",
+  "home": "الرئيسية",
+  "language": "العربية",
+  "login": "تسجيل الدخول",
+  "loginTitle": "سجل الدخول إلى حسابك",
+  "logout": "تسجيل الخروج",
+  "logoutSuccess": "تم تسجيل خروجك بنجاح",
+  "nothingFound": "لم يتم العثور على أي شيء",
+  "password": "كلمة المرور",
+  "search": "البحث",
+  "success": "نجاح",
+  "title": "مرحباً بالعالم!",
+  "username": "اسم المستخدم"
+}

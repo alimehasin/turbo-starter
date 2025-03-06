@@ -1,0 +1,56 @@
+{
+  "$schema": "https://biomejs.dev/schemas/1.9.4/schema.json",
+  "organizeImports": {
+    "enabled": true
+  },
+
+  "files": {
+    "ignore": [
+      "**/tailwind.config.ts",
+      "**/bindings.ts",
+      "**/node_modules/**",
+      "**/.turbo/**",
+      "**/.next/**",
+      "**/dist/**"
+    ]
+  },
+
+  "vcs": {
+    "enabled": true,
+    "clientKind": "git",
+    "useIgnoreFile": true
+  },
+
+  "formatter": {
+    "indentStyle": "space",
+    "lineWidth": 86
+  },
+
+  "javascript": {
+    "formatter": {
+      "quoteStyle": "single"
+    }
+  },
+
+  "linter": {
+    "enabled": true,
+    "rules": {
+      "recommended": true,
+      "a11y": {},
+      "nursery": {},
+      "security": {},
+      "complexity": {},
+      "suspicious": {},
+      "performance": {},
+      "correctness": {
+        "noUnusedImports": "warn",
+        "noUnusedVariables": "warn",
+        "useHookAtTopLevel": "warn",
+        "useExhaustiveDependencies": "off"
+      },
+      "style": {
+        "useBlockStatements": "error"
+      }
+    }
+  }
+}

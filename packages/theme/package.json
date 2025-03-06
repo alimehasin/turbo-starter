@@ -1,0 +1,23 @@
+{
+  "name": "@repo/theme",
+  "version": "0.0.0",
+  "private": true,
+  "main": "index.ts",
+  "exports": {
+    "./theme": "./src/theme.ts",
+    "./fonts/rubik": "./src/fonts/rubik/index.ts",
+    "./fonts/roboto": "./src/fonts/roboto/index.ts"
+  },
+  "scripts": {
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@mantine/core": "^7.17.1",
+    "@mantine/spotlight": "^7.17.1",
+    "next": "^15.2.1"
+  },
+  "devDependencies": {
+    "@repo/tsconfig": "workspace:*",
+    "typescript": "^5.8.2"
+  }
+}

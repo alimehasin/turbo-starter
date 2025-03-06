@@ -1,0 +1,43 @@
+{
+  "name": "turbo-starter",
+  "private": true,
+  "workspaces": ["configs/*", "packages/*", "apps/*"],
+  "packageManager": "bun@1.2.4",
+  "scripts": {
+    "dev": "turbo dev",
+    "build": "turbo build",
+    "test": "turbo run test",
+    "format": "biome format --write .",
+    "lint": "biome lint --write .",
+    "check": "biome check --write .",
+    "typecheck": "turbo run typecheck",
+    "i18n:parse": "turbo run i18n:parse",
+    "scripts:rmdeps": "bash ./scripts/rmdeps.sh",
+    "scripts:update": "bash ./scripts/update.sh",
+    "scripts:cleanup": "bash ./scripts/cleanup.sh",
+    "scripts:init:env": "bun run ./scripts/init/env.ts",
+    "scripts:storage:reset": "bash ./scripts/storage-reset.sh",
+    "scripts:reinstall": "bash ./scripts/reinstall.sh",
+    "db:generate": "cd packages/db && bunx prisma generate",
+    "db:migrate:dev": "cd packages/db && bunx prisma migrate dev",
+    "db:migrate:deploy": "cd packages/db && bunx prisma migrate deploy",
+    "db:migrate:reset": "cd packages/db && bunx prisma migrate reset",
+    "db:seed": "cd packages/db && bunx prisma db seed",
+    "db:studio": "cd packages/db && bunx prisma studio",
+    "prepare": "husky"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "1.9.4",
+    "@changesets/cli": "^2.28.1",
+    "@commitlint/cli": "^19.7.1",
+    "@commitlint/config-conventional": "^19.7.1",
+    "@inquirer/prompts": "^7.3.2",
+    "husky": "^9.1.7",
+    "lint-staged": "^15.4.3",
+    "turbo": "^2.4.4",
+    "typescript": "^5.8.2"
+  },
+  "overrides": {
+    "react-is": "^19.0.0"
+  }
+}

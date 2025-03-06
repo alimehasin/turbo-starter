@@ -1,0 +1,27 @@
+{
+  "name": "@repo/hooks",
+  "version": "0.0.0",
+  "private": true,
+  "main": "index.ts",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "scripts": {
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@mantine/core": "^7.17.1",
+    "@mantine/modals": "^7.17.1",
+    "@mantine/notifications": "^7.17.1",
+    "@repo/utils": "workspace:*",
+    "next": "^15.2.1",
+    "next-intl": "^3.26.5",
+    "react": "19.0.0"
+  },
+  "devDependencies": {
+    "@repo/tsconfig": "workspace:*",
+    "@types/react": "^19.0.10",
+    "mantine-datatable": "^7.17.1",
+    "typescript": "^5.8.2"
+  }
+}

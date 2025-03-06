@@ -1,0 +1,77 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum FileType {
+  Image
+  Video
+}
+
+model Admin {
+  id String @id @default(uuid())
+
+  // Credentials
+  username String @unique
+  password String
+
+  // Profile
+  name      String
+  phone     String
+  birthDate DateTime?
+
+  avatarId String?
+  avatar   File?   @relation(fields: [avatarId], references: [id], name: "AdminAvatars")
+
+  // Flags
+  isRoot Boolean @default(false)
+
+  // Relations
+  uploads File[]
+}
+
+model User {
+  id String @id @default(uuid())
+
+  // Credentials
+  username String @unique
+  password String
+
+  // Profile
+  name      String
+  phone     String
+  birthDate DateTime?
+
+  avatarId String?
+  avatar   File?   @relation(fields: [avatarId], references: [id], name: "UserAvatars")
+
+  // Relations
+  uploads File[]
+}
+
+model File {
+  id String @id @default(uuid())
+
+  key      String   @unique
+  size     Int
+  type     FileType
+  isPublic Boolean  @default(false)
+
+  userId String?
+  user   User?   @relation(fields: [userId], references: [id])
+
+  admin   Admin?  @relation(fields: [adminId], references: [id])
+  adminId String?
+
+  // Metadata
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  // Relations
+  admins Admin[] @relation("AdminAvatars")
+  users  User[]  @relation("UserAvatars")
+}

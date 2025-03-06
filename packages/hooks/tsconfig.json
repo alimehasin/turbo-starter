@@ -1,0 +1,12 @@
+{
+  "extends": "@repo/tsconfig/react-library.json",
+  "compilerOptions": {
+    "outDir": "dist",
+    "paths": {
+      "@/*": ["./src/*"]
+    }
+  },
+
+  "include": ["src", "next-env.d.ts"],
+  "exclude": ["node_modules", "dist"]
+}

@@ -1,0 +1,54 @@
+import type { PrismaClient } from '@prisma/client';
+import { dunna } from 'dunna';
+import { addresses, femalesNames, malesNames } from './constants';
+
+export function genGender() {
+  return dunna.basic.choice(['Male', 'Female']);
+}
+
+export function genPhoneNumber(): string {
+  const randomSection = (count: 3 | 4) => {
+    let res = '';
+
+    for (let i = 0; i < count; i += 1) {
+      res += dunna.basic.integer();
+    }
+
+    return res;
+  };
+
+  const countryCode = '+964';
+  const carrierCode = dunna.basic.choice(['75', '77', '78']);
+  const firstPart = dunna.basic.integer({ max: 5 });
+  const secondPart = randomSection(3);
+  const thirdPart = randomSection(4);
+
+  return `${countryCode}${carrierCode}${firstPart}${secondPart}${thirdPart}`;
+}
+
+export function genFullName(gender: 'Male' | 'Female'): string {
+  return gender === 'Male'
+    ? `${dunna.basic.choice(malesNames)} ${dunna.basic.choice(malesNames)} ${dunna.basic.choice(malesNames)}`
+    : `${dunna.basic.choice(femalesNames)} ${dunna.basic.choice(malesNames)} ${dunna.basic.choice(malesNames)}`;
+}
+
+export function genAddress(): string {
+  return dunna.basic.choice(addresses);
+}
+
+export async function getFileId(prisma: PrismaClient, key: string) {
+  const file = await prisma.file.findUnique({
+    where: { key },
+  });
+
+  if (!file) {
+    throw new Error(`File with key ${key} not found`);
+  }
+
+  return file.id;
+}
+
+export function getAvatarFileId(prisma: PrismaClient, gender: 'Male' | 'Female') {
+  const key = `avatar-${gender.toLowerCase()}-${dunna.basic.integer({ min: 1, max: 6 })}.webp`;
+  return getFileId(prisma, key);
+}

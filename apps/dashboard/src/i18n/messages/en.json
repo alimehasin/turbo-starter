@@ -1,0 +1,25 @@
+{
+  "actionCannotBeUndone": "This action cannot be undone.",
+  "areYouSureAboutThisAction": "Are you sure you want to perform this action?",
+  "cancel": "Cancel",
+  "clickToCallWhatsApp": "Click to call on WhatsApp",
+  "confirm": "Confirm",
+  "dataTable": {
+    "noRecords": "No records to show",
+    "recordsPerPageLabel": "Records per page"
+  },
+  "done": "Done",
+  "error": "Error",
+  "home": "Home",
+  "language": "English",
+  "login": "Login",
+  "loginTitle": "Login to Your Account",
+  "logout": "Logout",
+  "logoutSuccess": "You have been logged out",
+  "nothingFound": "Nothing found",
+  "password": "Password",
+  "search": "Search",
+  "success": "Success",
+  "title": "Hello world!",
+  "username": "Username"
+}

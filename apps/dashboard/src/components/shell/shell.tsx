@@ -1,6 +1,6 @@
 'use client';
 
-import { HEADER_HEIGHT, NAVBAR_WIDTH } from '@/utils/constants';
+import { HEADER_HEIGHT, SIDEBAR_WIDTH } from '@/utils/constants';
 import {
   AppShell,
   AppShellHeader,
@@ -20,7 +20,7 @@ export function Shell({ children }: { children: React.ReactNode }) {
       header={{ height: HEADER_HEIGHT }}
       navbar={{
         breakpoint: 'md',
-        width: NAVBAR_WIDTH,
+        width: SIDEBAR_WIDTH,
         collapsed: { mobile: !opened },
       }}
     >

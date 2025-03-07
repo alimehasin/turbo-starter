@@ -2,7 +2,7 @@
 
 import { setToken } from '@/server/actions/auth';
 import { setLocale } from '@/server/actions/locale';
-import { NAVBAR_WIDTH } from '@/utils/constants';
+import { SIDEBAR_WIDTH } from '@/utils/constants';
 import {
   ActionIcon,
   Box,
@@ -64,7 +64,7 @@ export function Header({ opened, toggle }: { opened: boolean; toggle: () => void
       </Group>
 
       <Group h="100%" justify="space-between" visibleFrom="md">
-        <Box h="100%" w={NAVBAR_WIDTH} className={cls.logo}>
+        <Box h="100%" w={SIDEBAR_WIDTH} className={cls.logo}>
           <Logo />
         </Box>
 

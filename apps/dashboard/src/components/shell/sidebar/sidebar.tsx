@@ -14,7 +14,7 @@ export function Sidebar({ toggle }: { toggle: () => void }) {
         section="/"
         activeExact
         toggle={toggle}
-        label={t('home')}
+        label={t('sidebar.home')}
         icon={<IconHome size={18} />}
       />
     </Stack>

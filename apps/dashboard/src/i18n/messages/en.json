@@ -10,7 +10,6 @@
   },
   "done": "Done",
   "error": "Error",
-  "home": "Home",
   "language": "English",
   "login": "Login",
   "loginTitle": "Login to Your Account",
@@ -19,6 +18,9 @@
   "nothingFound": "Nothing found",
   "password": "Password",
   "search": "Search",
+  "sidebar": {
+    "home": "Home"
+  },
   "success": "Success",
   "title": "Hello world!",
   "username": "Username"

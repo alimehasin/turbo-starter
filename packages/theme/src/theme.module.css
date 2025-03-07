@@ -32,40 +32,6 @@
   padding: 4px var(--mantine-spacing-xs);
 }
 
-.actionIcon {
-  &[data-variant="natural"] {
-    background-color: transparent;
-    color: var(--mantine-color-gray-6) !important;
-
-    &:hover {
-      background-color: var(--mantine-color-gray-2);
-    }
-
-    @mixin dark {
-      background-color: transparent;
-      color: var(--mantine-color-dark-3) !important;
-
-      &:hover {
-        background-color: var(--mantine-color-dark-6);
-      }
-    }
-  }
-
-  &[data-variant="shell-link"] {
-    background-color: transparent;
-    color: var(--mantine-color-gray-9);
-
-    &:hover {
-      background-color: var(--mantine-color-gray-0);
-    }
-
-    &[data-active="true"] {
-      background-color: var(--mantine-primary-color-filled);
-      color: var(--mantine-color-white);
-    }
-  }
-}
-
 .navLink {
   border-radius: var(--mantine-radius-md);
 }

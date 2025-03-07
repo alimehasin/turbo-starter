@@ -74,7 +74,7 @@ export function Header({ opened, toggle }: { opened: boolean; toggle: () => void
           <Group gap="xs" mx="xl">
             <Menu withArrow>
               <MenuTarget>
-                <ActionIcon variant="natural" size={36}>
+                <ActionIcon color="gray" variant="subtle" size={36}>
                   <IconUser />
                 </ActionIcon>
               </MenuTarget>
@@ -90,7 +90,12 @@ export function Header({ opened, toggle }: { opened: boolean; toggle: () => void
               </MenuDropdown>
             </Menu>
 
-            <ActionIcon variant="natural" onClick={toggleColorScheme} size={36}>
+            <ActionIcon
+              color="gray"
+              variant="subtle"
+              onClick={toggleColorScheme}
+              size={36}
+            >
               {colorScheme === 'light' ? <IconMoon /> : <IconSun />}
             </ActionIcon>
 

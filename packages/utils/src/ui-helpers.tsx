@@ -1,7 +1,6 @@
 import type { MantineColor, ThemeIconVariant } from '@mantine/core';
-import { Badge, Center, ThemeIcon } from '@mantine/core';
+import { Center, ThemeIcon } from '@mantine/core';
 import { IconGenderFemale, IconGenderMale } from '@tabler/icons-react';
-import { formatDate } from './helpers';
 
 export function getGenderColor(gender: string): MantineColor {
   switch (gender) {
@@ -49,8 +48,4 @@ export function getGenderThemeIcon({
       </ThemeIcon>
     </Center>
   );
-}
-
-export function getDateBadge(date: Date): React.ReactElement {
-  return <Badge variant="default">{formatDate(date)}</Badge>;
 }

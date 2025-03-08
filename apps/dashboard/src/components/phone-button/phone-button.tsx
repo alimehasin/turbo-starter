@@ -16,11 +16,11 @@ export function PhoneButton({ phone }: { phone: string }) {
       withArrow
       label={
         <Group gap="xs">
-          <ThemeIcon color="gray" variant="transparent" size="lg">
+          <ThemeIcon color="nature" variant="transparent" size="lg">
             <IconBrandWhatsapp />
           </ThemeIcon>
 
-          <Text c="gray.4">{t('clickToCallWhatsApp')}</Text>
+          <Text>{t('clickToCallWhatsApp')}</Text>
         </Group>
       }
     >

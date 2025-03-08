@@ -65,7 +65,7 @@ export default function LoginPage() {
 
       <Center h="100vh">
         <Stack p="sm">
-          <Title c="gray.7">{t('loginTitle')}</Title>
+          <Title c="nature.7">{t('loginTitle')}</Title>
 
           <Paper withBorder p="sm">
             <FocusTrap>

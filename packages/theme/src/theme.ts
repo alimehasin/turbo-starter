@@ -2,13 +2,16 @@ import {
   ActionIcon,
   Button,
   Checkbox,
+  CheckboxIndicator,
   Container,
   DEFAULT_THEME,
   Input,
+  type MantineColorsTuple,
   Menu,
   NavLink,
   NumberInput,
   createTheme,
+  virtualColor,
 } from '@mantine/core';
 import { Spotlight } from '@mantine/spotlight';
 import { rubik } from './fonts/rubik';
@@ -22,6 +25,17 @@ export const theme = createTheme({
   primaryColor: 'red',
   defaultRadius: DEFAULT_THEME.radius.md,
 
+  colors: {
+    grayInDark:
+      DEFAULT_THEME.colors.dark.toReversed() as unknown as MantineColorsTuple,
+
+    nature: virtualColor({
+      name: 'nature',
+      light: 'gray',
+      dark: 'grayInDark',
+    }),
+  },
+
   components: {
     Container: Container.extend({
       classNames: { root: cls.container },
@@ -32,6 +46,10 @@ export const theme = createTheme({
     }),
 
     Checkbox: Checkbox.extend({
+      defaultProps: { radius: 'sm' },
+    }),
+
+    CheckboxIndicator: CheckboxIndicator.extend({
       defaultProps: { radius: 'sm' },
     }),
 

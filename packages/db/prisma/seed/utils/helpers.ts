@@ -1,6 +1,6 @@
 import type { PrismaClient } from '@prisma/client';
 import { dunna } from 'dunna';
-import { addresses, femalesNames, malesNames } from './constants';
+import { femalesNames, malesNames } from './constants';
 
 export function genGender() {
   return dunna.basic.choice(['Male', 'Female']);
@@ -30,10 +30,6 @@ export function genFullName(gender: 'Male' | 'Female'): string {
   return gender === 'Male'
     ? `${dunna.basic.choice(malesNames)} ${dunna.basic.choice(malesNames)} ${dunna.basic.choice(malesNames)}`
     : `${dunna.basic.choice(femalesNames)} ${dunna.basic.choice(malesNames)} ${dunna.basic.choice(malesNames)}`;
-}
-
-export function genAddress(): string {
-  return dunna.basic.choice(addresses);
 }
 
 export async function getFileId(prisma: PrismaClient, key: string) {

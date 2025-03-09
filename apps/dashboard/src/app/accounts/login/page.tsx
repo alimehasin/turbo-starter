@@ -1,7 +1,7 @@
 'use client';
 
 import { setToken } from '@/server/actions/auth';
-import { getLocale, setLocale } from '@/server/actions/locale';
+import { setLocale } from '@/server/actions/locale';
 import { api } from '@/server/trpc/react';
 import {
   Box,
@@ -19,6 +19,7 @@ import { useForm } from '@mantine/form';
 import { IconKey, IconLogin, IconUser } from '@tabler/icons-react';
 import { useMutation, useQuery } from '@tanstack/react-query';
 import { useTranslations } from 'next-intl';
+import { getLocale } from 'next-intl/server';
 import { useRouter } from 'next/navigation';
 
 export default function LoginPage() {

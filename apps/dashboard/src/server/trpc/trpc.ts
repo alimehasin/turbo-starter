@@ -1,5 +1,6 @@
 import { prisma } from '@repo/db';
 import { TRPCError, initTRPC } from '@trpc/server';
+import { getLocale } from 'next-intl/server';
 import superjson from 'superjson';
 import { ZodError } from 'zod';
 import { authenticate, getToken } from '../actions/auth';
@@ -41,7 +42,19 @@ const timingMiddleware = t.middleware(async ({ next, path }) => {
   return result;
 });
 
-export const publicProcedure = t.procedure.use(timingMiddleware);
+const i18nMiddleware = t.middleware(async ({ next, ctx }) => {
+  const locale = await getLocale();
+
+  const t = ({ en, ar }: { en: string; ar: string }) => {
+    return locale === 'ar' ? ar : en;
+  };
+
+  return next({
+    ctx: { ...ctx, locale, t },
+  });
+});
+
+export const publicProcedure = t.procedure.use(timingMiddleware).use(i18nMiddleware);
 
 export const privateProcedure = publicProcedure.use(async ({ next, ctx }) => {
   const token = await getToken();

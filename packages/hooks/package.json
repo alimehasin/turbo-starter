@@ -14,7 +14,7 @@
     "@mantine/modals": "^7.17.1",
     "@mantine/notifications": "^7.17.1",
     "@repo/utils": "workspace:*",
-    "next": "^15.2.1",
+    "next": "^15.2.2",
     "next-intl": "^3.26.5",
     "react": "19.0.0"
   },

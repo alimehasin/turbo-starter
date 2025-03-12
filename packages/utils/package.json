@@ -5,7 +5,8 @@
   "exports": {
     ".": "./src/helpers.ts",
     "./constants": "./src/constants.ts",
-    "./ui-helpers": "./src/ui-helpers.tsx"
+    "./ui-helpers": "./src/ui-helpers.tsx",
+    "./types": "./src/types.ts"
   },
   "scripts": {
     "typecheck": "tsc --noEmit"

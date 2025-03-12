@@ -1,0 +1,5 @@
+.previewContainer {
+  overflow: hidden;
+  position: relative;
+  border-radius: var(--mantine-radius-default);
+}

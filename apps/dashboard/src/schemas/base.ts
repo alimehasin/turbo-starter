@@ -9,3 +9,8 @@ export const sortingSchema = z.object({
   column: z.string(),
   direction: z.enum(['asc', 'desc']),
 });
+
+export const fileSchema = z.object({
+  id: z.string().uuid(),
+  key: z.string(),
+});

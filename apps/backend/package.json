@@ -23,11 +23,11 @@
     "chalk": "^5.4.1",
     "dayjs": "^1.11.13",
     "elysia": "^1.2.25",
-    "jose": "^6.0.9",
+    "jose": "^6.0.10",
     "zod": "^3.24.2"
   },
   "devDependencies": {
     "@repo/tsconfig": "workspace:*",
-    "@types/bcryptjs": "^2.4.6"
+    "@types/bcryptjs": "^3.0.0"
   }
 }

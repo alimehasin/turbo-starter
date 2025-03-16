@@ -11,10 +11,10 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@mantine/core": "^7.17.1",
+    "@mantine/core": "^7.17.2",
     "@tabler/icons-react": "^3.31.0",
     "dayjs": "^1.11.13",
-    "libphonenumber-js": "^1.12.5"
+    "libphonenumber-js": "^1.12.6"
   },
   "devDependencies": {
     "@repo/tsconfig": "workspace:*",

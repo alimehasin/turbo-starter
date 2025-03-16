@@ -12,6 +12,11 @@ enum FileType {
   Video
 }
 
+enum Gender {
+  Male
+  Female
+}
+
 model Admin {
   id String @id @default(uuid())
 
@@ -45,6 +50,7 @@ model User {
   name      String
   phone     String
   birthDate DateTime?
+  gender    Gender?
 
   avatarId String?
   avatar   File?   @relation(fields: [avatarId], references: [id], name: "UserAvatars")

@@ -1,10 +1,6 @@
-import type { PrismaClient } from '@prisma/client';
+import type { Gender, PrismaClient } from '@prisma/client';
 import { dunna } from 'dunna';
 import { femalesNames, malesNames } from './constants';
-
-export function genGender() {
-  return dunna.basic.choice(['Male', 'Female']);
-}
 
 export function genPhoneNumber(): string {
   const randomSection = (count: 3 | 4) => {
@@ -26,7 +22,7 @@ export function genPhoneNumber(): string {
   return `${countryCode}${carrierCode}${firstPart}${secondPart}${thirdPart}`;
 }
 
-export function genFullName(gender: 'Male' | 'Female'): string {
+export function genFullName(gender: Gender): string {
   return gender === 'Male'
     ? `${dunna.basic.choice(malesNames)} ${dunna.basic.choice(malesNames)} ${dunna.basic.choice(malesNames)}`
     : `${dunna.basic.choice(femalesNames)} ${dunna.basic.choice(malesNames)} ${dunna.basic.choice(malesNames)}`;
@@ -44,7 +40,7 @@ export async function getFileId(prisma: PrismaClient, key: string) {
   return file.id;
 }
 
-export function getAvatarFileId(prisma: PrismaClient, gender: 'Male' | 'Female') {
+export function getAvatarFileId(prisma: PrismaClient, gender: Gender) {
   const key = `avatar-${gender.toLowerCase()}-${dunna.basic.integer({ min: 1, max: 6 })}.webp`;
   return getFileId(prisma, key);
 }

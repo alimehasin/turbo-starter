@@ -1,6 +1,9 @@
 -- CreateEnum
 CREATE TYPE "FileType" AS ENUM ('Image', 'Video');
 
+-- CreateEnum
+CREATE TYPE "Gender" AS ENUM ('Male', 'Female');
+
 -- CreateTable
 CREATE TABLE "Admin" (
     "id" TEXT NOT NULL,
@@ -23,6 +26,7 @@ CREATE TABLE "User" (
     "name" TEXT NOT NULL,
     "phone" TEXT NOT NULL,
     "birthDate" TIMESTAMP(3),
+    "gender" "Gender",
     "avatarId" TEXT,
 
     CONSTRAINT "User_pkey" PRIMARY KEY ("id")

@@ -28,5 +28,7 @@
   },
   "success": "Success",
   "title": "Hello world!",
-  "username": "Username"
+  "username": "Username",
+  "yes": "Yes",
+  "no": "No"
 }

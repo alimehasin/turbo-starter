@@ -10,6 +10,7 @@ import { ClientProviders } from './client-providers';
 export const metadata: Metadata = {
   title: 'Turborepo Starter',
   description: 'Turborepo Starter with Next.js, TRPC, Mantine, and more',
+  robots: 'noindex, nofollow',
 };
 
 export default async function RootLayout({

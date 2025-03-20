@@ -1,29 +1,33 @@
 import { setup } from '@/setup';
 import { signJwt } from '@/utils/auth';
+import { HttpError } from '@/utils/errors';
 import { authenticate, omit } from '@/utils/helpers';
 import bcrypt from 'bcryptjs';
-import Elysia, { error, t } from 'elysia';
+import Elysia, { t } from 'elysia';
 
 export const users = new Elysia({ prefix: '/users' })
   .use(setup)
 
   .post(
     '/login',
-    async ({ prisma, body: { username, password } }) => {
+    async ({ t, prisma, body: { username, password } }) => {
       const user = await prisma.user.findUnique({ where: { username } });
 
-      const err = error(400, {
-        message: 'Unable to login with provided credentials',
-      });
+      const err = new HttpError(
+        t({
+          en: 'Unable to login with provided credentials',
+          ar: 'لا يمكن تسجيل الدخول بالبيانات المقدمة',
+        }),
+      );
 
       if (!user) {
-        return err;
+        throw err;
       }
 
       const isPasswordValid = await bcrypt.compare(password, user.password);
 
       if (!isPasswordValid) {
-        return err;
+        throw err;
       }
 
       const token = await signJwt({
@@ -43,13 +47,18 @@ export const users = new Elysia({ prefix: '/users' })
 
   .post(
     '/register',
-    async ({ prisma, body }) => {
+    async ({ t, prisma, body }) => {
       const user = await prisma.user.findUnique({
         where: { username: body.username },
       });
 
       if (user) {
-        return error(400, { message: 'User already exists' });
+        throw new HttpError(
+          t({
+            en: 'User already exists',
+            ar: 'المستخدم موجود بالفعل',
+          }),
+        );
       }
 
       const hashedPassword = await bcrypt.hash(body.password, 12);
@@ -73,17 +82,26 @@ export const users = new Elysia({ prefix: '/users' })
     },
   )
 
-  .get('/profile', async ({ prisma, bearer }) => {
-    const user = await authenticate(bearer);
+  .get(
+    '/profile',
+    async ({ t, prisma, bearer }) => {
+      const user = await authenticate(bearer);
 
-    const profile = await prisma.user.findUnique({
-      where: { id: user.id },
-      include: { avatar: { select: { key: true } } },
-    });
+      const profile = await prisma.user.findUnique({
+        where: { id: user.id },
+        include: { avatar: { select: { key: true } } },
+      });
 
-    if (!profile) {
-      return error(404, { message: 'Profile not found' });
-    }
+      if (!profile) {
+        throw new HttpError(
+          t({
+            en: 'Profile not found',
+            ar: 'الملف الشخصي غير موجود',
+          }),
+        );
+      }
 
-    return omit(profile, ['password']);
-  });
+      return omit(profile, ['password']);
+    },
+    {},
+  );

@@ -1,16 +1,17 @@
 import { env } from '@/env';
 import { setup } from '@/setup';
+import { HttpError } from '@/utils/errors';
 import { authenticate } from '@/utils/helpers';
 import { FileType } from '@prisma/client';
 import { uploadImage, uploadVideo } from '@repo/storage';
-import Elysia, { error, t } from 'elysia';
+import Elysia, { t } from 'elysia';
 
 export const files = new Elysia({ prefix: '/files' })
   .use(setup)
 
   .post(
     '/upload',
-    async ({ bearer, body, prisma }) => {
+    async ({ bearer, body, prisma, t }) => {
       const user = await authenticate(bearer);
       const isPublic = body.isPublic === 'true';
 
@@ -50,7 +51,12 @@ export const files = new Elysia({ prefix: '/files' })
         });
       }
 
-      return error(400, { message: 'Invalid file type' });
+      throw new HttpError(
+        t({
+          en: 'Invalid file type',
+          ar: 'نوع الملف غير صالح',
+        }),
+      );
     },
     {
       body: t.Object({

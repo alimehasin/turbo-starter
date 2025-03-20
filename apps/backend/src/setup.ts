@@ -8,4 +8,15 @@ export const setup = new Elysia({ name: 'setup' })
   .decorate('prisma', prisma)
 
   // Plugins
-  .use(plugins.berear);
+  .use(plugins.berear)
+
+  // Translation
+  .derive({ as: 'scoped' }, ({ headers }) => {
+    const lang = headers['accept-language']?.split(',')[0] || 'en';
+
+    return {
+      t: ({ en, ar }: { en: string; ar: string }) => {
+        return lang === 'ar' ? ar : en;
+      },
+    };
+  });

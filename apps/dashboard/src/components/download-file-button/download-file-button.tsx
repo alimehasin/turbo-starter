@@ -1,10 +1,28 @@
-import { ActionIcon } from '@mantine/core';
-import { IconFileDownload } from '@tabler/icons-react';
+'use client';
 
-export function DownloadFileButton({ onClick }: { onClick: () => void }) {
+import { downloadCsv } from '@/utils/helpers';
+import { ActionIcon, Tooltip } from '@mantine/core';
+import { IconFileDownload } from '@tabler/icons-react';
+import { useTranslations } from 'next-intl';
+
+export function DownloadFileButton<T>({
+  data = [],
+  fileName = 'data',
+}: {
+  data?: T[];
+  fileName?: string;
+}) {
+  const t = useTranslations();
+
   return (
-    <ActionIcon size={36} variant="default" onClick={onClick}>
-      <IconFileDownload />
-    </ActionIcon>
+    <Tooltip withArrow label={t('downloadCsvFile')}>
+      <ActionIcon
+        size={36}
+        variant="default"
+        onClick={() => downloadCsv(data, fileName)}
+      >
+        <IconFileDownload />
+      </ActionIcon>
+    </Tooltip>
   );
 }

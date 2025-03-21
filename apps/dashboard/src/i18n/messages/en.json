@@ -9,17 +9,14 @@
     "recordsPerPageLabel": "Records per page"
   },
   "done": "Done",
-  "dropzone": {
-    "accept": "Yes, now just release the image",
-    "idle": "Drop your images here",
-    "reject": "Oh no, you can't drop this file"
-  },
+  "downloadCsvFile": "Download csv file",
   "error": "Error",
   "language": "English",
   "login": "Login",
   "loginTitle": "Login to Your Account",
   "logout": "Logout",
   "logoutSuccess": "You have been logged out",
+  "no": "No",
   "nothingFound": "Nothing found",
   "password": "Password",
   "search": "Search",
@@ -29,6 +26,5 @@
   "success": "Success",
   "title": "Hello world!",
   "username": "Username",
-  "yes": "Yes",
-  "no": "No"
+  "yes": "Yes"
 }

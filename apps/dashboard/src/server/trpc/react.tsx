@@ -2,7 +2,7 @@
 
 import type { AppRouter } from '@/server/trpc/root';
 import { type QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import { loggerLink, unstable_httpBatchStreamLink } from '@trpc/client';
+import { httpBatchStreamLink, loggerLink } from '@trpc/client';
 import { createTRPCReact } from '@trpc/react-query';
 import type { inferRouterInputs, inferRouterOutputs } from '@trpc/server';
 import { useState } from 'react';
@@ -15,8 +15,11 @@ const getQueryClient = () => {
     return createQueryClient();
   }
 
-  // biome-ignore lint/suspicious/noAssignInExpressions: <explanation>
-  return (clientQueryClientSingleton ??= createQueryClient());
+  if (!clientQueryClientSingleton) {
+    clientQueryClientSingleton = createQueryClient();
+  }
+
+  return clientQueryClientSingleton;
 };
 
 export const api = createTRPCReact<AppRouter>();
@@ -36,7 +39,7 @@ export function TRPCReactProvider(props: { children: React.ReactNode }) {
             (op.direction === 'down' && op.result instanceof Error),
         }),
 
-        unstable_httpBatchStreamLink({
+        httpBatchStreamLink({
           transformer: SuperJSON,
           url: `${getBaseUrl()}/api/trpc`,
           headers: () => {

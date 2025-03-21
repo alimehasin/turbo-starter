@@ -6,15 +6,11 @@ import { uploadImage, uploadVideo } from '@repo/storage';
 import { authenticate, getToken } from './auth';
 
 interface UploadActionProps {
-  file: File | null | undefined;
+  file: File;
   isPublic: boolean;
 }
 
 export async function uploadImageAction({ file, isPublic }: UploadActionProps) {
-  if (!file) {
-    return { id: undefined, key: undefined };
-  }
-
   const token = await getToken();
   const admin = await authenticate(token);
 

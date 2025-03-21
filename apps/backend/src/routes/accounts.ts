@@ -5,7 +5,7 @@ import { authenticate, omit } from '@/utils/helpers';
 import bcrypt from 'bcryptjs';
 import Elysia, { t } from 'elysia';
 
-export const users = new Elysia({ prefix: '/users' })
+export const accounts = new Elysia({ prefix: '/accounts' })
   .use(setup)
 
   .post(

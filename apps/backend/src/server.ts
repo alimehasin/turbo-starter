@@ -2,8 +2,8 @@ import chalk from 'chalk';
 import Elysia, { error } from 'elysia';
 import { env } from './env';
 import { plugins } from './plugins';
+import { accounts } from './routes/accounts';
 import { files } from './routes/files';
-import { users } from './routes/users';
 import { AuthError, HttpError } from './utils/errors';
 
 export const app = new Elysia()
@@ -28,7 +28,7 @@ export const app = new Elysia()
     message: 'Made with ❤️ by Ali Mehasin, for docs checkout /docs',
   }))
 
-  .use(users)
+  .use(accounts)
   .use(files)
 
   .listen(env.PORT, ({ url }) => {

@@ -8,7 +8,7 @@ const prisma = new PrismaClient();
 async function main() {
   await seedRootAdmin(prisma);
 
-  if (env.NODE_ENV !== 'development') {
+  if (env.NODE_ENV === 'development') {
     await seedFiles(prisma);
   }
 }

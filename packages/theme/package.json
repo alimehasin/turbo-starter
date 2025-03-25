@@ -14,7 +14,7 @@
   "dependencies": {
     "@mantine/core": "^7.17.2",
     "@mantine/spotlight": "^7.17.2",
-    "next": "^15.2.3"
+    "next": "^15.2.4"
   },
   "devDependencies": {
     "@repo/tsconfig": "workspace:*",

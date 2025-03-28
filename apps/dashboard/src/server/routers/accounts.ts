@@ -1,5 +1,5 @@
+import { signJwt } from '@/server/actions/auth';
 import { createTRPCRouter, publicProcedure } from '@/server/trpc/trpc';
-import { signJwt } from '@/utils/auth';
 import { TRPCError } from '@trpc/server';
 import bcrypt from 'bcryptjs';
 import { z } from 'zod';

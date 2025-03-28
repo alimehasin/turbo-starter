@@ -37,7 +37,6 @@
       },
       "devDependencies": {
         "@repo/tsconfig": "workspace:*",
-        "@types/bcryptjs": "^3.0.0",
       },
     },
     "apps/dashboard": {
@@ -83,7 +82,6 @@
       "devDependencies": {
         "@biomejs/biome": "^1.9.4",
         "@repo/tsconfig": "workspace:*",
-        "@types/bcryptjs": "^3.0.0",
         "@types/file-saver": "^2.0.7",
         "@types/node": "^22.13.14",
         "@types/react": "^19.0.12",
@@ -111,7 +109,6 @@
       },
       "devDependencies": {
         "@repo/tsconfig": "workspace:*",
-        "@types/bcryptjs": "^3.0.0",
         "@types/node": "^22.13.14",
         "dunna": "^0.12.0",
         "prisma": "^6.5.0",
@@ -708,8 +705,6 @@
     "@trpc/react-query": ["@trpc/react-query@11.0.1", "", { "peerDependencies": { "@tanstack/react-query": "^5.67.1", "@trpc/client": "11.0.1", "@trpc/server": "11.0.1", "react": ">=18.2.0", "react-dom": ">=18.2.0", "typescript": ">=5.7.2" } }, "sha512-astHk2cchLjyXx4cScUZj4zOM5um10zdX4ExVUllBI+kU5sUTbztigDZCGDz8WbdsOiSzYHL4KINdERaQrXWAQ=="],
 
     "@trpc/server": ["@trpc/server@11.0.1", "", { "peerDependencies": { "typescript": ">=5.7.2" } }, "sha512-DZS3+bONLno4oJjHBMrS3xRPtoZsnmBImDH/Mmo1QhaFt3Xp/S0Riu7WU/oofsLTVj2m1UO5LlgLJFumvlSNoQ=="],
-
-    "@types/bcryptjs": ["@types/bcryptjs@3.0.0", "", { "dependencies": { "bcryptjs": "*" } }, "sha512-WRZOuCuaz8UcZZE4R5HXTco2goQSI2XxjGY3hbM/xDvwmqFWd4ivooImsMx65OKM6CtNKbnZ5YL+YwAwK7c1dg=="],
 
     "@types/bun": ["@types/bun@1.2.8", "", { "dependencies": { "bun-types": "1.2.7" } }, "sha512-t8L1RvJVUghW5V+M/fL3Thbxcs0HwNsXsnTEBEfEVqGteiJToOlZ/fyOEaR1kZsNqnu+3XA4RI/qmnX4w6+S+w=="],
 

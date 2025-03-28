@@ -27,7 +27,6 @@
     "zod": "^3.24.2"
   },
   "devDependencies": {
-    "@repo/tsconfig": "workspace:*",
-    "@types/bcryptjs": "^3.0.0"
+    "@repo/tsconfig": "workspace:*"
   }
 }

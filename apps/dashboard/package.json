@@ -49,7 +49,6 @@
   "devDependencies": {
     "@biomejs/biome": "^1.9.4",
     "@repo/tsconfig": "workspace:*",
-    "@types/bcryptjs": "^3.0.0",
     "@types/file-saver": "^2.0.7",
     "@types/node": "^22.13.14",
     "@types/react": "^19.0.12",

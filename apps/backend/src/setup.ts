@@ -1,6 +1,6 @@
+import bearer from '@elysiajs/bearer';
 import { prisma } from '@repo/db';
-import Elysia from 'elysia';
-import { plugins } from './plugins';
+import { Elysia } from 'elysia';
 
 export const setup = new Elysia({ name: 'setup' })
 
@@ -8,7 +8,7 @@ export const setup = new Elysia({ name: 'setup' })
   .decorate('prisma', prisma)
 
   // Plugins
-  .use(plugins.berear)
+  .use(bearer())
 
   // Translation
   .derive({ as: 'scoped' }, ({ headers }) => {

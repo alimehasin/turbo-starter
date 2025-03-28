@@ -1,16 +1,16 @@
 import chalk from 'chalk';
-import Elysia, { error } from 'elysia';
+import { Elysia, error } from 'elysia';
 import { env } from './env';
-import { plugins } from './plugins';
+import { cors, crons, logger, swagger } from './plugins';
 import { accounts } from './routes/accounts';
 import { files } from './routes/files';
 import { AuthError, HttpError } from './utils/errors';
 
 export const app = new Elysia()
-  .use(plugins.logger)
-  .use(plugins.cors)
-  .use(plugins.swagger)
-  .use(plugins.crons)
+  .use(logger)
+  .use(cors)
+  .use(swagger)
+  .use(crons)
 
   .error({ HttpError, AuthError })
   .onError(({ code, error: e }) => {

@@ -1,5 +1,5 @@
 import chalk from 'chalk';
-import Elysia from 'elysia';
+import { Elysia } from 'elysia';
 
 const METHODS = ['GET', 'POST', 'PUT', 'PATCH', 'DELETE'] as const;
 type Methods = (typeof METHODS)[number];
@@ -10,7 +10,7 @@ interface LoggerParams {
   path: string;
 }
 
-export const log = (params: LoggerParams) => {
+const log = (params: LoggerParams) => {
   if (!METHODS.includes(params.method) || typeof params.status !== 'number') {
     return;
   }

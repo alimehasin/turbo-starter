@@ -3,7 +3,7 @@ import { signJwt } from '@/utils/auth';
 import { HttpError } from '@/utils/errors';
 import { authenticate, omit } from '@/utils/helpers';
 import bcrypt from 'bcryptjs';
-import Elysia, { t } from 'elysia';
+import { Elysia, t } from 'elysia';
 
 export const accounts = new Elysia({ prefix: '/accounts' })
   .use(setup)

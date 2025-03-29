@@ -12,7 +12,7 @@ export const crons = elysiaCron({
 
     // Put Your filter here
     const where: Prisma.FileWhereInput = {
-      userId: '0',
+      id: '',
     };
 
     const files = await prisma.file.findMany({ where });

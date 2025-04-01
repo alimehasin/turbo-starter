@@ -24,5 +24,5 @@ for (const path of paths) {
     promises.push(promise);
   }
 
-  await Promise.allSettled(promises);
+  await Promise.all(promises);
 }

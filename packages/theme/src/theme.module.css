@@ -33,7 +33,7 @@
 }
 
 .navLink {
-  border-radius: var(--mantine-radius-defaul);
+  border-radius: var(--mantine-radius-default);
 }
 
 .container {

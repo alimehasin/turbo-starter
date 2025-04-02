@@ -35,6 +35,10 @@ model Admin {
   // Flags
   isRoot Boolean @default(false)
 
+  // Metadata
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
   // Relations
   uploads File[]
 }
@@ -54,6 +58,10 @@ model User {
 
   avatarId String?
   avatar   File?   @relation(fields: [avatarId], references: [id], name: "UserAvatars")
+
+  // Metadata
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 
   // Relations
   uploads File[]

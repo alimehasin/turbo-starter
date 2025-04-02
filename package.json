@@ -17,7 +17,7 @@
     "scripts:cleanup": "bash ./scripts/cleanup.sh",
     "scripts:init:env": "bun run ./scripts/init/env.ts",
     "scripts:reinstall": "bash ./scripts/reinstall.sh",
-    "scripts:storage:seed": "cd packages/storage && bun run seed",
+    "storage:seed": "cd packages/storage && bun run seed",
     "db:generate": "cd packages/db && bunx prisma generate",
     "db:migrate:dev": "cd packages/db && bunx prisma migrate dev",
     "db:migrate:deploy": "cd packages/db && bunx prisma migrate deploy",

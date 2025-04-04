@@ -1,4 +1,4 @@
-import type { Gender, PrismaClient } from '@prisma/client';
+import type { Gender } from '@prisma/client';
 import { dunna } from 'dunna';
 import { femalesNames, malesNames } from './constants';
 
@@ -26,21 +26,4 @@ export function genFullName(gender: Gender): string {
   return gender === 'Male'
     ? `${dunna.basic.choice(malesNames)} ${dunna.basic.choice(malesNames)} ${dunna.basic.choice(malesNames)}`
     : `${dunna.basic.choice(femalesNames)} ${dunna.basic.choice(malesNames)} ${dunna.basic.choice(malesNames)}`;
-}
-
-export async function getFileId(prisma: PrismaClient, key: string) {
-  const file = await prisma.file.findUnique({
-    where: { key },
-  });
-
-  if (!file) {
-    throw new Error(`File with key ${key} not found`);
-  }
-
-  return file.id;
-}
-
-export function getAvatarFileId(prisma: PrismaClient, gender: Gender) {
-  const key = `avatar-${gender.toLowerCase()}-${dunna.basic.integer({ min: 1, max: 6 })}.webp`;
-  return getFileId(prisma, key);
 }

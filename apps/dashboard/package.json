@@ -26,10 +26,10 @@
     "@repo/utils": "workspace:*",
     "@t3-oss/env-nextjs": "^0.12.0",
     "@tabler/icons-react": "^3.31.0",
-    "@tanstack/react-query": "^5.71.3",
-    "@trpc/client": "11.0.1",
-    "@trpc/react-query": "11.0.1",
-    "@trpc/server": "11.0.1",
+    "@tanstack/react-query": "^5.71.10",
+    "@trpc/client": "11.0.2",
+    "@trpc/react-query": "11.0.2",
+    "@trpc/server": "11.0.2",
     "bcryptjs": "^3.0.2",
     "clsx": "^2.1.1",
     "csv-stringify": "^6.5.2",
@@ -41,7 +41,7 @@
     "next-intl": "^4.0.2",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
-    "recharts": "2.15.1",
+    "recharts": "2.15.2",
     "server-only": "^0.0.1",
     "superjson": "^2.2.2",
     "zod": "^3.24.2"
@@ -50,7 +50,7 @@
     "@biomejs/biome": "^1.9.4",
     "@repo/tsconfig": "workspace:*",
     "@types/file-saver": "^2.0.7",
-    "@types/node": "^22.13.17",
+    "@types/node": "^22.14.0",
     "@types/react": "^19.1.0",
     "@types/react-dom": "^19.1.1",
     "dotenv-cli": "^8.0.0",
@@ -58,6 +58,6 @@
     "postcss": "^8.5.3",
     "postcss-preset-mantine": "^1.17.0",
     "postcss-simple-vars": "^7.0.1",
-    "typescript": "^5.8.2"
+    "typescript": "^5.8.3"
   }
 }

@@ -63,7 +63,10 @@ export const privateProcedure = publicProcedure.use(async ({ next, ctx }) => {
   if (!admin) {
     throw new TRPCError({
       code: 'UNAUTHORIZED',
-      message: 'يرجى تسجيل الدخول',
+      message: ctx.t({
+        en: 'Please login',
+        ar: 'يرجى تسجيل الدخول',
+      }),
     });
   }
 

@@ -1,7 +1,4 @@
 html,
 body {
-  background-color: light-dark(
-    var(--mantine-color-gray-0),
-    var(--mantine-color-dark-8)
-  );
+  background-color: var(--mantine-color-nature-0);
 }

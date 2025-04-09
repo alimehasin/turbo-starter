@@ -8,6 +8,7 @@ import {
   Input,
   type MantineColorsTuple,
   Menu,
+  Modal,
   NavLink,
   NumberInput,
   createTheme,
@@ -50,6 +51,10 @@ export const theme = createTheme({
   },
 
   components: {
+    Modal: Modal.extend({
+      defaultProps: { withCloseButton: false },
+    }),
+
     Container: Container.extend({
       classNames: { root: cls.container },
     }),

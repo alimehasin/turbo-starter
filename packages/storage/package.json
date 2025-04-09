@@ -17,6 +17,6 @@
   },
   "devDependencies": {
     "@repo/tsconfig": "workspace:*",
-    "@types/bun": "^1.2.8"
+    "@types/bun": "^1.2.9"
   }
 }

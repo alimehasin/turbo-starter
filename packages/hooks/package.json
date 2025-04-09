@@ -10,11 +10,11 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@mantine/core": "^7.17.3",
-    "@mantine/modals": "^7.17.3",
-    "@mantine/notifications": "^7.17.3",
+    "@mantine/core": "^7.17.4",
+    "@mantine/modals": "^7.17.4",
+    "@mantine/notifications": "^7.17.4",
     "@repo/utils": "workspace:*",
-    "next": "^15.2.4",
+    "next": "^15.2.5",
     "next-intl": "^4.0.2",
     "react": "19.1.0"
   },

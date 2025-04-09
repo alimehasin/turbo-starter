@@ -22,10 +22,23 @@ export const theme = createTheme({
   fontFamilyMonospace: 'Monaco, Courier, monospace',
   headings: { fontFamily: `${rubik.style.fontFamily}, ${DEFAULT_THEME.fontFamily}` },
 
-  primaryColor: 'red',
+  primaryColor: 'primary',
   defaultRadius: DEFAULT_THEME.radius.md,
 
   colors: {
+    primary: [
+      '#ecf4ff',
+      '#dce4f5',
+      '#b9c7e2',
+      '#94a8d0',
+      '#748dc0',
+      '#5f7cb7',
+      '#5474b4',
+      '#44639f',
+      '#3a5890',
+      '#2c4b80',
+    ],
+
     grayInDark:
       DEFAULT_THEME.colors.dark.toReversed() as unknown as MantineColorsTuple,
 

@@ -12,16 +12,11 @@ export const createQueryClient = () => {
       mutations: {
         onError: (e) => {
           if (e instanceof TRPCClientError) {
-            if (e.data.code !== 'BAD_REQUEST') {
-              return;
-            }
-
             if (e.data?.zodError?.fieldErrors) {
               formActions.setErrors(e.data.zodError.fieldErrors);
             } else if (e.message) {
               showNotification({
                 color: 'red',
-                title: 'Error',
                 message: e.message,
               });
             }

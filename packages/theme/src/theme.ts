@@ -56,6 +56,7 @@ export const theme = createTheme({
     }),
 
     Container: Container.extend({
+      defaultProps: { size: 'xl' },
       classNames: { root: cls.container },
     }),
 

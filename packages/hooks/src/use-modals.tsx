@@ -6,7 +6,7 @@ export function useModals() {
   const t = useTranslations();
 
   return {
-    confirm: ({
+    confirmDelete: ({
       color = 'red',
       onConfirm,
     }: {

@@ -1,7 +1,5 @@
 import { TRPCReactProvider } from '@/server/trpc/react';
 import { ColorSchemeScript, mantineHtmlProps } from '@mantine/core';
-import { roboto } from '@repo/theme/fonts/roboto';
-import { rubik } from '@repo/theme/fonts/rubik';
 import type { Metadata } from 'next';
 import { NextIntlClientProvider } from 'next-intl';
 import { getLocale, getMessages } from 'next-intl/server';
@@ -23,12 +21,7 @@ export default async function RootLayout({
   const dir = locale === 'ar' ? 'rtl' : 'ltr';
 
   return (
-    <html
-      dir={dir}
-      lang={locale}
-      {...mantineHtmlProps}
-      className={`${rubik.className} ${roboto.className}`}
-    >
+    <html dir={dir} lang={locale} {...mantineHtmlProps}>
       <head>
         <ColorSchemeScript />
       </head>

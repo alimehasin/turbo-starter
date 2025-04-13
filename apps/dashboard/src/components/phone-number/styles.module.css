@@ -1,8 +1,6 @@
 .root {
-  font-size: var(--mantine-font-size-sm);
-  font-family: var(--font-roboto);
-
   color: var(--mantine-color-nature-9);
+  font-size: var(--mantine-font-size-sm);
 
   @mixin rtl {
     direction: ltr;

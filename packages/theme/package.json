@@ -4,9 +4,7 @@
   "private": true,
   "main": "index.ts",
   "exports": {
-    "./theme": "./src/theme.ts",
-    "./fonts/rubik": "./src/fonts/rubik/index.ts",
-    "./fonts/roboto": "./src/fonts/roboto/index.ts"
+    "./theme": "./src/theme.ts"
   },
   "scripts": {
     "typecheck": "tsc --noEmit"

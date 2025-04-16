@@ -3,8 +3,8 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "dev": "dotenv -e .env next dev --turbo",
-    "build": "next build",
+    "dev": "dotenv -e .env next dev --turbopack",
+    "build": "next build --turbopack",
     "start": "dotenv -e .env next start",
     "typecheck": "tsc --noEmit",
     "i18n:parse": "i18next 'src/**/*.{js,jsx,ts,tsx}' '../../packages/**/*.{ts,tsx}' --config i18next-parser.config.json"

@@ -1,6 +1,5 @@
 import {
   ActionIcon,
-  Button,
   Checkbox,
   CheckboxIndicator,
   Container,
@@ -10,11 +9,9 @@ import {
   Menu,
   Modal,
   NavLink,
-  NumberInput,
   createTheme,
   virtualColor,
 } from '@mantine/core';
-import { Spotlight } from '@mantine/spotlight';
 import { rubik } from './fonts/rubik';
 import cls from './theme.module.css';
 
@@ -57,11 +54,6 @@ export const theme = createTheme({
 
     Container: Container.extend({
       defaultProps: { size: 'xl' },
-      classNames: { root: cls.container },
-    }),
-
-    Spotlight: Spotlight.extend({
-      classNames: { search: cls.noInputRing },
     }),
 
     Checkbox: Checkbox.extend({
@@ -72,13 +64,8 @@ export const theme = createTheme({
       defaultProps: { radius: 'sm' },
     }),
 
-    Button: Button.extend({
-      classNames: { root: cls.button },
-    }),
-
     ActionIcon: ActionIcon.extend({
       defaultProps: { size: 'lg' },
-      classNames: { root: cls.actionIcon },
     }),
 
     Menu: Menu.extend({
@@ -90,10 +77,6 @@ export const theme = createTheme({
 
     Input: Input.extend({
       classNames: { input: cls.input },
-    }),
-
-    NumberInput: NumberInput.extend({
-      classNames: { root: cls.numberInput },
     }),
 
     NavLink: NavLink.extend({

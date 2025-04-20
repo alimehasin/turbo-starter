@@ -11,20 +11,9 @@
   }
 }
 
-.noInputRing {
-  outline: none;
-  box-shadow: 0 0 0 0 !important;
-}
-
-.numberInput {
-  &:focus-within {
-    z-index: 1;
-  }
-}
-
 .menuDropdown {
   border-radius: var(--mantine-radius-sm);
-  min-width: 120px;
+  min-width: 160px;
 }
 
 .menuItem {
@@ -34,10 +23,4 @@
 
 .navLink {
   border-radius: var(--mantine-radius-default);
-}
-
-.container {
-  @media (max-width: 62em) {
-    padding: 0;
-  }
 }

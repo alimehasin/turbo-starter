@@ -2,3 +2,8 @@ html,
 body {
   background-color: var(--mantine-color-nature-0);
 }
+
+.mantine-Spotlight-search {
+  outline: none;
+  box-shadow: 0 0 0 0 !important;
+}

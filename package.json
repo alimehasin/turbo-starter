@@ -31,10 +31,10 @@
     "@changesets/cli": "^2.29.2",
     "@commitlint/cli": "^19.8.0",
     "@commitlint/config-conventional": "^19.8.0",
-    "@inquirer/prompts": "^7.4.1",
+    "@inquirer/prompts": "^7.5.0",
     "husky": "^9.1.7",
     "lint-staged": "^15.5.1",
-    "turbo": "^2.5.0",
+    "turbo": "^2.5.2",
     "typescript": "^5.8.3"
   },
   "overrides": {

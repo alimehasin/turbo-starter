@@ -2,7 +2,7 @@
   "name": "turbo-starter",
   "private": true,
   "workspaces": ["configs/*", "packages/*", "apps/*"],
-  "packageManager": "bun@1.2.11",
+  "packageManager": "bun@1.2.12",
   "scripts": {
     "dev": "turbo dev",
     "build": "turbo build",
@@ -28,7 +28,7 @@
   },
   "devDependencies": {
     "@biomejs/biome": "1.9.4",
-    "@changesets/cli": "^2.29.2",
+    "@changesets/cli": "^2.29.3",
     "@commitlint/cli": "^19.8.0",
     "@commitlint/config-conventional": "^19.8.0",
     "@inquirer/prompts": "^7.5.0",

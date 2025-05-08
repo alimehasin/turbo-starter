@@ -1,10 +1,5 @@
 import { answers } from './answers';
-import {
-  copyEnvFile,
-  generateSecretKey,
-  getRootDirName,
-  searchEnvExampleFiles,
-} from './helpers';
+import { copyEnvFile, getRootDirName, searchEnvExampleFiles } from './helpers';
 
 const exampleEnvFilesPaths = searchEnvExampleFiles('.', 0, 3);
 
@@ -19,10 +14,10 @@ for (const exampleEnvFilePath of exampleEnvFilesPaths) {
     { old: 'ROOT-USERNAME', new: answers.rootUsername },
     { old: 'ROOT-PASSWORD', new: answers.rootPassword },
     { old: 'AUTH-TOKEN-EXPIRATION', new: answers.autoTokenExpiration },
-    { old: 'JWT-SECRET-KEY', new: generateSecretKey() },
+    { old: 'JWT-SECRET-KEY', new: answers.jwtSecretKey },
 
     { old: 'POSTGRES-USER', new: answers.dbUser },
-    { old: 'POSTGRES-PASSWORD', new: answers.dbPassword || generateSecretKey() },
+    { old: 'POSTGRES-PASSWORD', new: answers.dbPassword },
     { old: 'POSTGRES-DB', new: answers.dbName },
     { old: 'POSTGRES-DOMAIN', new: answers.dbDomain },
     { old: 'POSTGRES-PORT', new: answers.dbPort },
@@ -32,10 +27,5 @@ for (const exampleEnvFilePath of exampleEnvFilesPaths) {
     { old: 'STORAGE-ACCESS-KEY', new: answers.storageAccessKey },
     { old: 'STORAGE-SECRET-KEY', new: answers.storageSecretKey },
     { old: 'STORAGE-BUCKET-NAME', new: answers.storageBucketName },
-
-    {
-      old: 'STORAGE-BASE-URL',
-      new: `${answers.storageEndpoint}/${answers.storageBucketName}`,
-    },
   ]);
 }

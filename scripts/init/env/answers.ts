@@ -1,4 +1,5 @@
 import { input, password, select } from '@inquirer/prompts';
+import { generateSecretKey } from './helpers';
 
 export const answers = {
   nodeEnv: await select({
@@ -19,14 +20,16 @@ export const answers = {
     default: '3001',
   }),
 
+  jwtSecretKey: generateSecretKey(16),
+
   rootUsername: await input({
     message: 'Root Username',
     default: 'root',
   }),
 
-  rootPassword: await password({
-    message: 'Root Password',
-  }),
+  rootPassword:
+    (await password({ message: 'Root Password (random if empty)' })) ||
+    generateSecretKey(6),
 
   autoTokenExpiration: await input({
     message: 'Auth Token Expiration',
@@ -43,9 +46,9 @@ export const answers = {
     default: 'postgres',
   }),
 
-  dbPassword: await password({
-    message: 'Database Password (random if empty)',
-  }),
+  dbPassword:
+    (await password({ message: 'Database Password (random if empty)' })) ||
+    generateSecretKey(16),
 
   dbDomain: await input({
     message: 'Database Domain',

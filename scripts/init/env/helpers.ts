@@ -32,8 +32,8 @@ export function searchEnvExampleFiles(
   return results;
 }
 
-export function generateSecretKey(): string {
-  return randomBytes(16).toString('hex');
+export function generateSecretKey(length = 16): string {
+  return randomBytes(length).toString('hex');
 }
 
 export async function copyEnvFile(

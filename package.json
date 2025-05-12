@@ -2,7 +2,7 @@
   "name": "turbo-starter",
   "private": true,
   "workspaces": ["configs/*", "packages/*", "apps/*"],
-  "packageManager": "bun@1.2.12",
+  "packageManager": "bun@1.2.13",
   "scripts": {
     "dev": "turbo dev",
     "build": "turbo build",
@@ -31,9 +31,9 @@
     "@changesets/cli": "^2.29.3",
     "@commitlint/cli": "^19.8.1",
     "@commitlint/config-conventional": "^19.8.1",
-    "@inquirer/prompts": "^7.5.0",
+    "@inquirer/prompts": "^7.5.1",
     "husky": "^9.1.7",
-    "lint-staged": "^15.5.2",
+    "lint-staged": "^16.0.0",
     "turbo": "^2.5.3",
     "typescript": "^5.8.3"
   },

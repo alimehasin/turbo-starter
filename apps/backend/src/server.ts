@@ -1,5 +1,5 @@
 import chalk from 'chalk';
-import { Elysia, error } from 'elysia';
+import { Elysia, status } from 'elysia';
 import { env } from './env';
 import { cors, crons, logger, swagger } from './plugins';
 import { accounts } from './routes/accounts';
@@ -13,13 +13,13 @@ export const app = new Elysia()
   .use(crons)
 
   .error({ HttpError, AuthError })
-  .onError(({ code, error: e }) => {
+  .onError(({ code, error }) => {
     if (code === 'HttpError') {
-      return error(e.statusCode, { message: e.message });
+      return status(error.statusCode, error.message);
     }
 
     if (code === 'AuthError') {
-      return error(e.statusCode, { message: e.message });
+      return status(401, error.message);
     }
   })
 

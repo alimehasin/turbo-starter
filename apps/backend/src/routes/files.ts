@@ -51,12 +51,12 @@ export const files = new Elysia({ prefix: '/files' })
         });
       }
 
-      throw new HttpError(
-        t({
+      throw new HttpError({
+        message: t({
           en: 'Invalid file type',
           ar: 'نوع الملف غير صالح',
         }),
-      );
+      });
     },
     {
       body: t.Object({

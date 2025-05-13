@@ -13,12 +13,12 @@ export const accounts = new Elysia({ prefix: '/accounts' })
     async ({ t, prisma, body: { username, password } }) => {
       const user = await prisma.user.findUnique({ where: { username } });
 
-      const err = new HttpError(
-        t({
+      const err = new HttpError({
+        message: t({
           en: 'Unable to login with provided credentials',
           ar: 'لا يمكن تسجيل الدخول بالبيانات المقدمة',
         }),
-      );
+      });
 
       if (!user) {
         throw err;
@@ -53,12 +53,12 @@ export const accounts = new Elysia({ prefix: '/accounts' })
       });
 
       if (user) {
-        throw new HttpError(
-          t({
+        throw new HttpError({
+          message: t({
             en: 'User already exists',
             ar: 'المستخدم موجود بالفعل',
           }),
-        );
+        });
       }
 
       const hashedPassword = await bcrypt.hash(body.password, 12);
@@ -93,12 +93,13 @@ export const accounts = new Elysia({ prefix: '/accounts' })
       });
 
       if (!profile) {
-        throw new HttpError(
-          t({
+        throw new HttpError({
+          statusCode: 404,
+          message: t({
             en: 'Profile not found',
             ar: 'الملف الشخصي غير موجود',
           }),
-        );
+        });
       }
 
       return omit(profile, ['password']);

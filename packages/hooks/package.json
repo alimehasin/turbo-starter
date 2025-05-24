@@ -20,7 +20,7 @@
   },
   "devDependencies": {
     "@repo/tsconfig": "workspace:*",
-    "@types/react": "^19.1.4",
+    "@types/react": "^19.1.5",
     "mantine-datatable": "^7.17.1",
     "typescript": "^5.8.3"
   }

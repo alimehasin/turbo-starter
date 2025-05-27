@@ -31,9 +31,9 @@
     "@changesets/cli": "^2.29.4",
     "@commitlint/cli": "^19.8.1",
     "@commitlint/config-conventional": "^19.8.1",
-    "@inquirer/prompts": "^7.5.2",
+    "@inquirer/prompts": "^7.5.3",
     "husky": "^9.1.7",
-    "lint-staged": "^16.0.0",
+    "lint-staged": "^16.1.0",
     "turbo": "^2.5.3",
     "typescript": "^5.8.3"
   },

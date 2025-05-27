@@ -2,7 +2,7 @@
 
 import { setToken } from '@/server/actions/auth';
 import { setLocale } from '@/server/actions/locale';
-import { api } from '@/server/trpc/react';
+import { api } from '@/server/callers/client';
 import {
   Box,
   Button,

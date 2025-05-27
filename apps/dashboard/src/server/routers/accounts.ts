@@ -1,13 +1,14 @@
 import { signJwt } from '@/server/actions/auth';
-import { createTRPCRouter, publicProcedure } from '@/server/trpc/trpc';
+import { publicProcedure, router } from '@/server/trpc';
+import { prisma } from '@repo/db';
 import { TRPCError } from '@trpc/server';
 import bcrypt from 'bcryptjs';
 import { z } from 'zod';
 
-export const accounts = createTRPCRouter({
+export const accounts = router({
   login: publicProcedure
     .input(z.object({ username: z.string(), password: z.string() }))
-    .mutation(async ({ ctx: { t, prisma }, input: { username, password } }) => {
+    .mutation(async ({ ctx: { t }, input: { username, password } }) => {
       const admin = await prisma.admin.findUnique({
         where: { username },
       });

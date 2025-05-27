@@ -1,9 +1,9 @@
-import { TRPCReactProvider } from '@/server/trpc/react';
 import { ColorSchemeScript, mantineHtmlProps } from '@mantine/core';
 import type { Metadata } from 'next';
-import { NextIntlClientProvider } from 'next-intl';
-import { getLocale, getMessages } from 'next-intl/server';
-import { ClientProviders } from './client-providers';
+import { getLocale } from 'next-intl/server';
+import { MantineProviders } from './_providers/mantine-providers';
+import { NextIntlProvider } from './_providers/nex-intl-provider';
+import { TrpcProvider } from './_providers/trpc-provider';
 
 export const metadata: Metadata = {
   title: 'Turborepo Starter',
@@ -17,7 +17,6 @@ export default async function RootLayout({
   children: React.ReactNode;
 }) {
   const locale = await getLocale();
-  const messages = await getMessages();
   const dir = locale === 'ar' ? 'rtl' : 'ltr';
 
   return (
@@ -27,13 +26,13 @@ export default async function RootLayout({
       </head>
 
       <body>
-        <NextIntlClientProvider messages={messages}>
-          <TRPCReactProvider>
-            <ClientProviders locale={locale} initialDirection={dir}>
+        <NextIntlProvider>
+          <TrpcProvider>
+            <MantineProviders locale={locale} initialDirection={dir}>
               {children}
-            </ClientProviders>
-          </TRPCReactProvider>
-        </NextIntlClientProvider>
+            </MantineProviders>
+          </TrpcProvider>
+        </NextIntlProvider>
       </body>
     </html>
   );

@@ -15,11 +15,11 @@ export const app = new Elysia()
   .error({ HttpError, AuthError })
   .onError(({ code, error }) => {
     if (code === 'HttpError') {
-      return status(error.statusCode, error.message);
+      return status(error.statusCode, { message: error.message });
     }
 
     if (code === 'AuthError') {
-      return status(401, error.message);
+      return status(401, { message: error.message });
     }
   })
 

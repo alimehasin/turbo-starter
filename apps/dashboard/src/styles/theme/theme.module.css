@@ -11,9 +11,15 @@
   }
 }
 
+.numberInput {
+  &:focus-within {
+    z-index: 1;
+  }
+}
+
 .menuDropdown {
   border-radius: var(--mantine-radius-sm);
-  min-width: 160px;
+  min-width: 120px;
 }
 
 .menuItem {
@@ -23,4 +29,22 @@
 
 .navLink {
   border-radius: var(--mantine-radius-default);
+}
+
+.container {
+  @media (max-width: 62em) {
+    padding: 0;
+  }
+}
+
+.carouselIndicator {
+  width: 12px;
+  height: 4px;
+  transition: width 250ms ease;
+  background-color: var(--mantine-color-gray-4);
+
+  &[data-active] {
+    width: 40px;
+    background-color: var(--mantine-color-gray-2);
+  }
 }

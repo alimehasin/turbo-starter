@@ -55,7 +55,6 @@
         "@prisma/client": "^6.8.2",
         "@repo/db": "workspace:*",
         "@repo/hooks": "workspace:*",
-        "@repo/theme": "workspace:*",
         "@repo/utils": "workspace:*",
         "@t3-oss/env-nextjs": "^0.13.6",
         "@tabler/icons-react": "^3.34.0",
@@ -146,18 +145,6 @@
       "devDependencies": {
         "@repo/tsconfig": "workspace:*",
         "@types/bun": "^1.2.15",
-      },
-    },
-    "packages/theme": {
-      "name": "@repo/theme",
-      "version": "0.0.0",
-      "dependencies": {
-        "@mantine/core": "^8.0.2",
-        "next": "^15.3.3",
-      },
-      "devDependencies": {
-        "@repo/tsconfig": "workspace:*",
-        "typescript": "^5.8.3",
       },
     },
     "packages/utils": {
@@ -570,8 +557,6 @@
     "@repo/hooks": ["@repo/hooks@workspace:packages/hooks"],
 
     "@repo/storage": ["@repo/storage@workspace:packages/storage"],
-
-    "@repo/theme": ["@repo/theme@workspace:packages/theme"],
 
     "@repo/tsconfig": ["@repo/tsconfig@workspace:configs/typescript"],
 

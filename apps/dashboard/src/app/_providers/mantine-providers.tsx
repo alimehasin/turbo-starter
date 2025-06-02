@@ -8,11 +8,11 @@ import '@mantine/dropzone/styles.layer.css';
 import '@mantine/notifications/styles.layer.css';
 import 'mantine-datatable/styles.layer.css';
 
+import { theme } from '@/styles/theme';
 import { DirectionProvider, MantineProvider } from '@mantine/core';
 import { DatesProvider } from '@mantine/dates';
 import { ModalsProvider } from '@mantine/modals';
 import { Notifications } from '@mantine/notifications';
-import { theme } from '@repo/theme/theme';
 
 export function MantineProviders({
   locale,

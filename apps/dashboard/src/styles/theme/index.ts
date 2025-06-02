@@ -1,5 +1,7 @@
+import { Carousel } from '@mantine/carousel';
 import {
   ActionIcon,
+  Button,
   Checkbox,
   CheckboxIndicator,
   Container,
@@ -9,6 +11,7 @@ import {
   Menu,
   Modal,
   NavLink,
+  NumberInput,
   createTheme,
   virtualColor,
 } from '@mantine/core';
@@ -37,6 +40,19 @@ export const theme = createTheme({
       '#2c4b80',
     ],
 
+    secondary: [
+      '#fff2e3',
+      '#ffe4cf',
+      '#f9c8a1',
+      '#f4a261',
+      '#f19044',
+      '#ef8029',
+      '#ef7819',
+      '#d5660c',
+      '#be5906',
+      '#a64b00',
+    ],
+
     grayInDark:
       DEFAULT_THEME.colors.dark.toReversed() as unknown as MantineColorsTuple,
 
@@ -54,6 +70,11 @@ export const theme = createTheme({
 
     Container: Container.extend({
       defaultProps: { size: 'xl' },
+      classNames: { root: cls.container },
+    }),
+
+    Carousel: Carousel.extend({
+      classNames: { indicator: cls.carouselIndicator },
     }),
 
     Checkbox: Checkbox.extend({
@@ -64,8 +85,13 @@ export const theme = createTheme({
       defaultProps: { radius: 'sm' },
     }),
 
+    Button: Button.extend({
+      classNames: { root: cls.button },
+    }),
+
     ActionIcon: ActionIcon.extend({
       defaultProps: { size: 'lg' },
+      classNames: { root: cls.actionIcon },
     }),
 
     Menu: Menu.extend({
@@ -77,6 +103,10 @@ export const theme = createTheme({
 
     Input: Input.extend({
       classNames: { input: cls.input },
+    }),
+
+    NumberInput: NumberInput.extend({
+      classNames: { root: cls.numberInput },
     }),
 
     NavLink: NavLink.extend({

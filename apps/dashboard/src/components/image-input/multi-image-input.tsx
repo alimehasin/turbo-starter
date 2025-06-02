@@ -1,3 +1,4 @@
+import { useNotifications } from '@/hooks/use-notifications';
 import { uploadImageAction } from '@/server/actions/storage';
 import { constructImageUrl } from '@/utils/helpers';
 import { ActionIcon, Center, Image, Overlay } from '@mantine/core';
@@ -5,7 +6,6 @@ import { SimpleGrid } from '@mantine/core';
 import { IMAGE_MIME_TYPE } from '@mantine/dropzone';
 import { Dropzone } from '@mantine/dropzone';
 import { useHover } from '@mantine/hooks';
-import { useNotifications } from '@repo/hooks';
 import type { FileObject } from '@repo/utils/types';
 import { IconUpload, IconX } from '@tabler/icons-react';
 import { useTranslations } from 'next-intl';

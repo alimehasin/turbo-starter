@@ -1,9 +1,9 @@
+import { useNotifications } from '@/hooks/use-notifications';
 import { uploadImageAction } from '@/server/actions/storage';
 import { constructImageUrl } from '@/utils/helpers';
 import type { MantineColor } from '@mantine/core';
 import { Group, Image, Text, ThemeIcon } from '@mantine/core';
 import { Dropzone, IMAGE_MIME_TYPE } from '@mantine/dropzone';
-import { useNotifications } from '@repo/hooks';
 import type { FileObject } from '@repo/utils/types';
 import { IconPhoto, IconUpload, IconX } from '@tabler/icons-react';
 import { useTranslations } from 'next-intl';

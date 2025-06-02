@@ -21,7 +21,6 @@
     "@mantine/spotlight": "^8.0.2",
     "@prisma/client": "^6.8.2",
     "@repo/db": "workspace:*",
-    "@repo/hooks": "workspace:*",
     "@repo/utils": "workspace:*",
     "@t3-oss/env-nextjs": "^0.13.6",
     "@tabler/icons-react": "^3.34.0",

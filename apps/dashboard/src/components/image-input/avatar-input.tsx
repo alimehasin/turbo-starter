@@ -1,7 +1,7 @@
+import { useNotifications } from '@/hooks/use-notifications';
 import { uploadImageAction } from '@/server/actions/storage';
 import { constructImageUrl } from '@/utils/helpers';
 import { Avatar, Box, FileButton, LoadingOverlay } from '@mantine/core';
-import { useNotifications } from '@repo/hooks';
 import type { FileObject } from '@repo/utils/types';
 import { useTranslations } from 'next-intl';
 import { useState } from 'react';

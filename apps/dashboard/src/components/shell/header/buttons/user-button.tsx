@@ -1,8 +1,8 @@
 'use client';
 
+import { useNotifications } from '@/hooks/use-notifications';
 import { setToken } from '@/server/actions/auth';
 import { ActionIcon, Menu, MenuDropdown, MenuItem, MenuTarget } from '@mantine/core';
-import { useNotifications } from '@repo/hooks';
 import { IconLogout, IconUser } from '@tabler/icons-react';
 import { useMutation } from '@tanstack/react-query';
 import { useTranslations } from 'next-intl';

@@ -1,4 +1,3 @@
-import { Carousel } from '@mantine/carousel';
 import {
   ActionIcon,
   Button,
@@ -71,10 +70,6 @@ export const theme = createTheme({
     Container: Container.extend({
       defaultProps: { size: 'xl' },
       classNames: { root: cls.container },
-    }),
-
-    Carousel: Carousel.extend({
-      classNames: { indicator: cls.carouselIndicator },
     }),
 
     Checkbox: Checkbox.extend({

@@ -1,4 +1,4 @@
-import bearer from '@elysiajs/bearer';
+import { bearer } from '@elysiajs/bearer';
 import { prisma } from '@repo/db';
 import { Elysia } from 'elysia';
 

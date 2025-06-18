@@ -1,8 +1,5 @@
 'use client';
 
-import { setToken } from '@/server/actions/auth';
-import { setLocale } from '@/server/actions/locale';
-import { api } from '@/server/callers/client';
 import {
   Box,
   Button,
@@ -19,8 +16,11 @@ import {
 import { useForm } from '@mantine/form';
 import { IconKey, IconLanguage, IconLogin, IconUser } from '@tabler/icons-react';
 import { useMutation } from '@tanstack/react-query';
-import { useTranslations } from 'next-intl';
 import { useRouter } from 'next/navigation';
+import { useTranslations } from 'next-intl';
+import { setToken } from '@/server/actions/auth';
+import { setLocale } from '@/server/actions/locale';
+import { api } from '@/server/callers/client';
 
 export default function Login({ locale }: { locale: string }) {
   const router = useRouter();

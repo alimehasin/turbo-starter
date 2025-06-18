@@ -1,9 +1,9 @@
-import { signJwt } from '@/server/actions/auth';
-import { publicProcedure, router } from '@/server/trpc';
 import { prisma } from '@repo/db';
 import { TRPCError } from '@trpc/server';
 import bcrypt from 'bcryptjs';
 import { z } from 'zod';
+import { signJwt } from '@/server/actions/auth';
+import { publicProcedure, router } from '@/server/trpc';
 
 export const accounts = router({
   login: publicProcedure

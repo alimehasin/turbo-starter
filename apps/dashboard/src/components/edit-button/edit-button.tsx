@@ -1,11 +1,7 @@
 import { ActionIcon, useComputedColorScheme } from '@mantine/core';
 import { IconPencil } from '@tabler/icons-react';
 
-export function EditButton({
-  onClick,
-}: {
-  onClick?: () => void;
-}) {
+export function EditButton({ onClick }: { onClick?: () => void }) {
   const cs = useComputedColorScheme();
 
   return (

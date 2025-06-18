@@ -1,8 +1,11 @@
 import { useSetState } from '@mantine/hooks';
 import { DEFAULT_PAGE_SIZE, PAGE_SIZE_OPTIONS } from '@repo/utils/constants';
 import type { UseTRPCQueryResult } from '@trpc/react-query/shared';
-import type { DataTableColumn, DataTableProps } from 'mantine-datatable';
-import type { DataTableSortStatus } from 'mantine-datatable';
+import type {
+  DataTableColumn,
+  DataTableProps,
+  DataTableSortStatus,
+} from 'mantine-datatable';
 import { useTranslations } from 'next-intl';
 
 interface Pagination {

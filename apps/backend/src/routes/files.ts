@@ -1,10 +1,10 @@
+import { FileType } from '@prisma/client';
+import { uploadImage, uploadVideo } from '@repo/storage';
+import { Elysia, t } from 'elysia';
 import { env } from '@/env';
 import { setup } from '@/setup';
 import { HttpError } from '@/utils/errors';
 import { authenticate } from '@/utils/helpers';
-import { FileType } from '@prisma/client';
-import { uploadImage, uploadVideo } from '@repo/storage';
-import { Elysia, t } from 'elysia';
 
 export const files = new Elysia({ prefix: '/files' })
   .use(setup)

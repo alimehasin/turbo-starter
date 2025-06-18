@@ -4,6 +4,7 @@ import {
   Checkbox,
   CheckboxIndicator,
   Container,
+  createTheme,
   DEFAULT_THEME,
   Input,
   type MantineColorsTuple,
@@ -11,7 +12,6 @@ import {
   Modal,
   NavLink,
   NumberInput,
-  createTheme,
   virtualColor,
 } from '@mantine/core';
 import { rubik } from './fonts/rubik';

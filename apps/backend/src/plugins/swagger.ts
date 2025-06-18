@@ -1,6 +1,6 @@
-import { env } from '@/env';
 import { swagger as elysiaSwagger } from '@elysiajs/swagger';
 import { Elysia } from 'elysia';
+import { env } from '@/env';
 
 export const swagger =
   env.NODE_ENV !== 'development'

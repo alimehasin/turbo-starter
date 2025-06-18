@@ -1,5 +1,5 @@
-import { SIDEBAR_WIDTH } from '@/utils/constants';
 import { Box, Burger, Center, Group, Title } from '@mantine/core';
+import { SIDEBAR_WIDTH } from '@/utils/constants';
 import { ColorSchemeButton } from './buttons/color-scheme-button';
 import { LangButton } from './buttons/lang-button';
 import { UserButton } from './buttons/user-button';

@@ -1,7 +1,7 @@
-import { SearchControl } from '@/components/search-control';
 import { Spotlight as MantineSpotlight, spotlight } from '@mantine/spotlight';
 import { IconSearch } from '@tabler/icons-react';
 import { useTranslations } from 'next-intl';
+import { SearchControl } from '@/components/search-control';
 
 export function Spotlight() {
   const t = useTranslations();

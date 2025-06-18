@@ -1,6 +1,5 @@
 'use client';
 
-import { HEADER_HEIGHT, SIDEBAR_WIDTH } from '@/utils/constants';
 import {
   AppShell,
   AppShellHeader,
@@ -8,6 +7,7 @@ import {
   AppShellNavbar,
 } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
+import { HEADER_HEIGHT, SIDEBAR_WIDTH } from '@/utils/constants';
 import { Header } from './header';
 import { Sidebar } from './sidebar';
 

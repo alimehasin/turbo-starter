@@ -1,6 +1,6 @@
-import { env } from '@/env';
 import type { PrismaClient } from '@prisma/client';
 import bcrypt from 'bcryptjs';
+import { env } from '@/env';
 
 export async function seedRootAdmin(prisma: PrismaClient) {
   const username = env.ROOT_USERNAME;

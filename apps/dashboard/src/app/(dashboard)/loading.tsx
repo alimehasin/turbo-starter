@@ -1,5 +1,5 @@
-import { HEADER_HEIGHT } from '@/utils/constants';
 import { Center, Loader } from '@mantine/core';
+import { HEADER_HEIGHT } from '@/utils/constants';
 
 export default function Loading() {
   return (

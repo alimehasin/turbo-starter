@@ -1,12 +1,12 @@
 'use client';
 
-import { useNotifications } from '@/hooks/use-notifications';
-import { setToken } from '@/server/actions/auth';
 import { ActionIcon, Menu, MenuDropdown, MenuItem, MenuTarget } from '@mantine/core';
 import { IconLogout, IconUser } from '@tabler/icons-react';
 import { useMutation } from '@tanstack/react-query';
-import { useTranslations } from 'next-intl';
 import { useRouter } from 'next/navigation';
+import { useTranslations } from 'next-intl';
+import { useNotifications } from '@/hooks/use-notifications';
+import { setToken } from '@/server/actions/auth';
 
 export function UserButton() {
   const router = useRouter();

@@ -1,4 +1,4 @@
-import { InputClearButton, TextInput, type TextInputProps, rem } from '@mantine/core';
+import { InputClearButton, rem, TextInput, type TextInputProps } from '@mantine/core';
 import { IconSearch } from '@tabler/icons-react';
 import { useTranslations } from 'next-intl';
 

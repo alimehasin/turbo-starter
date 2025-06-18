@@ -1,11 +1,11 @@
 'use client';
 
-import { api } from '@/server/callers/client';
-import { createQueryClient } from '@/server/query-client';
 import { QueryClientProvider } from '@tanstack/react-query';
 import { httpBatchLink } from '@trpc/client';
 import { useState } from 'react';
 import superjson from 'superjson';
+import { api } from '@/server/callers/client';
+import { createQueryClient } from '@/server/query-client';
 
 export function TrpcProvider({ children }: { children: React.ReactNode }) {
   const [queryClient] = useState(() => createQueryClient());

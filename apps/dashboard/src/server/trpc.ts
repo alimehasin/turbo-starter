@@ -1,4 +1,4 @@
-import { TRPCError, initTRPC } from '@trpc/server';
+import { initTRPC, TRPCError } from '@trpc/server';
 import { getLocale } from 'next-intl/server';
 import superjson from 'superjson';
 import { authenticate, getToken } from './actions/auth';

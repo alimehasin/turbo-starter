@@ -50,10 +50,7 @@ export function parsePaginationProps(p?: { page: number; pageSize: number }): {
   };
 }
 
-export function parseSortingProps(sorting?: {
-  column: string;
-  direction: unknown;
-}) {
+export function parseSortingProps(sorting?: { column: string; direction: unknown }) {
   if (!sorting) {
     return undefined;
   }

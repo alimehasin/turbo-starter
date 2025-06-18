@@ -1,10 +1,10 @@
 'use server';
 
+import { jwtVerify, SignJWT } from 'jose';
+import { cookies } from 'next/headers';
 import { env } from '@/env';
 import type { AuthPayload } from '@/types';
 import { TOKEN_KEY } from '@/utils/constants';
-import { SignJWT, jwtVerify } from 'jose';
-import { cookies } from 'next/headers';
 
 export async function signJwt(payload: AuthPayload): Promise<string> {
   const token = new SignJWT({ ...payload })

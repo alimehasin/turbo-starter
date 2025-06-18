@@ -1,8 +1,8 @@
-import { env } from '@/env';
 import { cron as elysiaCron } from '@elysiajs/cron';
 import type { Prisma } from '@prisma/client';
 import { prisma } from '@repo/db';
 import { deleteObjects } from '@repo/storage';
+import { env } from '@/env';
 
 export const crons = elysiaCron({
   name: 'storage-cleaner',

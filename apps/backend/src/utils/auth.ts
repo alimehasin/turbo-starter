@@ -1,6 +1,6 @@
+import { jwtVerify, SignJWT } from 'jose';
 import { env } from '@/env';
 import type { AuthPayload } from '@/types';
-import { SignJWT, jwtVerify } from 'jose';
 
 export async function signJwt(payload: AuthPayload): Promise<string> {
   const token = new SignJWT({ ...payload })

@@ -1,17 +1,16 @@
 {
-  "$schema": "https://biomejs.dev/schemas/1.9.4/schema.json",
-  "organizeImports": {
-    "enabled": true
-  },
+  "$schema": "https://biomejs.dev/schemas/2.0.0/schema.json",
+  "assist": { "actions": { "source": { "organizeImports": "on" } } },
 
   "files": {
-    "ignore": [
-      "**/tailwind.config.ts",
-      "**/bindings.ts",
-      "**/node_modules/**",
-      "**/.turbo/**",
-      "**/.next/**",
-      "**/dist/**"
+    "includes": [
+      "**",
+      "!**/tailwind.config.ts",
+      "!**/bindings.ts",
+      "!**/node_modules/**",
+      "!**/.turbo/**",
+      "!**/.next/**",
+      "!**/dist/**"
     ]
   },
 
@@ -40,8 +39,10 @@
       "nursery": {},
       "security": {},
       "complexity": {},
-      "suspicious": {},
       "performance": {},
+      "suspicious": {
+        "noDuplicateProperties": "off"
+      },
       "correctness": {
         "noUnusedImports": "warn",
         "noUnusedVariables": "warn",
@@ -49,7 +50,17 @@
         "useExhaustiveDependencies": "off"
       },
       "style": {
-        "useBlockStatements": "error"
+        "useBlockStatements": "error",
+        "noParameterAssign": "error",
+        "useAsConstAssertion": "error",
+        "useDefaultParameterLast": "error",
+        "useEnumInitializers": "error",
+        "useSelfClosingElements": "error",
+        "useSingleVarDeclarator": "error",
+        "noUnusedTemplateLiteral": "error",
+        "useNumberNamespace": "error",
+        "noInferrableTypes": "error",
+        "noUselessElse": "error"
       }
     }
   }

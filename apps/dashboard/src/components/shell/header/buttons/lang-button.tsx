@@ -1,9 +1,9 @@
 'use client';
 
-import { setLocale } from '@/server/actions/locale';
 import { Button, Menu, MenuDropdown, MenuItem, MenuTarget } from '@mantine/core';
 import { IconLanguage } from '@tabler/icons-react';
 import { useTranslations } from 'next-intl';
+import { setLocale } from '@/server/actions/locale';
 
 export function LangButton() {
   const t = useTranslations();

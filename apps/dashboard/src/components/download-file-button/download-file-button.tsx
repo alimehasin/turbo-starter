@@ -1,9 +1,9 @@
 'use client';
 
-import { downloadCsv } from '@/utils/helpers';
 import { ActionIcon, Tooltip } from '@mantine/core';
 import { IconFileDownload } from '@tabler/icons-react';
 import { useTranslations } from 'next-intl';
+import { downloadCsv } from '@/utils/helpers';
 
 export function DownloadFileButton<T>({
   data = [],

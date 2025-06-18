@@ -1,7 +1,7 @@
 import { prisma } from '@repo/db';
 import { TRPCError } from '@trpc/server';
 import bcrypt from 'bcryptjs';
-import { z } from 'zod';
+import { z } from 'zod/v4';
 import { signJwt } from '@/server/actions/auth';
 import { publicProcedure, router } from '@/server/trpc';
 

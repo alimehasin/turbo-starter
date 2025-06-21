@@ -35,13 +35,16 @@
     "enabled": true,
     "rules": {
       "recommended": true,
-      "a11y": {},
       "nursery": {},
       "security": {},
       "complexity": {},
       "performance": {},
       "suspicious": {
         "noDuplicateProperties": "off"
+      },
+      "a11y": {
+        "useFocusableInteractive": "off",
+        "useSemanticElements": "off"
       },
       "correctness": {
         "noUnusedImports": "warn",

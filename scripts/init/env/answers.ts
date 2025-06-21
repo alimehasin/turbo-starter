@@ -20,6 +20,11 @@ export const answers = {
     default: '3001',
   }),
 
+  websitePort: await input({
+    message: 'Website Port',
+    default: '3002',
+  }),
+
   jwtSecretKey: generateSecretKey(16),
 
   rootUsername: await input({

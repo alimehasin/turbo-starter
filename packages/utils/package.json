@@ -18,6 +18,6 @@
   },
   "devDependencies": {
     "@repo/tsconfig": "workspace:*",
-    "@types/bun": "^1.2.16"
+    "@types/bun": "^1.2.17"
   }
 }

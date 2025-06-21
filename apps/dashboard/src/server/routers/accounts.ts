@@ -1,13 +1,13 @@
 import { prisma } from '@repo/db';
 import { TRPCError } from '@trpc/server';
 import bcrypt from 'bcryptjs';
-import { z } from 'zod/v4';
+import { accountsSchemas } from '@/schemas/accounts';
 import { signJwt } from '@/server/actions/auth';
 import { publicProcedure, router } from '@/server/trpc';
 
 export const accounts = router({
   login: publicProcedure
-    .input(z.object({ username: z.string(), password: z.string() }))
+    .input(accountsSchemas.login)
     .mutation(async ({ ctx: { t }, input: { username, password } }) => {
       const admin = await prisma.admin.findUnique({
         where: { username },

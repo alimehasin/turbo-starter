@@ -11,6 +11,10 @@ export const sortingSchema = z.object({
 });
 
 export const fileSchema = z.object({
-  id: z.string().uuid(),
+  id: z.uuid(),
   key: z.string(),
+});
+
+export const iraqPhoneSchema = z.string().regex(/^\+964(77|78|79|75)\d{8}$/, {
+  message: 'رقم هاتف غير صالح',
 });

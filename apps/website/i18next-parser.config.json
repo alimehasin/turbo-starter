@@ -1,0 +1,11 @@
+{
+  "contextSeparator": "_",
+
+  "createOldCatalogs": false,
+  "defaultValue": "",
+
+  "indentation": 2,
+  "locales": ["en", "ar"],
+  "output": "src/i18n/messages/$LOCALE.json",
+  "sort": true
+}

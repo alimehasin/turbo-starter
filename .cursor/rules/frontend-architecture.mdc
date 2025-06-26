@@ -1,0 +1,57 @@
+---
+description: 
+globs: 
+alwaysApply: false
+---
+# Frontend Architecture
+
+The project contains two Next.js applications with different UI libraries and purposes.
+
+## Dashboard App ([apps/dashboard](mdc:apps/dashboard))
+
+### Key Features
+- **UI Library**: Mantine v8 with custom theme
+- **State Management**: tRPC + TanStack Query for server state
+- **Authentication**: JWT-based with protected routes
+- **Internationalization**: next-intl with English and Arabic support
+- **File Handling**: Dropzone integration for file uploads
+
+### Structure
+- **App Router** ([apps/dashboard/src/app](mdc:apps/dashboard/src/app)): Next.js 15 app directory structure
+- **Components** ([apps/dashboard/src/components](mdc:apps/dashboard/src/components)): Reusable UI components
+- **Server Actions** ([apps/dashboard/src/server/actions](mdc:apps/dashboard/src/server/actions)): Server-side functions
+- **tRPC Routers** ([apps/dashboard/src/server/routers](mdc:apps/dashboard/src/server/routers)): API route definitions
+- **Hooks** ([apps/dashboard/src/hooks](mdc:apps/dashboard/src/hooks)): Custom React hooks
+- **Schemas** ([apps/dashboard/src/schemas](mdc:apps/dashboard/src/schemas)): Zod validation schemas
+
+### Key Components
+- **Shell** ([apps/dashboard/src/components/shell](mdc:apps/dashboard/src/components/shell)): Main layout with header and sidebar
+- **Data Table Hooks** ([apps/dashboard/src/hooks/use-data-table.tsx](mdc:apps/dashboard/src/hooks/use-data-table.tsx)): Table state management
+- **Modals** ([apps/dashboard/src/hooks/use-modals.tsx](mdc:apps/dashboard/src/hooks/use-modals.tsx)): Modal management system
+
+## Website App ([apps/website](mdc:apps/website))
+
+### Key Features
+- **UI Library**: shadcn/ui components with Tailwind CSS
+- **State Management**: tRPC + TanStack Query
+- **Internationalization**: next-intl support
+
+### Structure
+- **App Router** ([apps/website/src/app](mdc:apps/website/src/app)): Next.js 15 app directory
+- **UI Components** ([apps/website/src/components/ui](mdc:apps/website/src/components/ui)): shadcn/ui component library
+- **Server** ([apps/website/src/server](mdc:apps/website/src/server)): tRPC setup and routers
+
+## Shared Frontend Patterns
+
+### Providers
+Both apps use provider patterns for:
+- **Theme/UI**: Mantine providers (dashboard) or Theme provider (website)
+- **tRPC**: Query client and tRPC provider setup
+- **i18n**: next-intl provider for internationalization
+- **Dayjs**: Date library provider
+
+### Environment Configuration
+- **Dashboard**: [apps/dashboard/src/env.ts](mdc:apps/dashboard/src/env.ts)
+- **Website**: [apps/website/src/env.ts](mdc:apps/website/src/env.ts)
+
+Both use @t3-oss/env-nextjs for type-safe environment variables.

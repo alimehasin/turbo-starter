@@ -1,0 +1,52 @@
+---
+description: 
+globs: 
+alwaysApply: false
+---
+# Database and Shared Packages
+
+## Database Package ([packages/db](mdc:packages/db))
+
+### Prisma Configuration
+- **Schema** ([packages/db/prisma/schema.prisma](mdc:packages/db/prisma/schema.prisma)): Database models and relationships
+- **Migrations** ([packages/db/prisma/migrations](mdc:packages/db/prisma/migrations)): Database migration files
+- **Seed** ([packages/db/prisma/seed](mdc:packages/db/prisma/seed)): Database seeding scripts
+
+### Key Files
+- **Main Export** ([packages/db/src/index.ts](mdc:packages/db/src/index.ts)): Prisma client and database utilities
+- **Environment** ([packages/db/src/env.ts](mdc:packages/db/src/env.ts)): Database environment configuration
+
+### Seed Data
+- **Main Seed** ([packages/db/prisma/seed/main.ts](mdc:packages/db/prisma/seed/main.ts)): Orchestrates all seeding operations
+- **Tables** ([packages/db/prisma/seed/tables](mdc:packages/db/prisma/seed/tables)): Individual table seed files
+- **Root Admin** ([packages/db/prisma/seed/tables/root-admin.ts](mdc:packages/db/prisma/seed/tables/root-admin.ts)): Creates admin user
+- **Files** ([packages/db/prisma/seed/tables/files.ts](mdc:packages/db/prisma/seed/tables/files.ts)): Seeds file records
+
+## Storage Package ([packages/storage](mdc:packages/storage))
+
+### Purpose
+Abstracts file storage operations with support for different storage providers.
+
+### Structure
+- **Client** ([packages/storage/src/client.ts](mdc:packages/storage/src/client.ts)): Storage client implementation
+- **Helpers** ([packages/storage/src/helpers.ts](mdc:packages/storage/src/helpers.ts)): Storage utility functions
+- **Seed** ([packages/storage/seed/main.ts](mdc:packages/storage/seed/main.ts)): Storage seeding for development
+
+### Assets
+- **Avatars** ([packages/storage/seed/assets/avatars](mdc:packages/storage/seed/assets/avatars)): Default avatar images for seeding
+
+## Utils Package ([packages/utils](mdc:packages/utils))
+
+### Shared Utilities
+- **Constants** ([packages/utils/src/constants.ts](mdc:packages/utils/src/constants.ts)): Application-wide constants
+- **Helpers** ([packages/utils/src/helpers.ts](mdc:packages/utils/src/helpers.ts)): Common utility functions
+- **Schemas** ([packages/utils/src/schemas.ts](mdc:packages/utils/src/schemas.ts)): Shared Zod validation schemas
+- **Types** ([packages/utils/src/types.ts](mdc:packages/utils/src/types.ts)): Shared TypeScript type definitions
+
+## Database Commands
+- `bun db:generate`: Generate Prisma client
+- `bun db:migrate:dev`: Run migrations in development
+- `bun db:migrate:deploy`: Deploy migrations to production
+- `bun db:seed`: Seed database with initial data
+- `bun db:studio`: Open Prisma Studio for database management
+- `bun storage:seed`: Seed storage with default files

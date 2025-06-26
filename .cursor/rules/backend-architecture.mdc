@@ -1,0 +1,37 @@
+---
+description: 
+globs: 
+alwaysApply: false
+---
+# Backend Architecture
+
+The backend is built with Elysia.js and follows a plugin-based architecture.
+
+## Main Entry Points
+- **Server** ([apps/backend/src/server.ts](mdc:apps/backend/src/server.ts)): Main server setup and configuration
+- **Setup** ([apps/backend/src/setup.ts](mdc:apps/backend/src/setup.ts)): Application initialization and plugin registration
+
+## Core Structure
+
+### Plugins ([apps/backend/src/plugins](mdc:apps/backend/src/plugins))
+- **CORS** ([apps/backend/src/plugins/cors.ts](mdc:apps/backend/src/plugins/cors.ts)): Cross-origin resource sharing configuration
+- **Crons** ([apps/backend/src/plugins/crons.ts](mdc:apps/backend/src/plugins/crons.ts)): Scheduled tasks and background jobs
+- **Logger** ([apps/backend/src/plugins/logger.ts](mdc:apps/backend/src/plugins/logger.ts)): Request/response logging
+- **Swagger** ([apps/backend/src/plugins/swagger.ts](mdc:apps/backend/src/plugins/swagger.ts)): API documentation
+
+### Routes ([apps/backend/src/routes](mdc:apps/backend/src/routes))
+- **Accounts** ([apps/backend/src/routes/accounts.ts](mdc:apps/backend/src/routes/accounts.ts)): User authentication and account management
+- **Files** ([apps/backend/src/routes/files.ts](mdc:apps/backend/src/routes/files.ts)): File upload, download, and management
+
+### Utilities ([apps/backend/src/utils](mdc:apps/backend/src/utils))
+- **Auth** ([apps/backend/src/utils/auth.ts](mdc:apps/backend/src/utils/auth.ts)): JWT token handling and authentication helpers
+- **Errors** ([apps/backend/src/utils/errors.ts](mdc:apps/backend/src/utils/errors.ts)): Custom error classes and error handling
+- **Helpers** ([apps/backend/src/utils/helpers.ts](mdc:apps/backend/src/utils/helpers.ts)): Common utility functions
+
+## Environment Configuration
+Environment variables are managed through [apps/backend/src/env.ts](mdc:apps/backend/src/env.ts) using @t3-oss/env-core for type-safe environment variable validation.
+
+## Development
+- Run `bun dev` from the backend directory or root to start the development server
+- The server runs on port 3001 by default (configurable via environment variables)
+- Hot reloading is enabled with `--watch` flag

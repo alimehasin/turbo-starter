@@ -1,0 +1,75 @@
+---
+description: 
+globs: 
+alwaysApply: false
+---
+# Development Workflow
+
+## Package Manager and Runtime
+- **Bun**: Used as both package manager (`packageManager: "bun@latest"`) and runtime
+- **Workspaces**: Configured for monorepo structure with `apps/*`, `packages/*`, and `configs/*`
+
+## Build System
+- **Turbo** ([turbo.json](mdc:turbo.json)): Orchestrates build tasks across the monorepo
+- **Task Pipeline**: Defines dependencies between build, dev, and test tasks
+- **Caching**: Optimizes builds with intelligent caching (disabled for dev tasks)
+
+## Code Quality Tools
+
+### Biome ([biome.json](mdc:biome.json))
+- **Linting**: ESLint alternative with TypeScript support
+- **Formatting**: Prettier alternative with faster performance
+- **Commands**:
+  - `bun lint`: Apply linting fixes
+  - `bun format`: Format code
+  - `bun check`: Run both linting and formatting
+
+### Git Hooks
+- **Husky**: Pre-commit hooks for code quality
+- **lint-staged**: Run linting only on staged files
+- **Commitlint** ([commitlint.config.ts](mdc:commitlint.config.ts)): Enforce conventional commit messages
+
+## Development Scripts
+
+### Application Commands
+- `bun dev`: Start all apps in development mode
+- `bun build`: Build all apps for production
+- `bun typecheck`: Run TypeScript checking across all packages
+
+### Database Operations
+- `bun db:generate`: Generate Prisma client
+- `bun db:migrate:dev`: Create and apply new migrations
+- `bun db:migrate:deploy`: Apply migrations in production
+- `bun db:seed`: Populate database with seed data
+- `bun db:studio`: Open Prisma Studio
+
+### Maintenance Scripts ([scripts](mdc:scripts))
+- **Cleanup** ([scripts/cleanup.sh](mdc:scripts/cleanup.sh)): Clean build artifacts and dependencies
+- **Reinstall** ([scripts/reinstall.sh](mdc:scripts/reinstall.sh)): Fresh installation of dependencies
+- **Update** ([scripts/update.sh](mdc:scripts/update.sh)): Update all dependencies
+- **Remove Deps** ([scripts/rmdeps.sh](mdc:scripts/rmdeps.sh)): Remove specific dependencies
+
+### Environment Setup ([scripts/init/env](mdc:scripts/init/env))
+- **Interactive Setup** ([scripts/init/env/main.ts](mdc:scripts/init/env/main.ts)): Initialize environment variables
+- **Helpers** ([scripts/init/env/helpers.ts](mdc:scripts/init/env/helpers.ts)): Environment setup utilities
+
+## Internationalization
+- `bun i18n:parse`: Extract i18n keys from source code
+- **Configuration**: `i18next-parser.config.json` in each app
+- **Languages**: English and Arabic support
+
+## Docker Support
+- **Docker Compose** ([docker-compose.yml](mdc:docker-compose.yml)): Local development services
+- **PM2** ([ecosystem.config.js](mdc:ecosystem.config.js)): Production process management
+
+## TypeScript Configuration
+- **Base Config** ([configs/typescript/base.json](mdc:configs/typescript/base.json)): Shared TypeScript settings
+- **Next.js Config** ([configs/typescript/nextjs.json](mdc:configs/typescript/nextjs.json)): Next.js specific settings
+- **React Library** ([configs/typescript/react-library.json](mdc:configs/typescript/react-library.json)): React component library settings
+
+## Development Best Practices
+1. **Monorepo Structure**: Keep shared code in packages, app-specific code in apps
+2. **Type Safety**: Use TypeScript strictly with proper environment variable validation
+3. **Code Quality**: Run `bun check` before committing
+4. **Database Changes**: Always create migrations for schema changes
+5. **Environment Variables**: Use the init script for proper environment setup

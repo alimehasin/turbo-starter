@@ -69,7 +69,7 @@ export function MultiImageInput({ value, onChange }: MultiImageInputProps) {
 
       onChange([...value, ...uploadedFiles]);
     } catch {
-      n.error(t('uploadImageFailed'));
+      n.error(t('common.uploadImageFailed'));
     } finally {
       setLoading(false);
     }

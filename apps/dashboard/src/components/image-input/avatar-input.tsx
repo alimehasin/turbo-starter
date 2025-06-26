@@ -24,7 +24,7 @@ export function AvatarInput({ value, onChange }: AvatarInputProps) {
     setLoading(true);
     uploadImageAction({ file, isPublic: true })
       .then((f) => onChange({ id: f.id, key: f.key }))
-      .catch(() => n.error(t('uploadImageFailed')))
+      .catch(() => n.error(t('common.uploadImageFailed')))
       .finally(() => setLoading(false));
 
     try {
@@ -34,7 +34,7 @@ export function AvatarInput({ value, onChange }: AvatarInputProps) {
         onChange({ id: f.id, key: f.key });
       }
     } catch {
-      n.error(t('uploadImageFailed'));
+      n.error(t('common.uploadImageFailed'));
     }
 
     setLoading(false);

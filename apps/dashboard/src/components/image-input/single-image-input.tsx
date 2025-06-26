@@ -49,7 +49,7 @@ export function SingleImageInput({ value, onChange }: SingleImageInputProps) {
     setLoading(true);
     uploadImageAction({ file, isPublic: true })
       .then((f) => onChange({ id: f.id, key: f.key }))
-      .catch(() => n.error(t('uploadImageFailed')))
+      .catch(() => n.error(t('common.uploadImageFailed')))
       .finally(() => setLoading(false));
   };
 

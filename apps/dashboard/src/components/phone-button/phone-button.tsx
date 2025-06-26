@@ -20,7 +20,7 @@ export function PhoneButton({ phone }: { phone: string }) {
             <IconBrandWhatsapp />
           </ThemeIcon>
 
-          <Text>{t('clickToCallWhatsApp')}</Text>
+          <Text>{t('common.clickToCallWhatsApp')}</Text>
         </Group>
       }
     >

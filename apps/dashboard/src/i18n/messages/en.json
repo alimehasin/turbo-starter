@@ -1,36 +1,38 @@
 {
-  "actionCannotBeUndone": "This action cannot be undone.",
-  "areYouSureAboutThisAction": "Are you sure you want to perform this action?",
-  "cancel": "Cancel",
-  "clickToCallWhatsApp": "Click to call on WhatsApp",
-  "confirm": "Confirm",
+  "common": {
+    "actionCannotBeUndone": "This action cannot be undone.",
+    "areYouSureAboutThisAction": "Are you sure you want to perform this action?",
+    "cancel": "Cancel",
+    "clickToCallWhatsApp": "Click to call on WhatsApp",
+    "confirm": "Confirm",
+    "done": "Done",
+    "downloadCsvFile": "Download csv file",
+    "error": "Error",
+    "language": "English",
+    "login": "Login",
+    "loginTitle": "Login to Your Account",
+    "logout": "Logout",
+    "logoutSuccess": "You have been logged out",
+    "no": "No",
+    "nothingFound": "Nothing found",
+    "password": "Password",
+    "search": "Search",
+    "success": "Success",
+    "title": "Hello world!",
+    "uploadImageFailed": "Failed to upload image",
+    "username": "Username",
+    "yes": "Yes"
+  },
   "dataTable": {
     "noRecords": "No records to show",
     "recordsPerPageLabel": "Records per page"
   },
-  "done": "Done",
-  "downloadCsvFile": "Download csv file",
   "dropzone": {
     "accept": "Yes, now just release the image",
     "idle": "Drop your images here",
     "reject": "Oh no, you can't drop this file"
   },
-  "error": "Error",
-  "language": "English",
-  "login": "Login",
-  "loginTitle": "Login to Your Account",
-  "logout": "Logout",
-  "logoutSuccess": "You have been logged out",
-  "no": "No",
-  "nothingFound": "Nothing found",
-  "password": "Password",
-  "search": "Search",
   "sidebar": {
     "home": "Home"
-  },
-  "success": "Success",
-  "title": "Hello world!",
-  "uploadImageFailed": "Faild to upload image",
-  "username": "Username",
-  "yes": "Yes"
+  }
 }

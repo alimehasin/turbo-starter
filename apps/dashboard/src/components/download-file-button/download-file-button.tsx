@@ -15,7 +15,7 @@ export function DownloadFileButton<T>({
   const t = useTranslations();
 
   return (
-    <Tooltip withArrow label={t('downloadCsvFile')}>
+    <Tooltip withArrow label={t('common.downloadCsvFile')}>
       <ActionIcon
         size={36}
         variant="default"

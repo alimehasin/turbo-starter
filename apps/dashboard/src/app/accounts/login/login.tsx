@@ -61,7 +61,7 @@ export default function Login({ locale }: { locale: string }) {
 
       <Center h="100vh">
         <Stack p="sm">
-          <Title c="nature.7">{t('loginTitle')}</Title>
+          <Title c="nature.7">{t('common.loginTitle')}</Title>
 
           <Paper withBorder p="sm">
             <FocusTrap>
@@ -70,14 +70,14 @@ export default function Login({ locale }: { locale: string }) {
                   <TextInput
                     required
                     autoCapitalize="off"
-                    label={t('username')}
+                    label={t('common.username')}
                     leftSection={<IconUser />}
                     {...form.getInputProps('username')}
                   />
 
                   <PasswordInput
                     required
-                    label={t('password')}
+                    label={t('common.password')}
                     leftSection={<IconKey />}
                     {...form.getInputProps('password')}
                   />
@@ -87,7 +87,7 @@ export default function Login({ locale }: { locale: string }) {
                     leftSection={<IconLogin />}
                     loading={loginMut.isPending}
                   >
-                    {t('login')}
+                    {t('common.login')}
                   </Button>
                 </Stack>
               </form>

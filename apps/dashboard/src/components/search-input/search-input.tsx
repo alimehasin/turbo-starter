@@ -19,7 +19,7 @@ export function SearchInput({
       w={260}
       leftSection={<IconSearch />}
       rightSectionWidth={rem(40)}
-      placeholder={placeholder || t('search')}
+      placeholder={placeholder || t('common.search')}
       rightSection={value && <InputClearButton onClick={() => onChange('')} />}
       onChange={(event) => onChange(event.target.value)}
       {...props}

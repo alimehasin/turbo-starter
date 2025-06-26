@@ -28,15 +28,15 @@ export function useModals() {
         children: (
           <Stack>
             <div>
-              <Text span>{t('areYouSureAboutThisAction')} </Text>
+              <Text span>{t('common.areYouSureAboutThisAction')} </Text>
               <Text span bg="yellow.5">
-                {t('actionCannotBeUndone')}
+                {t('common.actionCannotBeUndone')}
               </Text>
             </div>
 
             <Group grow>
               <Button variant="default" onClick={() => modals.close(modalId)}>
-                {t('cancel')}
+                {t('common.cancel')}
               </Button>
 
               <Button
@@ -46,7 +46,7 @@ export function useModals() {
                   modals.close(modalId);
                 }}
               >
-                {t('confirm')}
+                {t('common.confirm')}
               </Button>
             </Group>
           </Stack>

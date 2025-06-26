@@ -13,9 +13,9 @@ export function Spotlight() {
       <MantineSpotlight
         actions={[]}
         highlightQuery
-        nothingFound={t('nothingFound')}
+        nothingFound={t('common.nothingFound')}
         searchProps={{
-          placeholder: t('search'),
+          placeholder: t('common.search'),
           leftSection: <IconSearch size={20} stroke={1.5} />,
         }}
       />

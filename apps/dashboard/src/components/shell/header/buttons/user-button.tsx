@@ -17,7 +17,7 @@ export function UserButton() {
     mutationFn: () => setToken(''),
     onSuccess: () => {
       router.push('/accounts/login');
-      n.success(t('logoutSuccess'));
+      n.success(t('common.logoutSuccess'));
     },
   });
 
@@ -35,7 +35,7 @@ export function UserButton() {
           leftSection={<IconLogout size={18} />}
           onClick={() => logoutMut.mutate()}
         >
-          {t('logout')}
+          {t('common.logout')}
         </MenuItem>
       </MenuDropdown>
     </Menu>

@@ -12,7 +12,7 @@ export function LangButton() {
     <Menu withArrow>
       <MenuTarget>
         <Button color="gray" variant="subtle" leftSection={<IconLanguage />}>
-          {t('language')}
+          {t('common.language')}
         </Button>
       </MenuTarget>
 

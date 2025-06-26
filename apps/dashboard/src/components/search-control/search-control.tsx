@@ -21,7 +21,7 @@ export function SearchControl({ className, ...others }: SearchControlProps) {
         <IconSearch />
 
         <Text fz="sm" c="dimmed" className={cls.searchText}>
-          {t('search')}
+          {t('common.search')}
         </Text>
 
         <Text fw={700} className={cls.shortcut}>

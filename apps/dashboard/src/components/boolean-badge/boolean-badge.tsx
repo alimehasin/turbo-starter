@@ -19,7 +19,7 @@ export function BooleanBadge({ value, label }: BooleanBadgeProps) {
       variant="light"
       leftSection={<Box bg="green" className={cls.indicator} />}
     >
-      {label?.true ?? t('yes')}
+      {label?.true ?? t('common.yes')}
     </Badge>
   );
 
@@ -29,7 +29,7 @@ export function BooleanBadge({ value, label }: BooleanBadgeProps) {
       variant="light"
       leftSection={<Box bg="red" className={cls.indicator} />}
     >
-      {label?.false ?? t('no')}
+      {label?.false ?? t('common.no')}
     </Badge>
   );
 

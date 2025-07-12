@@ -20,11 +20,11 @@
     "@prisma/client": "^6.11.1",
     "@t3-oss/env-core": "^0.13.8",
     "bcryptjs": "^3.0.2",
-    "zod": "^3.25.76"
+    "zod": "^4.0.5"
   },
   "devDependencies": {
     "@repo/tsconfig": "workspace:*",
-    "@types/node": "^24.0.12",
+    "@types/node": "^24.0.13",
     "dayjs": "^1.11.13",
     "dunna": "^0.12.0",
     "prisma": "^6.11.1",

@@ -4,6 +4,7 @@ import type { Metadata } from 'next';
 import { getLocale } from 'next-intl/server';
 import { Toaster } from '@/components/ui/sonner';
 import { DayjsProvider } from './_providers/dayjs-provider';
+import { DirectionProvider } from './_providers/direction-provider';
 import { NextIntlProvider } from './_providers/nex-intl-provider';
 import { ThemeProvider } from './_providers/theme-provider';
 import { TrpcProvider } from './_providers/trpc-provider';
@@ -26,13 +27,15 @@ export default async function RootLayout({
       <body className="min-h-screen flex flex-col">
         <TrpcProvider>
           <NextIntlProvider>
-            <DayjsProvider locale={locale}>
-              <ThemeProvider>
-                <main className="flex-1">{children}</main>
+            <DirectionProvider dir={dir}>
+              <DayjsProvider locale={locale}>
+                <ThemeProvider>
+                  <main className="flex-1">{children}</main>
 
-                <Toaster />
-              </ThemeProvider>
-            </DayjsProvider>
+                  <Toaster />
+                </ThemeProvider>
+              </DayjsProvider>
+            </DirectionProvider>
           </NextIntlProvider>
         </TrpcProvider>
       </body>

@@ -9,7 +9,7 @@ export const env = createEnv({
   server: {
     ROOT_USERNAME: z.string().optional(),
     ROOT_PASSWORD: z.string().optional(),
-    DATABASE_URL: z.string().url(),
+    DATABASE_URL: z.url(),
     NODE_ENV: z.enum(['development', 'test', 'production']).default('development'),
   },
 });

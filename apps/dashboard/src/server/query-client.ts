@@ -3,6 +3,7 @@ import { showNotification } from '@mantine/notifications';
 import { defaultShouldDehydrateQuery, QueryClient } from '@tanstack/react-query';
 import { TRPCClientError } from '@trpc/client';
 import superjson from 'superjson';
+import { ZodError, z } from 'zod';
 
 export const createQueryClient = () => {
   const formActions = createFormActions('trpc-form');
@@ -16,9 +17,11 @@ export const createQueryClient = () => {
               return;
             }
 
-            if (e.data?.zodError?.fieldErrors) {
-              formActions.setErrors(e.data.zodError.fieldErrors);
-            } else if (e.message) {
+            if (e instanceof ZodError) {
+              formActions.setErrors(z.treeifyError(e));
+            }
+
+            if (e.message) {
               showNotification({
                 color: 'red',
                 message: e.message,

@@ -1,10 +1,10 @@
 import { ColorSchemeScript, mantineHtmlProps } from '@mantine/core';
 import type { Metadata } from 'next';
 import { getLocale } from 'next-intl/server';
-import { DayjsProvider } from './_providers/dayjs-provider';
-import { MantineProviders } from './_providers/mantine-providers';
-import { NextIntlProvider } from './_providers/nex-intl-provider';
-import { TrpcProvider } from './_providers/trpc-provider';
+import { DayjsProvider } from '@/providers/dayjs-provider';
+import { MantineProviders } from '@/providers/mantine-providers';
+import { NextIntlProvider } from '@/providers/nex-intl-provider';
+import { TrpcProvider } from '@/providers/trpc-provider';
 
 export const metadata: Metadata = {
   title: 'Turborepo Starter',

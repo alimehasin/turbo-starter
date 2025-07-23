@@ -21,7 +21,6 @@ export const createQueryClient = () => {
             } else if (e.message) {
               showNotification({
                 color: 'red',
-                title: 'Error',
                 message: e.message,
               });
             }

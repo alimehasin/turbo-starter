@@ -1,5 +1,5 @@
 import { Text, type TextProps } from '@mantine/core';
-import { formatPhoneNumber } from '@repo/utils';
+import { formatPhoneNumber } from '@repo/utils/helpers';
 
 export interface PhoneNumberProps extends TextProps {
   phone: string;

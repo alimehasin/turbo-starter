@@ -1,5 +1,5 @@
 import { Badge } from '@mantine/core';
-import { formatDate, formatDateTime } from '@repo/utils';
+import { formatDate, formatDateTime } from '@repo/utils/helpers';
 
 export function DateTimeBadge({ date }: { date: Date }) {
   return <Badge variant="default">{formatDateTime(date)}</Badge>;

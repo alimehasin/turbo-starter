@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "exports": {
-    ".": "./src/helpers.ts",
+    "./helpers": "./src/helpers.ts",
     "./constants": "./src/constants.ts",
     "./types": "./src/types.ts",
     "./schemas": "./src/schemas.ts"

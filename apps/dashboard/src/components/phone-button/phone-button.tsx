@@ -1,7 +1,7 @@
 'use client';
 
 import { Button, Group, Text, ThemeIcon, Tooltip } from '@mantine/core';
-import { formatPhoneNumberWA } from '@repo/utils';
+import { formatPhoneNumberWA } from '@repo/utils/helpers';
 import { IconBrandWhatsapp } from '@tabler/icons-react';
 import { useTranslations } from 'next-intl';
 import { PhoneNumber } from '../phone-number';

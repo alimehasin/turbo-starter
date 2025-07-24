@@ -1,9 +1,10 @@
+import { omit } from '@repo/utils/helpers';
 import bcrypt from 'bcryptjs';
 import { Elysia, t } from 'elysia';
 import { setup } from '@/setup';
 import { signJwt } from '@/utils/auth';
 import { HttpError } from '@/utils/errors';
-import { authenticate, omit } from '@/utils/helpers';
+import { authenticate } from '@/utils/helpers';
 
 export const accounts = new Elysia({ prefix: '/accounts' })
   .use(setup)

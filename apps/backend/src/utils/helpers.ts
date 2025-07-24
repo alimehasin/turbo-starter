@@ -1,20 +1,6 @@
 import { verifyJwt } from '@/utils/auth';
 import { HttpError } from './errors';
 
-type OmitFields<T, K extends keyof T> = Pick<T, Exclude<keyof T, K>>;
-
-export function omit<T, K extends keyof T>(obj: T, fields: K[]): OmitFields<T, K> {
-  const result = {} as OmitFields<T, K>;
-
-  for (const key in obj) {
-    if (!fields.includes(key as unknown as K)) {
-      (result as T)[key] = obj[key];
-    }
-  }
-
-  return result;
-}
-
 export async function authenticate({
   token,
   errorMessage,

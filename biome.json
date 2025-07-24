@@ -43,8 +43,9 @@
         "noDuplicateProperties": "off"
       },
       "a11y": {
+        "useSemanticElements": "off",
         "useFocusableInteractive": "off",
-        "useSemanticElements": "off"
+        "noStaticElementInteractions": "off"
       },
       "correctness": {
         "noUnusedImports": "warn",

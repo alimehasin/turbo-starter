@@ -1,7 +1,0 @@
----
-description: 
-globs: 
-alwaysApply: false
----
-# Important notes
-1. Always include translations when writing .tsx files for both the frontend and dashboard.

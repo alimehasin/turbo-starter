@@ -1,6 +1,5 @@
 import { Text, type TextProps } from '@mantine/core';
 import { formatPhoneNumber } from '@repo/utils';
-import cls from './styles.module.css';
 
 export interface PhoneNumberProps extends TextProps {
   phone: string;
@@ -8,8 +7,10 @@ export interface PhoneNumberProps extends TextProps {
 
 export function PhoneNumber({ phone, ...props }: PhoneNumberProps) {
   return (
-    <Text className={cls.root} {...props}>
-      {formatPhoneNumber(phone)}
+    <Text {...props}>
+      <Text span dir="ltr" c="gray.9" fz="sm">
+        {formatPhoneNumber(phone)}
+      </Text>
     </Text>
   );
 }

@@ -30,18 +30,18 @@ export function Preview({
       <Image h={150} src={constructImageUrl(file.key)} />
 
       <ActionIcon
-        top={4}
-        right={4}
         color="red"
-        pos="absolute"
-        onClick={onRemove}
-        style={{ zIndex: 9999 }}
         display={hovered ? 'block' : 'none'}
+        onClick={onRemove}
+        pos="absolute"
+        right={4}
+        style={{ zIndex: 9999 }}
+        top={4}
       >
         <IconX />
       </ActionIcon>
 
-      {hovered && <Overlay color="#000" backgroundOpacity={0.35} blur={5} />}
+      {hovered && <Overlay backgroundOpacity={0.35} blur={5} color="#000" />}
     </div>
   );
 }
@@ -64,7 +64,7 @@ export function MultiImageInput({ value, onChange }: MultiImageInputProps) {
         files.map(async (file) => {
           const f = await uploadImageAction({ file, isPublic: true });
           return { id: f.id, key: f.key };
-        }),
+        })
       );
 
       onChange([...value, ...uploadedFiles]);
@@ -86,14 +86,14 @@ export function MultiImageInput({ value, onChange }: MultiImageInputProps) {
       ))}
 
       <Dropzone
-        p={0}
+        accept={IMAGE_MIME_TYPE}
         h={150}
         loading={loading}
         onDrop={handleUpload}
-        accept={IMAGE_MIME_TYPE}
+        p={0}
       >
         <Center h={150}>
-          <IconUpload size={64} color="var(--mantine-color-gray-5)" />
+          <IconUpload color="var(--mantine-color-gray-5)" size={64} />
         </Center>
       </Dropzone>
     </SimpleGrid>

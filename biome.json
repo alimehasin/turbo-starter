@@ -1,4 +1,24 @@
 {
   "$schema": "https://biomejs.dev/schemas/2.1.2/schema.json",
-  "extends": ["ultracite"]
+  "extends": ["ultracite"],
+  "linter": {
+    "rules": {
+      "a11y": {
+        "noStaticElementInteractions": "off",
+        "useFocusableInteractive": "off",
+        "useSemanticElements": "off"
+      },
+      "nursery": {
+        "noUnknownAtRule": "off",
+        "noNoninteractiveElementInteractions": "off"
+      },
+      "suspicious": {
+        "noConsole": "off",
+        "noDuplicateProperties": "off"
+      },
+      "performance": {
+        "noNamespaceImport": "off"
+      }
+    }
+  }
 }

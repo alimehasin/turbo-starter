@@ -8,7 +8,7 @@ export function Spotlight() {
 
   return (
     <>
-      <SearchControl w={400} onClick={() => spotlight.open()} />
+      <SearchControl onClick={() => spotlight.open()} w={400} />
 
       <MantineSpotlight
         actions={[]}

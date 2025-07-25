@@ -16,8 +16,8 @@ export function BooleanBadge({ value, label }: BooleanBadgeProps) {
   const trueBadge = (
     <Badge
       color="green"
-      variant="light"
       leftSection={<Box bg="green" className={cls.indicator} />}
+      variant="light"
     >
       {label?.true ?? t('common.yes')}
     </Badge>
@@ -26,8 +26,8 @@ export function BooleanBadge({ value, label }: BooleanBadgeProps) {
   const falseBadge = (
     <Badge
       color="red"
-      variant="light"
       leftSection={<Box bg="red" className={cls.indicator} />}
+      variant="light"
     >
       {label?.false ?? t('common.no')}
     </Badge>

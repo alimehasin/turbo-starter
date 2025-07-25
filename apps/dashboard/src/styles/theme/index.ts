@@ -20,7 +20,9 @@ import cls from './theme.module.css';
 export const theme = createTheme({
   fontFamily: rubik.style.fontFamily,
   fontFamilyMonospace: 'Monaco, Courier, monospace',
-  headings: { fontFamily: `${rubik.style.fontFamily}, ${DEFAULT_THEME.fontFamily}` },
+  headings: {
+    fontFamily: `${rubik.style.fontFamily}, ${DEFAULT_THEME.fontFamily}`,
+  },
 
   primaryColor: 'primary',
   defaultRadius: DEFAULT_THEME.radius.md,

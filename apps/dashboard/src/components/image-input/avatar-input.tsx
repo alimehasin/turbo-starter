@@ -41,7 +41,7 @@ export function AvatarInput({ value, onChange }: AvatarInputProps) {
   };
 
   return (
-    <FileButton onChange={handleUpload} accept="image/png,image/jpeg">
+    <FileButton accept="image/png,image/jpeg" onChange={handleUpload}>
       {(props) => (
         <Box pos="relative" w="fit-content">
           <LoadingOverlay visible={loading} />
@@ -49,8 +49,8 @@ export function AvatarInput({ value, onChange }: AvatarInputProps) {
           <Avatar
             {...props}
             size={64}
-            style={{ cursor: 'pointer' }}
             src={constructImageUrl(value?.key)}
+            style={{ cursor: 'pointer' }}
           />
         </Box>
       )}

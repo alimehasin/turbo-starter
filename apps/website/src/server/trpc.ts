@@ -12,12 +12,12 @@ export const router = t.router;
 const i18nMiddleware = t.middleware(async ({ next, ctx }) => {
   const locale = await getLocale();
 
-  const t = ({ en, ar }: { en: string; ar: string }) => {
+  const translate = ({ en, ar }: { en: string; ar: string }) => {
     return locale === 'ar' ? ar : en;
   };
 
   return next({
-    ctx: { ...ctx, locale, t },
+    ctx: { ...ctx, locale, translate },
   });
 });
 
@@ -30,7 +30,7 @@ export const privateProcedure = publicProcedure.use(async ({ next, ctx }) => {
   if (!user) {
     throw new TRPCError({
       code: 'UNAUTHORIZED',
-      message: ctx.t({
+      message: ctx.translate({
         en: 'Please login to continue',
         ar: 'يرجى تسجيل الدخول للمتابعة',
       }),

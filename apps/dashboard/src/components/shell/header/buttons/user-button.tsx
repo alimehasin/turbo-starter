@@ -1,6 +1,12 @@
 'use client';
 
-import { ActionIcon, Menu, MenuDropdown, MenuItem, MenuTarget } from '@mantine/core';
+import {
+  ActionIcon,
+  Menu,
+  MenuDropdown,
+  MenuItem,
+  MenuTarget,
+} from '@mantine/core';
 import { IconLogout, IconUser } from '@tabler/icons-react';
 import { useMutation } from '@tanstack/react-query';
 import { useRouter } from 'next/navigation';
@@ -24,7 +30,7 @@ export function UserButton() {
   return (
     <Menu withArrow>
       <MenuTarget>
-        <ActionIcon color="gray" variant="subtle" size={36}>
+        <ActionIcon color="gray" size={36} variant="subtle">
           <IconUser />
         </ActionIcon>
       </MenuTarget>

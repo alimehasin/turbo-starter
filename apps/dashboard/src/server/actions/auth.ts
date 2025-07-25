@@ -6,7 +6,7 @@ import { env } from '@/env';
 import type { AuthPayload } from '@/types';
 import { TOKEN_KEY } from '@/utils/constants';
 
-export async function signJwt(payload: AuthPayload): Promise<string> {
+export function signJwt(payload: AuthPayload): Promise<string> {
   const token = new SignJWT({ ...payload })
     .setProtectedHeader({ alg: 'HS256' })
     .setExpirationTime(env.AUTH_TOKEN_EXPIRATION)

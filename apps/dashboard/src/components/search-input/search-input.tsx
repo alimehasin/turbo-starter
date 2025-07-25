@@ -1,4 +1,9 @@
-import { InputClearButton, rem, TextInput, type TextInputProps } from '@mantine/core';
+import {
+  InputClearButton,
+  rem,
+  TextInput,
+  type TextInputProps,
+} from '@mantine/core';
 import { IconSearch } from '@tabler/icons-react';
 import { useTranslations } from 'next-intl';
 
@@ -16,12 +21,12 @@ export function SearchInput({
 
   return (
     <TextInput
-      w={260}
       leftSection={<IconSearch />}
-      rightSectionWidth={rem(40)}
+      onChange={(event) => onChange(event.target.value)}
       placeholder={placeholder || t('common.search')}
       rightSection={value && <InputClearButton onClick={() => onChange('')} />}
-      onChange={(event) => onChange(event.target.value)}
+      rightSectionWidth={rem(40)}
+      w={260}
       {...props}
     />
   );

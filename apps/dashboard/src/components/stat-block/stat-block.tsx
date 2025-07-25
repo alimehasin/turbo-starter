@@ -17,9 +17,9 @@ export function StatBlock({
   color,
 }: StatBlockProps) {
   return (
-    <Card withBorder p="sm" shadow="xs">
+    <Card p="sm" shadow="xs" withBorder>
       <Group justify="space-between" mb={5}>
-        <Text size="xs" c="gray" fw={700}>
+        <Text c="gray" fw={700} size="xs">
           {title}
         </Text>
 
@@ -30,12 +30,12 @@ export function StatBlock({
         )}
       </Group>
 
-      <Text size="xl" fw={700}>
+      <Text fw={700} size="xl">
         {value.toLocaleString()}
       </Text>
 
       {description && (
-        <Text size="sm" c="gray" mt={4}>
+        <Text c="gray" mt={4} size="sm">
           {description}
         </Text>
       )}

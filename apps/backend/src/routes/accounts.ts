@@ -11,11 +11,11 @@ export const accounts = new Elysia({ prefix: '/accounts' })
 
   .post(
     '/login',
-    async ({ t, prisma, body: { username, password } }) => {
+    async ({ translate, prisma, body: { username, password } }) => {
       const user = await prisma.user.findUnique({ where: { username } });
 
       const err = new HttpError({
-        message: t({
+        message: translate({
           en: 'Unable to login with provided credentials',
           ar: 'لا يمكن تسجيل الدخول بالبيانات المقدمة',
         }),
@@ -43,19 +43,19 @@ export const accounts = new Elysia({ prefix: '/accounts' })
         username: t.String(),
         password: t.String(),
       }),
-    },
+    }
   )
 
   .post(
     '/register',
-    async ({ t, prisma, body }) => {
+    async ({ translate, prisma, body }) => {
       const user = await prisma.user.findUnique({
         where: { username: body.username },
       });
 
       if (user) {
         throw new HttpError({
-          message: t({
+          message: translate({
             en: 'User already exists',
             ar: 'المستخدم موجود بالفعل',
           }),
@@ -80,12 +80,12 @@ export const accounts = new Elysia({ prefix: '/accounts' })
         birthDate: t.Date(),
         avatarId: t.Optional(t.String({ format: 'uuid' })),
       }),
-    },
+    }
   )
 
   .get(
     '/profile',
-    async ({ t, prisma, bearer }) => {
+    async ({ translate, prisma, bearer }) => {
       const user = await authenticate(bearer);
 
       const profile = await prisma.user.findUnique({
@@ -96,7 +96,7 @@ export const accounts = new Elysia({ prefix: '/accounts' })
       if (!profile) {
         throw new HttpError({
           statusCode: 404,
-          message: t({
+          message: translate({
             en: 'Profile not found',
             ar: 'الملف الشخصي غير موجود',
           }),
@@ -105,5 +105,5 @@ export const accounts = new Elysia({ prefix: '/accounts' })
 
       return omit(profile, ['password']);
     },
-    {},
+    {}
   );

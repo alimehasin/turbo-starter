@@ -17,7 +17,7 @@ export function groupDatesByMonth({
   reverse = true,
 }: GroupDatesByMonthParams): Result[] {
   const months = Array.from({ length: count }, (_, i) =>
-    dayjs().subtract(i, 'month').format('YYYY-MM'),
+    dayjs().subtract(i, 'month').format('YYYY-MM')
   );
 
   const data: Record<string, MonthData> = {};

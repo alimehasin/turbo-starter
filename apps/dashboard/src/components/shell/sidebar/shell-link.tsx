@@ -21,15 +21,15 @@ export function ShellLink({
 
   return (
     <NavLink
-      py={4}
-      px={6}
-      label={label}
-      href={section}
-      variant="filled"
-      component={Link}
-      onClick={toggle}
-      leftSection={icon}
       active={activeExact ? pathname === section : pathname.startsWith(section)}
+      component={Link}
+      href={section}
+      label={label}
+      leftSection={icon}
+      onClick={toggle}
+      px={6}
+      py={4}
+      variant="filled"
     />
   );
 }

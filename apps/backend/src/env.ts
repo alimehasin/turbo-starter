@@ -10,6 +10,8 @@ export const env = createEnv({
     STORAGE_BUCKET_NAME: z.string(),
     AUTH_TOKEN_EXPIRATION: z.string(),
     PORT: z.coerce.number().default(3000),
-    NODE_ENV: z.enum(['development', 'test', 'production']).default('development'),
+    NODE_ENV: z
+      .enum(['development', 'test', 'production'])
+      .default('development'),
   },
 });

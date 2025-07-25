@@ -14,7 +14,12 @@ import {
   Title,
 } from '@mantine/core';
 import { useForm } from '@mantine/form';
-import { IconKey, IconLanguage, IconLogin, IconUser } from '@tabler/icons-react';
+import {
+  IconKey,
+  IconLanguage,
+  IconLogin,
+  IconUser,
+} from '@tabler/icons-react';
 import { useMutation } from '@tanstack/react-query';
 import { useRouter } from 'next/navigation';
 import { useTranslations } from 'next-intl';
@@ -53,39 +58,39 @@ export default function Login({ locale }: { locale: string }) {
   return (
     <SimpleGrid cols={{ md: 2 }} spacing={0}>
       <Box
-        w="100%"
+        bg="var(--mantine-primary-color-filled)"
         h="100vh"
         visibleFrom="md"
-        bg="var(--mantine-primary-color-filled)"
+        w="100%"
       />
 
       <Center h="100vh">
         <Stack p="sm">
           <Title c="nature.7">{t('common.loginTitle')}</Title>
 
-          <Paper withBorder p="sm">
+          <Paper p="sm" withBorder>
             <FocusTrap>
               <form onSubmit={handleSubmit}>
                 <Stack w={{ base: '100%', md: 500 }}>
                   <TextInput
-                    required
                     autoCapitalize="off"
                     label={t('common.username')}
                     leftSection={<IconUser />}
+                    required
                     {...form.getInputProps('username')}
                   />
 
                   <PasswordInput
-                    required
                     label={t('common.password')}
                     leftSection={<IconKey />}
+                    required
                     {...form.getInputProps('password')}
                   />
 
                   <Button
-                    type="submit"
                     leftSection={<IconLogin />}
                     loading={loginMut.isPending}
+                    type="submit"
                   >
                     {t('common.login')}
                   </Button>
@@ -97,7 +102,11 @@ export default function Login({ locale }: { locale: string }) {
           <div>
             <Menu>
               <Menu.Target>
-                <Button color="gray" variant="subtle" leftSection={<IconLanguage />}>
+                <Button
+                  color="gray"
+                  leftSection={<IconLanguage />}
+                  variant="subtle"
+                >
                   {locale === 'ar' ? 'العربية' : 'English'}
                 </Button>
               </Menu.Target>

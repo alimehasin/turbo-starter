@@ -7,5 +7,8 @@
     border-right: 1px solid var(--mantine-color-gray-3);
   }
 
-  border-color: light-dark(var(--mantine-color-gray-3), var(--mantine-color-dark-4));
+  border-color: light-dark(
+    var(--mantine-color-gray-3),
+    var(--mantine-color-dark-4)
+  );
 }

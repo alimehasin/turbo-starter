@@ -17,14 +17,17 @@ const log = (params: LoggerParams) => {
 
   const method = chalk.bold.blue(params.method);
 
-  const status =
-    params.status >= 400
-      ? chalk.bold.red(params.status)
-      : params.status >= 300
-        ? chalk.bold.yellow(params.status)
-        : params.status >= 200
-          ? chalk.bold.green(params.status)
-          : chalk.bold.gray(params.status);
+  let status: string;
+
+  if (params.status >= 400) {
+    status = chalk.bold.red(params.status);
+  } else if (params.status >= 300) {
+    status = chalk.bold.yellow(params.status);
+  } else if (params.status >= 200) {
+    status = chalk.bold.green(params.status);
+  } else {
+    status = chalk.bold.gray(params.status);
+  }
 
   const path = chalk.bold.cyan(params.path);
 

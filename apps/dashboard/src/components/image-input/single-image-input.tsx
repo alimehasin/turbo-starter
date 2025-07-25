@@ -19,7 +19,7 @@ function DropzoneState({
   message: string;
 }) {
   return (
-    <Group justify="center" p="sm" h={150}>
+    <Group h={150} justify="center" p="sm">
       <ThemeIcon color={color} variant="transparent">
         {icon}
       </ThemeIcon>
@@ -39,7 +39,7 @@ export function SingleImageInput({ value, onChange }: SingleImageInputProps) {
   const n = useNotifications();
   const [loading, setLoading] = useState(false);
 
-  const handleUpload = async (files: File[]) => {
+  const handleUpload = (files: File[]) => {
     const file = files[0];
 
     if (!file) {
@@ -55,12 +55,12 @@ export function SingleImageInput({ value, onChange }: SingleImageInputProps) {
 
   return (
     <Dropzone
-      p="xs"
-      multiple={false}
-      loading={loading}
-      onDrop={handleUpload}
-      maxSize={5 * 1024 ** 2}
       accept={IMAGE_MIME_TYPE}
+      loading={loading}
+      maxSize={5 * 1024 ** 2}
+      multiple={false}
+      onDrop={handleUpload}
+      p="xs"
     >
       <Dropzone.Accept>
         <DropzoneState
@@ -80,7 +80,12 @@ export function SingleImageInput({ value, onChange }: SingleImageInputProps) {
 
       <Dropzone.Idle>
         {value ? (
-          <Image h={200} alt="Image" radius="md" src={constructImageUrl(value.key)} />
+          <Image
+            alt="Image"
+            h={200}
+            radius="md"
+            src={constructImageUrl(value.key)}
+          />
         ) : (
           <DropzoneState
             color="gray"

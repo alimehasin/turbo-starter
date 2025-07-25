@@ -10,8 +10,8 @@ export function GenderThemeIcon({ gender, ...props }: GenderThemeIconProps) {
   return (
     <Center>
       <ThemeIcon
-        variant="transparent"
         color={gender === 'Female' ? 'pink' : 'blue'}
+        variant="transparent"
         {...props}
       >
         {gender === 'Female' ? <IconGenderFemale /> : <IconGenderMale />}

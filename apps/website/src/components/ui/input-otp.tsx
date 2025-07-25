@@ -16,22 +16,25 @@ export function InputOTP({
 }) {
   return (
     <OTPInput
-      data-slot="input-otp"
+      className={cn('disabled:cursor-not-allowed', className)}
       containerClassName={cn(
         'flex items-center gap-2 has-disabled:opacity-50',
-        containerClassName,
+        containerClassName
       )}
-      className={cn('disabled:cursor-not-allowed', className)}
+      data-slot="input-otp"
       {...props}
     />
   );
 }
 
-export function InputOTPGroup({ className, ...props }: React.ComponentProps<'div'>) {
+export function InputOTPGroup({
+  className,
+  ...props
+}: React.ComponentProps<'div'>) {
   return (
     <div
-      data-slot="input-otp-group"
       className={cn('flex items-center', className)}
+      data-slot="input-otp-group"
       {...props}
     />
   );
@@ -49,18 +52,18 @@ export function InputOTPSlot({
 
   return (
     <div
-      data-slot="input-otp-slot"
-      data-active={isActive}
       className={cn(
-        'data-[active=true]:border-ring data-[active=true]:ring-ring/50 data-[active=true]:aria-invalid:ring-destructive/20 dark:data-[active=true]:aria-invalid:ring-destructive/40 aria-invalid:border-destructive data-[active=true]:aria-invalid:border-destructive dark:bg-input/30 border-input relative flex h-14 w-14 items-center justify-center border-y border-r text-lg shadow-xs transition-all outline-none first:rounded-s-md first:border-l last:rounded-e-md data-[active=true]:z-10 data-[active=true]:ring-[3px]',
-        className,
+        'relative flex h-14 w-14 items-center justify-center border-input border-y border-r text-lg shadow-xs outline-none transition-all first:rounded-s-md first:border-l last:rounded-e-md aria-invalid:border-destructive data-[active=true]:z-10 data-[active=true]:border-ring data-[active=true]:ring-[3px] data-[active=true]:ring-ring/50 data-[active=true]:aria-invalid:border-destructive data-[active=true]:aria-invalid:ring-destructive/20 dark:bg-input/30 dark:data-[active=true]:aria-invalid:ring-destructive/40',
+        className
       )}
+      data-active={isActive}
+      data-slot="input-otp-slot"
       {...props}
     >
       {char}
       {hasFakeCaret && (
         <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
-          <div className="animate-caret-blink bg-foreground h-4 w-px duration-1000" />
+          <div className="h-4 w-px animate-caret-blink bg-foreground duration-1000" />
         </div>
       )}
     </div>

@@ -32,5 +32,5 @@ export const app = new Elysia()
   .use(files)
 
   .listen(env.PORT, ({ url }) => {
-    console.log(`🚀 Server is running at ${chalk.green(url)}`);
+    console.info(`🚀 Server is running at ${chalk.green(url)}`);
   });

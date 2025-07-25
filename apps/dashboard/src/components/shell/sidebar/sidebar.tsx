@@ -9,13 +9,13 @@ export function Sidebar({ toggle }: { toggle: () => void }) {
   const t = useTranslations();
 
   return (
-    <Stack gap={4} p="xs" h="100%">
+    <Stack gap={4} h="100%" p="xs">
       <ShellLink
-        section="/"
         activeExact
-        toggle={toggle}
-        label={t('sidebar.home')}
         icon={<IconHome size={18} />}
+        label={t('sidebar.home')}
+        section="/"
+        toggle={toggle}
       />
     </Stack>
   );

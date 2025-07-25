@@ -3,8 +3,8 @@ import { copyEnvFile, getRootDirName, searchEnvExampleFiles } from './helpers';
 
 const exampleEnvFilesPaths = searchEnvExampleFiles('.', 0, 3);
 
-for (const exampleEnvFilePath of exampleEnvFilesPaths) {
-  await copyEnvFile(exampleEnvFilePath, [
+const promises = exampleEnvFilesPaths.map((exampleEnvFilePath) => {
+  return copyEnvFile(exampleEnvFilePath, [
     { old: 'PROJECT-NAME', new: getRootDirName() },
     { old: 'NODE-ENV', new: answers.nodeEnv },
 
@@ -29,4 +29,6 @@ for (const exampleEnvFilePath of exampleEnvFilesPaths) {
     { old: 'STORAGE-SECRET-KEY', new: answers.storageSecretKey },
     { old: 'STORAGE-BUCKET-NAME', new: answers.storageBucketName },
   ]);
-}
+});
+
+await Promise.all(promises);

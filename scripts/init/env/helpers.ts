@@ -1,11 +1,12 @@
 import { randomBytes } from 'node:crypto';
 import { readdirSync, statSync } from 'node:fs';
 import path, { join } from 'node:path';
+import Bun from 'bun';
 
 export function searchEnvExampleFiles(
   dir: string,
   depth: number,
-  maxDepth: number,
+  maxDepth: number
 ): string[] {
   if (depth > maxDepth) {
     return [];
@@ -37,10 +38,10 @@ export function generateSecretKey(length = 16): string {
 }
 
 export async function copyEnvFile(
-  path: string,
-  secrets: { old: string; new: string }[],
+  filePath: string,
+  secrets: { old: string; new: string }[]
 ) {
-  const srcFile = await Bun.file(path).text();
+  const srcFile = await Bun.file(filePath).text();
 
   let updatedContent = srcFile;
 
@@ -49,7 +50,7 @@ export async function copyEnvFile(
     updatedContent = updatedContent.replace(regex, newValue);
   }
 
-  const dstFile = Bun.file(path.replace('.example', ''));
+  const dstFile = Bun.file(filePath.replace('.example', ''));
   await Bun.write(dstFile, updatedContent);
 }
 

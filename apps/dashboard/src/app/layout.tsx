@@ -30,7 +30,7 @@ export default async function RootLayout({
         <NextIntlProvider>
           <TrpcProvider>
             <DayjsProvider locale={locale}>
-              <MantineProviders locale={locale} initialDirection={dir}>
+              <MantineProviders initialDirection={dir} locale={locale}>
                 {children}
               </MantineProviders>
             </DayjsProvider>

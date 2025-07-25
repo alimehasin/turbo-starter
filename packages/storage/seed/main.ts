@@ -1,28 +1,30 @@
 import { readdir } from 'node:fs/promises';
+import Bun from 'bun';
 import { env } from '@/env';
 import { uploadImage } from '@/helpers';
 
 const paths = ['./seed/assets/avatars'];
 
-for (const path of paths) {
+// Process all paths concurrently
+const allPromises = paths.map(async (path) => {
   const filesNames = await readdir(path);
 
-  const promises = [];
-  for (const fileName of filesNames) {
+  // Process all files in this directory concurrently
+  const filePromises = filesNames.map(async (fileName) => {
     const bunFile = Bun.file(`${path}/${fileName}`);
     const arrayBuffer = await bunFile.arrayBuffer();
     const buffer = Buffer.from(arrayBuffer);
     const file = new File([buffer], fileName);
 
-    const promise = uploadImage({
+    return uploadImage({
       file,
       isPublic: true,
       useNameAsKey: true,
       bucketName: env.STORAGE_BUCKET_NAME,
     });
+  });
 
-    promises.push(promise);
-  }
+  return Promise.all(filePromises);
+});
 
-  await Promise.all(promises);
-}
+await Promise.all(allPromises);

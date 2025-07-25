@@ -29,13 +29,13 @@ export function useModals() {
           <Stack>
             <div>
               <Text span>{t('common.areYouSureAboutThisAction')} </Text>
-              <Text span bg="yellow.5">
+              <Text bg="yellow.5" span>
                 {t('common.actionCannotBeUndone')}
               </Text>
             </div>
 
             <Group grow>
-              <Button variant="default" onClick={() => modals.close(modalId)}>
+              <Button onClick={() => modals.close(modalId)} variant="default">
                 {t('common.cancel')}
               </Button>
 

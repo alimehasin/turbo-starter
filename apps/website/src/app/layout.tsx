@@ -24,7 +24,7 @@ export default async function RootLayout({
 
   return (
     <html dir={dir} lang={locale} suppressHydrationWarning>
-      <body className="min-h-screen flex flex-col">
+      <body className="flex min-h-screen flex-col">
         <TrpcProvider>
           <NextIntlProvider>
             <DirectionProvider dir={dir}>

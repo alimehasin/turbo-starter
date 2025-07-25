@@ -1,4 +1,4 @@
-import * as path from 'node:path';
+import path from 'node:path';
 import { DeleteObjectsCommand, PutObjectCommand } from '@aws-sdk/client-s3';
 import sharp from 'sharp';
 import { storage } from './client';
@@ -18,7 +18,7 @@ export async function uploadObject(
   file: Buffer,
   contentType: string,
   fileSize: number,
-  isPublic: boolean,
+  isPublic: boolean
 ): Promise<void> {
   const command = new PutObjectCommand({
     Bucket: bucketName,
@@ -71,7 +71,7 @@ export async function uploadImage({
 
   await uploadObject(bucketName, key, buffer, f.type, f.size, isPublic);
 
-  return { key: key, size: f.size };
+  return { key, size: f.size };
 }
 
 export async function uploadVideo({

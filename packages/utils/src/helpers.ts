@@ -3,7 +3,10 @@ import parse from 'libphonenumber-js';
 
 type OmitFields<T, K extends keyof T> = Pick<T, Exclude<keyof T, K>>;
 
-export function omit<T, K extends keyof T>(obj: T, fields: K[]): OmitFields<T, K> {
+export function omit<T, K extends keyof T>(
+  obj: T,
+  fields: K[]
+): OmitFields<T, K> {
   const result = {} as OmitFields<T, K>;
 
   for (const key in obj) {
@@ -18,7 +21,7 @@ export function omit<T, K extends keyof T>(obj: T, fields: K[]): OmitFields<T, K
 export function formatPhoneNumber(pn: string): string {
   const phoneNumber = parse(pn, 'IQ');
 
-  if (!phoneNumber || !phoneNumber.isValid()) {
+  if (!phoneNumber?.isValid()) {
     return pn;
   }
 
@@ -28,7 +31,7 @@ export function formatPhoneNumber(pn: string): string {
 export function formatPhoneNumberWA(pn: string): string {
   const phoneNumber = parse(pn, 'IQ');
 
-  if (!phoneNumber || !phoneNumber.isValid()) {
+  if (!phoneNumber?.isValid()) {
     return '';
   }
 
@@ -64,9 +67,12 @@ export function parsePaginationProps(p?: { page: number; pageSize: number }): {
   };
 }
 
-export function parseSortingProps(sorting?: { column: string; direction: unknown }) {
+export function parseSortingProps(sorting?: {
+  column: string;
+  direction: unknown;
+}) {
   if (!sorting) {
-    return undefined;
+    return;
   }
 
   const children = sorting.column.split('.');

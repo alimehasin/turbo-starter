@@ -37,11 +37,11 @@ export function useDataTable({
   const t = useTranslations();
 
   const [pagination, setPagination] = useSetState<Pagination>(
-    defaultPagination ?? { page: 1, pageSize: DEFAULT_PAGE_SIZE },
+    defaultPagination ?? { page: 1, pageSize: DEFAULT_PAGE_SIZE }
   );
 
   const [sorting, setSorting] = useSetState<Sorting>(
-    defaultSorting ?? { column: 'createdAt', direction: 'desc' },
+    defaultSorting ?? { column: 'createdAt', direction: 'desc' }
   );
 
   const [dtSorting, setDtSorting] = useSetState<DataTableSortStatus>({
@@ -94,7 +94,9 @@ export function useDataTable({
       props = {
         ...props,
         sortStatus: dtSorting,
-        onSortStatusChange: handleSetDtSorting as (s: DataTableSortStatus<T>) => void,
+        onSortStatusChange: handleSetDtSorting as (
+          s: DataTableSortStatus<T>
+        ) => void,
       };
     }
 

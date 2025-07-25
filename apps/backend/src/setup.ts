@@ -15,7 +15,7 @@ export const setup = new Elysia({ name: 'setup' })
     const lang = headers['accept-language']?.split(',')[0] || 'en';
 
     return {
-      t: ({ en, ar }: { en: string; ar: string }) => {
+      translate: ({ en, ar }: { en: string; ar: string }) => {
         return lang === 'ar' ? ar : en;
       },
     };

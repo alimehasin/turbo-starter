@@ -11,7 +11,7 @@ export const files = new Elysia({ prefix: '/files' })
 
   .post(
     '/upload',
-    async ({ bearer, body, prisma, t }) => {
+    async ({ bearer, body, prisma, translate }) => {
       const user = await authenticate(bearer);
       const isPublic = body.isPublic === 'true';
 
@@ -52,7 +52,7 @@ export const files = new Elysia({ prefix: '/files' })
       }
 
       throw new HttpError({
-        message: t({
+        message: translate({
           en: 'Invalid file type',
           ar: 'نوع الملف غير صالح',
         }),
@@ -64,5 +64,5 @@ export const files = new Elysia({ prefix: '/files' })
         type: t.Enum(FileType),
         isPublic: t.Union([t.Literal('true'), t.Literal('false')]),
       }),
-    },
+    }
   );

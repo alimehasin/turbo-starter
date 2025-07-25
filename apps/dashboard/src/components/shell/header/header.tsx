@@ -14,16 +14,22 @@ export function Logo() {
   );
 }
 
-export function Header({ opened, toggle }: { opened: boolean; toggle: () => void }) {
+export function Header({
+  opened,
+  toggle,
+}: {
+  opened: boolean;
+  toggle: () => void;
+}) {
   return (
     <>
       <Group h="100%" hiddenFrom="md">
-        <Burger mx="md" size="sm" opened={opened} onClick={toggle} />
+        <Burger mx="md" onClick={toggle} opened={opened} size="sm" />
         <Logo />
       </Group>
 
       <Group h="100%" justify="space-between" visibleFrom="md">
-        <Box h="100%" w={SIDEBAR_WIDTH} className={cls.logo}>
+        <Box className={cls.logo} h="100%" w={SIDEBAR_WIDTH}>
           <Logo />
         </Box>
 

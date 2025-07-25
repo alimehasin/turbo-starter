@@ -6,9 +6,9 @@ export function EditButton({ onClick }: { onClick?: () => void }) {
 
   return (
     <ActionIcon
-      variant="subtle"
-      onClick={onClick}
       color={cs === 'light' ? 'gray.7' : 'dark.3'}
+      onClick={onClick}
+      variant="subtle"
     >
       <IconPencil />
     </ActionIcon>

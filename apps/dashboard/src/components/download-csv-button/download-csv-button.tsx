@@ -36,7 +36,7 @@ export function DownloadCsvButton<T, U>({
 
   return (
     <>
-      <Modal opened={opened} onClose={close}>
+      <Modal onClose={close} opened={opened}>
         <Stack>
           <Group wrap="nowrap">
             <ThemeIcon size={96} variant="light">
@@ -63,8 +63,8 @@ export function DownloadCsvButton<T, U>({
         </Stack>
       </Modal>
 
-      <Tooltip withArrow label={t('downloadCsvButton.tooltip')}>
-        <ActionIcon size={36} onClick={open} variant="default">
+      <Tooltip label={t('downloadCsvButton.tooltip')} withArrow>
+        <ActionIcon onClick={open} size={36} variant="default">
           <IconFileDownload />
         </ActionIcon>
       </Tooltip>

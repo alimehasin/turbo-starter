@@ -1,6 +1,12 @@
 'use client';
 
-import { Button, Menu, MenuDropdown, MenuItem, MenuTarget } from '@mantine/core';
+import {
+  Button,
+  Menu,
+  MenuDropdown,
+  MenuItem,
+  MenuTarget,
+} from '@mantine/core';
 import { IconLanguage } from '@tabler/icons-react';
 import { useTranslations } from 'next-intl';
 import { setLocale } from '@/server/actions/locale';
@@ -11,7 +17,7 @@ export function LangButton() {
   return (
     <Menu withArrow>
       <MenuTarget>
-        <Button color="gray" variant="subtle" leftSection={<IconLanguage />}>
+        <Button color="gray" leftSection={<IconLanguage />} variant="subtle">
           {t('common.language')}
         </Button>
       </MenuTarget>

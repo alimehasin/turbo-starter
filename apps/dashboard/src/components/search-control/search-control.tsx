@@ -20,11 +20,11 @@ export function SearchControl({ className, ...others }: SearchControlProps) {
       <Group gap="xs">
         <IconSearch />
 
-        <Text fz="sm" c="dimmed" className={cls.searchText}>
+        <Text c="dimmed" className={cls.searchText} fz="sm">
           {t('common.search')}
         </Text>
 
-        <Text fw={700} className={cls.shortcut}>
+        <Text className={cls.shortcut} fw={700}>
           Ctrl + K
         </Text>
       </Group>

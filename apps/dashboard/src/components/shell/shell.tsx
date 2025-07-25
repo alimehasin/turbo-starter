@@ -16,13 +16,13 @@ export function Shell({ children }: { children: React.ReactNode }) {
 
   return (
     <AppShell
-      padding={{ base: 'xs', md: 'md' }}
       header={{ height: HEADER_HEIGHT }}
       navbar={{
         breakpoint: 'md',
         width: SIDEBAR_WIDTH,
         collapsed: { mobile: !opened },
       }}
+      padding={{ base: 'xs', md: 'md' }}
     >
       <AppShellHeader>
         <Header opened={opened} toggle={toggle} />

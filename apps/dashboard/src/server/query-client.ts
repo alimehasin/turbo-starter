@@ -1,6 +1,9 @@
 import { createFormActions } from '@mantine/form';
 import { showNotification } from '@mantine/notifications';
-import { defaultShouldDehydrateQuery, QueryClient } from '@tanstack/react-query';
+import {
+  defaultShouldDehydrateQuery,
+  QueryClient,
+} from '@tanstack/react-query';
 import { TRPCClientError } from '@trpc/client';
 import superjson from 'superjson';
 import { ZodError, z } from 'zod';
@@ -42,7 +45,8 @@ export const createQueryClient = () => {
       dehydrate: {
         serializeData: superjson.serialize,
         shouldDehydrateQuery: (query) =>
-          defaultShouldDehydrateQuery(query) || query.state.status === 'pending',
+          defaultShouldDehydrateQuery(query) ||
+          query.state.status === 'pending',
       },
     },
   });

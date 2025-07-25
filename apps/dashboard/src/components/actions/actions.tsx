@@ -5,7 +5,10 @@ import { IconDots } from '@tabler/icons-react';
 
 export function Actions({ children }: { children: React.ReactNode }) {
   return (
-    <div onKeyDown={(e) => e.stopPropagation()} onClick={(e) => e.stopPropagation()}>
+    <div
+      onClick={(e) => e.stopPropagation()}
+      onKeyDown={(e) => e.stopPropagation()}
+    >
       <Menu withArrow>
         <Menu.Target>
           <Center>

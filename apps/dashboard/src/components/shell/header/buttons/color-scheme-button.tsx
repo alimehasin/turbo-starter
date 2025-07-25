@@ -10,7 +10,12 @@ export function ColorSchemeButton() {
   useHotkeys([['mod+J', () => toggleColorScheme()]]);
 
   return (
-    <ActionIcon color="gray" variant="subtle" onClick={toggleColorScheme} size={36}>
+    <ActionIcon
+      color="gray"
+      onClick={toggleColorScheme}
+      size={36}
+      variant="subtle"
+    >
       {colorScheme === 'light' ? <IconMoon /> : <IconSun />}
     </ActionIcon>
   );

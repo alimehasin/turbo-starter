@@ -17,7 +17,9 @@ export const env = createEnv({
     JWT_SECRET_KEY: z.string(),
     STORAGE_BUCKET_NAME: z.string(),
     AUTH_TOKEN_EXPIRATION: z.string(),
-    NODE_ENV: z.enum(['development', 'test', 'production']).default('development'),
+    NODE_ENV: z
+      .enum(['development', 'test', 'production'])
+      .default('development'),
   },
 
   client: {

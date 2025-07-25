@@ -6,7 +6,7 @@ export async function seedRootAdmin(prisma: PrismaClient) {
   const username = env.ROOT_USERNAME;
   const password = env.ROOT_PASSWORD;
 
-  if (!username || !password) {
+  if (!(username && password)) {
     throw new Error('ROOT_USERNAME and ROOT_PASSWORD must be set');
   }
 

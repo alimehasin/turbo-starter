@@ -10,13 +10,13 @@
     "seed": "bun run seed/main.ts"
   },
   "dependencies": {
-    "@aws-sdk/client-s3": "^3.848.0",
+    "@aws-sdk/client-s3": "^3.857.0",
     "@t3-oss/env-core": "^0.13.8",
     "sharp": "^0.34.3",
-    "zod": "^4.0.5"
+    "zod": "^4.0.14"
   },
   "devDependencies": {
     "@repo/tsconfig": "workspace:*",
-    "@types/bun": "^1.2.18"
+    "@types/bun": "^1.2.19"
   }
 }

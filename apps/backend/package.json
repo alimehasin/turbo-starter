@@ -2,7 +2,6 @@
   "name": "@repo/backend",
   "private": true,
   "version": "0.0.0",
-  "type": "module",
   "scripts": {
     "dev": "bun run --watch src/server.ts",
     "start": "bun run src/server.ts",

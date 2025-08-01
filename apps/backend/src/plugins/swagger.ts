@@ -8,5 +8,16 @@ export const swagger =
     : elysiaSwagger({
         path: '/docs',
         autoDarkMode: true,
-        documentation: { tags: [] },
+        documentation: {
+          tags: [],
+          components: {
+            securitySchemes: {
+              'Bearer Auth': {
+                type: 'http',
+                scheme: 'bearer',
+                bearerFormat: 'JWT',
+              },
+            },
+          },
+        },
       });

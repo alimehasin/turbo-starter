@@ -15,6 +15,7 @@ export function Toaster({ ...props }: ToasterProps) {
           '--normal-bg': 'var(--popover)',
           '--normal-text': 'var(--popover-foreground)',
           '--normal-border': 'var(--border)',
+          fontFamily: 'var(--font-rubik), system-ui, sans-serif',
         } as React.CSSProperties
       }
       {...props}

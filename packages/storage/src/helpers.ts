@@ -39,7 +39,7 @@ async function compressImage(imageFile: File, fileName: string): Promise<File> {
     .webp({ quality: 80 })
     .toBuffer();
 
-  return new File([webpBuffer], fileName, {
+  return new File([new Uint8Array(webpBuffer)], fileName, {
     type: 'image/webp',
   });
 }

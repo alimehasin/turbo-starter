@@ -7,7 +7,7 @@ import type { FileObject } from '@repo/utils/types';
 import { IconPhoto, IconUpload, IconX } from '@tabler/icons-react';
 import { useTranslations } from 'next-intl';
 import { useState } from 'react';
-import { useNotifications } from '@/hooks';
+import { useNotifications } from '@/hooks/use-notifications';
 import { uploadImageAction } from '@/server/actions/storage';
 import { constructImageUrl } from '@/utils/helpers';
 import { DropzoneState } from './dropzone-state';

@@ -7,7 +7,7 @@ import type { FileObject } from '@repo/utils/types';
 import { IconUpload } from '@tabler/icons-react';
 import { useTranslations } from 'next-intl';
 import { useState } from 'react';
-import { useNotifications } from '@/hooks';
+import { useNotifications } from '@/hooks/use-notifications';
 import { uploadImageAction } from '@/server/actions/storage';
 import { Preview } from './preview';
 

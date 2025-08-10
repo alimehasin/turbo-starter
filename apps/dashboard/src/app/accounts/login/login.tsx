@@ -68,7 +68,6 @@ export default function Login({ locale }: { locale: string }) {
               <form onSubmit={handleSubmit}>
                 <Stack w={{ base: '100%', md: 500 }}>
                   <TextInput
-                    required
                     autoCapitalize="off"
                     label={t('common.username')}
                     leftSection={<IconUser />}
@@ -76,7 +75,6 @@ export default function Login({ locale }: { locale: string }) {
                   />
 
                   <PasswordInput
-                    required
                     label={t('common.password')}
                     leftSection={<IconKey />}
                     {...form.getInputProps('password')}

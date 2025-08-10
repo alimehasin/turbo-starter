@@ -72,7 +72,7 @@ export function useDataTable({
       withTableBorder: true,
       withColumnBorders: true,
       fetching: query?.isLoading,
-      minHeight: query?.data?.data?.length ? undefined : 200,
+      minHeight: query?.data?.data?.length ? undefined : 250,
       records: query.data?.data ?? [],
       columns,
     };

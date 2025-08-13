@@ -1,0 +1,9 @@
+.root {
+  color: var(--mantine-color-gray-9);
+  font-size: var(--mantine-font-size-sm);
+
+  @mixin rtl {
+    direction: ltr;
+    text-align: right;
+  }
+}

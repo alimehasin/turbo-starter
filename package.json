@@ -31,11 +31,11 @@
     "prepare": "husky"
   },
   "devDependencies": {
-    "@biomejs/biome": "2.1.4",
+    "@biomejs/biome": "2.2.0",
     "@changesets/cli": "^2.29.5",
     "@commitlint/cli": "^19.8.1",
     "@commitlint/config-conventional": "^19.8.1",
-    "@inquirer/prompts": "^7.8.1",
+    "@inquirer/prompts": "^7.8.2",
     "husky": "^9.1.7",
     "lint-staged": "^16.1.5",
     "turbo": "^2.5.5",

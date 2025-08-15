@@ -15,7 +15,7 @@
     "@mantine/core": "^8.2.4",
     "@tabler/icons-react": "^3.34.1",
     "dayjs": "^1.11.13",
-    "libphonenumber-js": "^1.12.10"
+    "libphonenumber-js": "^1.12.12"
   },
   "devDependencies": {
     "@repo/tsconfig": "workspace:*",

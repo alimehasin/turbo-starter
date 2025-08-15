@@ -1,16 +1,22 @@
 {
-  "$schema": "https://biomejs.dev/schemas/2.1.4/schema.json",
-  "assist": { "actions": { "source": { "organizeImports": "on" } } },
+  "$schema": "https://biomejs.dev/schemas/2.2.0/schema.json",
+  "assist": {
+    "actions": {
+      "source": {
+        "organizeImports": "on"
+      }
+    }
+  },
 
   "files": {
     "includes": [
       "**",
       "!**/tailwind.config.ts",
       "!**/bindings.ts",
-      "!**/node_modules/**",
-      "!**/.turbo/**",
-      "!**/.next/**",
-      "!**/dist/**"
+      "!**/node_modules",
+      "!**/.turbo",
+      "!**/.next",
+      "!**/dist"
     ]
   },
 
@@ -37,10 +43,13 @@
       "recommended": true,
       "nursery": {},
       "security": {},
-      "complexity": {},
+      "complexity": {
+        "noImportantStyles": "off"
+      },
       "performance": {},
       "suspicious": {
-        "noDuplicateProperties": "off"
+        "noDuplicateProperties": "off",
+        "noUnknownAtRules": "off"
       },
       "a11y": {
         "useSemanticElements": "off",

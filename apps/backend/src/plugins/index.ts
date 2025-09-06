@@ -1,4 +1,4 @@
 export * from './cors';
 export * from './crons';
 export * from './logger';
-export * from './swagger';
+export * from './openapi';

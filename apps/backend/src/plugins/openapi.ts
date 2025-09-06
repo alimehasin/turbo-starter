@@ -1,13 +1,14 @@
-import { swagger as elysiaSwagger } from '@elysiajs/swagger';
+import { openapi as elysiaOpenapi } from '@elysiajs/openapi';
+import { fromTypes } from '@elysiajs/openapi/gen';
 import { Elysia } from 'elysia';
 import { env } from '@/env';
 
-export const swagger =
+export const openapi =
   env.NODE_ENV !== 'development'
     ? new Elysia({})
-    : elysiaSwagger({
+    : elysiaOpenapi({
+        references: fromTypes('src/server.ts'),
         path: '/docs',
-        autoDarkMode: true,
         documentation: {
           tags: [],
           components: {

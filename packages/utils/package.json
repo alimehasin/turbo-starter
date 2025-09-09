@@ -12,7 +12,7 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@mantine/core": "^8.2.8",
+    "@mantine/core": "^8.3.0",
     "@tabler/icons-react": "^3.34.1",
     "dayjs": "^1.11.18",
     "libphonenumber-js": "^1.12.15"

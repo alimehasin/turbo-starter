@@ -18,6 +18,12 @@ export const files = new Elysia({ prefix: "/files" })
   .use(betterAuth)
   .guard({ mustBeAuthed: true })
 
+  .get("/", async ({ user }) => {
+    return prisma.file.findMany({
+      where: { userId: user.id },
+    });
+  })
+
   .post(
     "/upload",
     async ({ t, user, body }) => {

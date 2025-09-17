@@ -11,8 +11,4 @@ export const app = new Elysia()
   // Routes
   .use(routes)
 
-  .get("/", {
-    message: "Made with ❤️ by Ali Mehasin, for docs checkout /docs",
-  })
-
   .listen(env.PORT);

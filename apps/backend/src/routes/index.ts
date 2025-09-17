@@ -1,7 +1,9 @@
 import Elysia from "elysia";
-import { files } from "./files";
+import { admin } from "./admin";
+import { user } from "./user";
 
 export const routes = new Elysia()
 
   // Routes
-  .use(files);
+  .use(admin)
+  .use(user);

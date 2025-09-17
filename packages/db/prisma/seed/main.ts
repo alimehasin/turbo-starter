@@ -1,11 +1,8 @@
 import { PrismaClient } from "@prisma/client";
-import { seedPosts } from "./tables/posts";
 
 const prisma = new PrismaClient();
 
-async function main() {
-  await seedPosts();
-}
+async function main() {}
 
 await main()
   .then(async () => {

@@ -1,6 +1,26 @@
-export * from "./cors";
-export * from "./crons";
-export * from "./helmet";
-export * from "./logger";
-export * from "./openapi";
-export * from "./rate-limit";
+import { Elysia } from "elysia";
+import { betterAuth } from "./better-auth";
+import { cors } from "./cors";
+import { crons } from "./crons";
+import { errorHandler } from "./error-handler";
+import { helmet } from "./helmet";
+import { logger } from "./logger";
+import { openapi } from "./openapi";
+import { rateLimit } from "./rate-limit";
+
+// Global Plugins should be used in server.ts
+export const plugins = new Elysia({ name: "plugins" })
+  .use(cors)
+  .use(crons)
+  .use(helmet)
+  .use(logger)
+  .use(openapi)
+  .use(rateLimit)
+  .use(betterAuth)
+  .use(errorHandler);
+
+// Plugins should be used in routes for type inference
+export const alwaysAuthedPlugin = new Elysia({ name: "always-authed-plugin" })
+  .use(betterAuth)
+  .guard({ auth: true })
+  .as("scoped");

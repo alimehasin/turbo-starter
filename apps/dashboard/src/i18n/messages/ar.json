@@ -8,8 +8,6 @@
     "recordsPerPageLabel": "عدد السجلات في الصفحة"
   },
   "sidebar": {
-    "articles": "المقالات",
-    "home": "الرئيسية",
-    "posts": "المنشورات"
+    "home": "الرئيسية"
   }
 }

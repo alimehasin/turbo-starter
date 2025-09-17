@@ -1,5 +1,5 @@
 import { Stack, Text } from "@mantine/core";
-import { IconArticle, IconHome } from "@tabler/icons-react";
+import { IconHome } from "@tabler/icons-react";
 import { useTranslations } from "next-intl";
 import { ShellLink } from "./shell-link";
 
@@ -15,16 +15,6 @@ export function Sidebar() {
           label: t("sidebar.home"),
           path: "/",
           activeExact: true,
-        },
-      ],
-    },
-    {
-      label: t("sidebar.articles"),
-      links: [
-        {
-          icon: IconArticle,
-          label: t("sidebar.posts"),
-          path: "/posts",
         },
       ],
     },

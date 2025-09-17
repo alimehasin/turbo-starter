@@ -1,3 +1,6 @@
+-- CreateEnum
+CREATE TYPE "public"."FileType" AS ENUM ('Image', 'Video', 'Other');
+
 -- CreateTable
 CREATE TABLE "public"."user" (
     "id" TEXT NOT NULL,
@@ -22,12 +25,12 @@ CREATE TABLE "public"."session" (
     "id" TEXT NOT NULL,
     "token" TEXT NOT NULL,
     "expiresAt" TIMESTAMP(3) NOT NULL,
+    "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    "updatedAt" TIMESTAMP(3) NOT NULL,
     "ipAddress" TEXT,
     "userAgent" TEXT,
     "userId" TEXT NOT NULL,
     "impersonatedBy" TEXT,
-    "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    "updatedAt" TIMESTAMP(3) NOT NULL,
 
     CONSTRAINT "session_pkey" PRIMARY KEY ("id")
 );
@@ -64,15 +67,17 @@ CREATE TABLE "public"."verification" (
 );
 
 -- CreateTable
-CREATE TABLE "public"."posts" (
+CREATE TABLE "public"."File" (
     "id" TEXT NOT NULL,
-    "serialNumber" SERIAL NOT NULL,
-    "title" TEXT NOT NULL,
-    "content" TEXT NOT NULL,
+    "key" TEXT NOT NULL,
+    "size" INTEGER NOT NULL,
+    "type" "public"."FileType" NOT NULL,
+    "isPublic" BOOLEAN NOT NULL DEFAULT false,
+    "userId" TEXT NOT NULL,
     "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updatedAt" TIMESTAMP(3) NOT NULL,
 
-    CONSTRAINT "posts_pkey" PRIMARY KEY ("id")
+    CONSTRAINT "File_pkey" PRIMARY KEY ("id")
 );
 
 -- CreateIndex
@@ -85,10 +90,13 @@ CREATE UNIQUE INDEX "user_phoneNumber_key" ON "public"."user"("phoneNumber");
 CREATE UNIQUE INDEX "session_token_key" ON "public"."session"("token");
 
 -- CreateIndex
-CREATE UNIQUE INDEX "posts_serialNumber_key" ON "public"."posts"("serialNumber");
+CREATE UNIQUE INDEX "File_key_key" ON "public"."File"("key");
 
 -- AddForeignKey
 ALTER TABLE "public"."session" ADD CONSTRAINT "session_userId_fkey" FOREIGN KEY ("userId") REFERENCES "public"."user"("id") ON DELETE CASCADE ON UPDATE CASCADE;
 
 -- AddForeignKey
 ALTER TABLE "public"."account" ADD CONSTRAINT "account_userId_fkey" FOREIGN KEY ("userId") REFERENCES "public"."user"("id") ON DELETE CASCADE ON UPDATE CASCADE;
+
+-- AddForeignKey
+ALTER TABLE "public"."File" ADD CONSTRAINT "File_userId_fkey" FOREIGN KEY ("userId") REFERENCES "public"."user"("id") ON DELETE RESTRICT ON UPDATE CASCADE;

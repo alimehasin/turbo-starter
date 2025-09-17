@@ -8,8 +8,6 @@
     "recordsPerPageLabel": "Records per page"
   },
   "sidebar": {
-    "articles": "Articles",
-    "home": "Home",
-    "posts": "Posts"
+    "home": "Home"
   }
 }

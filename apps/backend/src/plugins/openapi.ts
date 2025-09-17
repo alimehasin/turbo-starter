@@ -8,7 +8,9 @@ const { components, paths } = await auth.api.generateOpenAPISchema();
 const transformedPaths: Record<string, Record<string, unknown>> = {};
 for (const path of Object.keys(paths)) {
   const pathData = paths[path];
-  if (!pathData) continue;
+  if (!pathData) {
+    continue;
+  }
 
   const key = `/auth${path}`;
   transformedPaths[key] = pathData as Record<string, unknown>;
@@ -24,7 +26,7 @@ for (const path of Object.keys(paths)) {
 export const openapi = elysiaOpenapi({
   path: "/docs",
   enabled: env.NODE_ENV === "development",
-  references: fromTypes("src/main.ts"),
+  references: fromTypes("src/server.ts"),
 
   documentation: {
     tags: [],

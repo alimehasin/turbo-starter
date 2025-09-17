@@ -1,7 +1,7 @@
 import Elysia from "elysia";
-import { posts } from "./posts";
+import { files } from "./files";
 
 export const routes = new Elysia()
 
   // Routes
-  .use(posts);
+  .use(files);

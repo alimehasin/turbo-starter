@@ -1,3 +1,4 @@
+
 generator client {
   provider = "prisma-client-js"
 }
@@ -5,6 +6,12 @@ generator client {
 datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
+}
+
+enum FileType {
+  Image
+  Video
+  Other
 }
 
 model User {
@@ -27,6 +34,9 @@ model User {
   banReason  String?
   banExpires DateTime?
 
+  // Backrefs
+  files File[]
+
   @@unique([email])
   @@unique([phoneNumber])
   @@map("user")
@@ -35,8 +45,11 @@ model User {
 model Session {
   id String @id @default(uuid())
 
-  token     String
+  token String
+
   expiresAt DateTime
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 
   ipAddress String?
   userAgent String?
@@ -45,10 +58,6 @@ model Session {
   user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
 
   impersonatedBy String?
-
-  // Metadata
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
 
   @@unique([token])
   @@map("session")
@@ -94,17 +103,18 @@ model Verification {
   @@map("verification")
 }
 
-model Post {
+model File {
   id String @id @default(uuid())
 
-  serialNumber Int @unique @default(autoincrement())
+  key      String   @unique
+  size     Int
+  type     FileType
+  isPublic Boolean  @default(false)
 
-  title   String
-  content String
+  userId String
+  user   User   @relation(fields: [userId], references: [id])
 
   // Metadata
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
-
-  @@map("posts")
 }

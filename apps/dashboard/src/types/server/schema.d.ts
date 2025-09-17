@@ -36,22 +36,6 @@ export interface paths {
     patch?: never;
     trace?: never;
   };
-  "/posts/": {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    get: operations["getPosts"];
-    put?: never;
-    post?: never;
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
   "/auth/sign-in/social": {
     parameters: {
       query?: never;
@@ -4507,59 +4491,6 @@ export interface operations {
     };
     requestBody?: never;
     responses: never;
-  };
-  getPosts: {
-    parameters: {
-      query: {
-        page: number;
-        pageSize: number;
-        sortingColumn: string;
-        sortingDirection: "asc" | "desc";
-      };
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      /** @description Response for status 200 */
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          "application/json": {
-            total: number;
-            data: {
-              id: string;
-              createdAt: Record<string, never>;
-              updatedAt: Record<string, never>;
-              serialNumber: number;
-              title: string;
-              content: string;
-            }[];
-          };
-        };
-      };
-      /** @description Response for status 422 */
-      422: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          "application/json": {
-            /** @constant */
-            type: "validation";
-            on: string;
-            summary?: string;
-            message?: string;
-            found?: unknown;
-            property?: string;
-            expected?: string;
-          };
-        };
-      };
-    };
   };
   socialSignIn: {
     parameters: {

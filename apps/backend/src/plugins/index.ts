@@ -8,7 +8,6 @@ import { logger } from "./logger";
 import { openapi } from "./openapi";
 import { rateLimit } from "./rate-limit";
 
-// Global Plugins should be used in server.ts
 export const plugins = new Elysia({ name: "plugins" })
   .use(cors)
   .use(crons)

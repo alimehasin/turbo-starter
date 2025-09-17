@@ -11,7 +11,7 @@ export interface paths {
       path?: never;
       cookie?: never;
     };
-    get: operations["getIndex"];
+    get?: never;
     put?: never;
     post?: never;
     delete?: never;
@@ -32,6 +32,54 @@ export interface paths {
     post?: never;
     delete?: never;
     options: operations["options*"];
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/user/files/": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    get: operations["getUserFiles"];
+    put?: never;
+    post?: never;
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/user/files/upload": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    get?: never;
+    put?: never;
+    post: operations["postUserFilesUpload"];
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/user/files/{id}": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    get?: never;
+    put?: never;
+    post?: never;
+    delete: operations["deleteUserFilesById"];
+    options?: never;
     head?: never;
     patch?: never;
     trace?: never;
@@ -4449,29 +4497,6 @@ export interface components {
 }
 export type $defs = Record<string, never>;
 export interface operations {
-  getIndex: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      /** @description Response for status 200 */
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          "application/json": {
-            /** @constant */
-            message: "Made with ❤️ by Ali Mehasin, for docs checkout /docs";
-          };
-        };
-      };
-    };
-  };
   optionsIndex: {
     parameters: {
       query?: never;
@@ -4483,6 +4508,66 @@ export interface operations {
     responses: never;
   };
   "options*": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: never;
+  };
+  getUserFiles: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: never;
+  };
+  postUserFilesUpload: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody: {
+      content: {
+        "application/json": {
+          /**
+           * Format: binary
+           * @default File
+           */
+          file: string;
+          type: "Image" | "Video" | "Other";
+          isPublic: "true" | "false";
+        };
+        "application/x-www-form-urlencoded": {
+          /**
+           * Format: binary
+           * @default File
+           */
+          file: string;
+          type: "Image" | "Video" | "Other";
+          isPublic: "true" | "false";
+        };
+        "multipart/form-data": {
+          /**
+           * Format: binary
+           * @default File
+           */
+          file: string;
+          type: "Image" | "Video" | "Other";
+          isPublic: "true" | "false";
+        };
+      };
+    };
+    responses: never;
+  };
+  deleteUserFilesById: {
     parameters: {
       query?: never;
       header?: never;

@@ -7,10 +7,8 @@ export const files = new Elysia({ prefix: "/files" })
   // Plugins
   .use(setup)
   .use(betterAuth)
-  .guard({ mustAuthed: true })
+  .guard({ maybeAuthed: true })
 
   .get("/", ({ user }) => {
     return user;
-  })
-
-  .post("/", {});
+  });

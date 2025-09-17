@@ -1,5 +1,5 @@
+import { prisma } from "@db/client";
 import { FileType } from "@prisma/client";
-import { prisma } from "@repo/db";
 import { Elysia, t } from "elysia";
 import { env } from "@/env";
 import { betterAuth } from "@/plugins/better-auth";

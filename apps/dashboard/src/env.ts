@@ -6,10 +6,12 @@ export const env = createEnv({
   skipValidation: !!process.env.SKIP_ENV_VALIDATION,
 
   runtimeEnv: {
+    NEXT_PUBLIC_API_BASE_URL: process.env.NEXT_PUBLIC_API_BASE_URL,
     NEXT_PUBLIC_STORAGE_BASE_URL: process.env.NEXT_PUBLIC_STORAGE_BASE_URL,
   },
 
   client: {
+    NEXT_PUBLIC_API_BASE_URL: z.url(),
     NEXT_PUBLIC_STORAGE_BASE_URL: z.url(),
   },
 });

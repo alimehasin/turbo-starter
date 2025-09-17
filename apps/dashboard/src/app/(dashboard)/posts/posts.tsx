@@ -1,10 +1,10 @@
 "use client";
 
 import { useQuery } from "@tanstack/react-query";
-import ky from "ky";
 import { DataTable } from "mantine-datatable";
 import { useDataTable } from "@/hooks/use-data-table";
 import type { ApiQueryParams, ApiResponse } from "@/types/server";
+import { ky } from "@/utils/ky";
 
 export type PostsResponse = ApiResponse<"getPosts">;
 export type PostsParams = ApiQueryParams<"getPosts">;
@@ -16,7 +16,7 @@ export function Posts() {
     queryKey: ["posts", sorting, pagination],
     queryFn: () => {
       return ky
-        .get<PostsResponse>("http://localhost:3000/posts", {
+        .get<PostsResponse>("posts", {
           searchParams: { ...sorting, ...pagination },
         })
         .json();

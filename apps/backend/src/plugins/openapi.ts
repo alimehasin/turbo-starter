@@ -25,8 +25,8 @@ for (const path of Object.keys(paths)) {
 
 export const openapi = elysiaOpenapi({
   path: "/docs",
-  enabled: env.NODE_ENV === "development",
   references: fromTypes("src/server.ts"),
+  enabled: env.NODE_ENV === "development",
 
   documentation: {
     tags: [],

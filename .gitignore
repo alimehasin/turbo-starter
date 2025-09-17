@@ -27,6 +27,7 @@ out/
 build
 dist
 
+
 # Debug
 npm-debug.log*
 yarn-debug.log*
@@ -37,8 +38,5 @@ yarn-error.log*
 *.pem
 
 # Others
-.env.docker
 **/*.tsbuildinfo
-
-# Next.js
 **/next-env.d.ts

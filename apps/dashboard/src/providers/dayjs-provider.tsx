@@ -1,11 +1,11 @@
-'use client';
+"use client";
 
-import 'dayjs/locale/ar';
-import 'dayjs/locale/en';
+import "dayjs/locale/ar";
+import "dayjs/locale/en";
 
-import dayjs from 'dayjs';
-import isBetween from 'dayjs/plugin/isBetween';
-import relativeTime from 'dayjs/plugin/relativeTime';
+import dayjs from "dayjs";
+import isBetween from "dayjs/plugin/isBetween";
+import relativeTime from "dayjs/plugin/relativeTime";
 
 dayjs.extend(isBetween);
 dayjs.extend(relativeTime);

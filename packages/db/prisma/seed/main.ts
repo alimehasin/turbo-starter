@@ -1,16 +1,10 @@
-import { PrismaClient } from '@prisma/client';
-import { env } from '@/env';
-import { seedFiles } from './tables/files';
-import { seedRootAdmin } from './tables/root-admin';
+import { PrismaClient } from "@prisma/client";
+import { seedPosts } from "./tables/posts";
 
 const prisma = new PrismaClient();
 
 async function main() {
-  await seedRootAdmin(prisma);
-
-  if (env.NODE_ENV === 'development') {
-    await seedFiles(prisma);
-  }
+  await seedPosts();
 }
 
 await main()

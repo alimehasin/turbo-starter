@@ -1,42 +1,58 @@
-import { Box, Burger, Center, Group, Title } from '@mantine/core';
-import { SIDEBAR_WIDTH } from '@/utils/constants';
-import { ColorSchemeButton } from './buttons/color-scheme-button';
-import { LangButton } from './buttons/lang-button';
-import { UserButton } from './buttons/user-button';
-import { Spotlight } from './spotlight';
-import cls from './styles.module.css';
+"use client";
 
-export function Logo() {
+import { ActionIcon, Burger, Button, Container, Group } from "@mantine/core";
+import {
+  IconInfoCircle,
+  IconSearch,
+  IconSettings,
+  IconSpeakerphone,
+  IconUser,
+} from "@tabler/icons-react";
+import { useTranslations } from "next-intl";
+import { ActionIconsContainer } from "@/components/action-icons-container";
+
+export function Header({
+  opened,
+  toggle,
+}: {
+  opened: boolean;
+  toggle: () => void;
+}) {
+  const t = useTranslations();
+
   return (
-    <Center h="100%">
-      <Title order={3}>Ali Mehasin</Title>
-    </Center>
-  );
-}
+    <Container h="100%" size="xl">
+      <Group h="100%" justify="space-between">
+        <Group>
+          <Burger opened={opened} onClick={toggle} hiddenFrom="sm" size="sm" />
+        </Group>
 
-export function Header({ opened, toggle }: { opened: boolean; toggle: () => void }) {
-  return (
-    <>
-      <Group h="100%" hiddenFrom="md">
-        <Burger mx="md" size="sm" opened={opened} onClick={toggle} />
-        <Logo />
-      </Group>
+        <Group gap="sm">
+          <Button visibleFrom="sm" h={44} leftSection={<IconSearch />}>
+            {t("_.search")}
+          </Button>
 
-      <Group h="100%" justify="space-between" visibleFrom="md">
-        <Box h="100%" w={SIDEBAR_WIDTH} className={cls.logo}>
-          <Logo />
-        </Box>
+          <ActionIconsContainer>
+            <ActionIcon color="gray" size={36} variant="subtle" bdrs="xl">
+              <IconSpeakerphone />
+            </ActionIcon>
 
-        <Group justify="space-between" style={{ flexGrow: 1 }}>
-          <Spotlight />
+            <ActionIcon color="gray" size={36} variant="subtle" bdrs="xl">
+              <IconUser />
+            </ActionIcon>
 
-          <Group gap="xs" mx="xl">
-            <UserButton />
-            <ColorSchemeButton />
-            <LangButton />
-          </Group>
+            <ActionIcon color="gray" size={36} variant="subtle" bdrs="xl">
+              <IconSettings />
+            </ActionIcon>
+          </ActionIconsContainer>
+
+          <ActionIconsContainer>
+            <ActionIcon color="gray" size={36} variant="subtle" bdrs="xl">
+              <IconInfoCircle />
+            </ActionIcon>
+          </ActionIconsContainer>
         </Group>
       </Group>
-    </>
+    </Container>
   );
 }

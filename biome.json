@@ -1,24 +1,5 @@
 {
-  "$schema": "https://biomejs.dev/schemas/2.2.3/schema.json",
-  "assist": {
-    "actions": {
-      "source": {
-        "organizeImports": "on"
-      }
-    }
-  },
-
-  "files": {
-    "includes": [
-      "**",
-      "!**/tailwind.config.ts",
-      "!**/bindings.ts",
-      "!**/node_modules",
-      "!**/.turbo",
-      "!**/.next",
-      "!**/dist"
-    ]
-  },
+  "$schema": "https://biomejs.dev/schemas/2.2.4/schema.json",
 
   "vcs": {
     "enabled": true,
@@ -26,54 +7,33 @@
     "useIgnoreFile": true
   },
 
-  "formatter": {
-    "indentStyle": "space",
-    "lineWidth": 86
+  "files": {
+    "ignoreUnknown": false
   },
 
-  "javascript": {
-    "formatter": {
-      "quoteStyle": "single"
-    }
+  "formatter": {
+    "enabled": true,
+    "indentStyle": "space"
   },
 
   "linter": {
     "enabled": true,
     "rules": {
-      "recommended": true,
-      "nursery": {},
-      "security": {},
-      "complexity": {
-        "noImportantStyles": "off"
-      },
-      "performance": {},
-      "suspicious": {
-        "noDuplicateProperties": "off",
-        "noUnknownAtRules": "off"
-      },
-      "a11y": {
-        "useSemanticElements": "off",
-        "useFocusableInteractive": "off",
-        "noStaticElementInteractions": "off"
-      },
-      "correctness": {
-        "noUnusedImports": "warn",
-        "noUnusedVariables": "warn",
-        "useHookAtTopLevel": "warn",
-        "useExhaustiveDependencies": "off"
-      },
-      "style": {
-        "useBlockStatements": "error",
-        "noParameterAssign": "error",
-        "useAsConstAssertion": "error",
-        "useDefaultParameterLast": "error",
-        "useEnumInitializers": "error",
-        "useSelfClosingElements": "error",
-        "useSingleVarDeclarator": "error",
-        "noUnusedTemplateLiteral": "error",
-        "useNumberNamespace": "error",
-        "noInferrableTypes": "error",
-        "noUselessElse": "error"
+      "recommended": true
+    }
+  },
+
+  "javascript": {
+    "formatter": {
+      "quoteStyle": "double"
+    }
+  },
+
+  "assist": {
+    "enabled": true,
+    "actions": {
+      "source": {
+        "organizeImports": "on"
       }
     }
   }

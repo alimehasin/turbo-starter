@@ -1,19 +1,41 @@
-import { jwtVerify, SignJWT } from 'jose';
-import { env } from '@/env';
-import type { AuthPayload } from '@/types';
+import { prisma } from "@repo/db";
+import { betterAuth } from "better-auth";
+import { prismaAdapter } from "better-auth/adapters/prisma";
+import { admin, openAPI, phoneNumber } from "better-auth/plugins";
 
-export async function signJwt(payload: AuthPayload): Promise<string> {
-  const token = new SignJWT({ ...payload })
-    .setProtectedHeader({ alg: 'HS256' })
-    .setExpirationTime(env.AUTH_TOKEN_EXPIRATION)
-    .sign(new TextEncoder().encode(env.JWT_SECRET_KEY));
+export const auth = betterAuth({
+  basePath: "/",
+  database: prismaAdapter(prisma, {
+    provider: "postgresql",
+  }),
 
-  return token;
-}
+  advanced: {
+    database: {
+      generateId: false,
+    },
+  },
 
-export async function verifyJwt(token: string): Promise<AuthPayload> {
-  const secret = new TextEncoder().encode(env.JWT_SECRET_KEY);
-  const { payload } = await jwtVerify<AuthPayload>(token, secret);
+  emailAndPassword: {
+    enabled: true,
+  },
 
-  return payload;
-}
+  plugins: [
+    admin({}),
+
+    openAPI({
+      disableDefaultReference: true,
+    }),
+
+    phoneNumber({
+      sendOTP: async ({ code, phoneNumber }) => {
+        console.log(code);
+        console.log(phoneNumber);
+      },
+
+      signUpOnVerification: {
+        getTempName: (phoneNumber) => `User ${phoneNumber}`,
+        getTempEmail: (phoneNumber) => `${phoneNumber}@phone-auth.local`,
+      },
+    }),
+  ],
+});

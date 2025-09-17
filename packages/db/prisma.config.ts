@@ -1,9 +1,9 @@
-import 'dotenv/config';
+import "dotenv/config";
 
-import { defineConfig } from 'prisma/config';
+import { defineConfig } from "prisma/config";
 
 export default defineConfig({
   migrations: {
-    seed: 'bun prisma/seed/main.ts',
+    seed: "bun prisma/seed/main.ts",
   },
 });

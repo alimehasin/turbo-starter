@@ -1,6 +1,5 @@
 generator client {
-  provider     = "prisma-client-js"
-  moduleFormat = "esm"
+  provider = "prisma-client-js"
 }
 
 datasource db {
@@ -8,85 +7,98 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-enum FileType {
-  Image
-  Video
-}
-
-enum Gender {
-  Male
-  Female
-}
-
-model Admin {
-  id String @id @default(uuid())
-
-  // Credentials
-  username String @unique
-  password String
-
-  // Profile
-  name      String
-  phone     String
-  birthDate DateTime?
-
-  avatarId String?
-  avatar   File?   @relation(fields: [avatarId], references: [id], name: "AdminAvatars")
-
-  // Flags
-  isRoot Boolean @default(false)
-
-  // Metadata
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-
-  // Relations
-  uploads File[]
-}
-
 model User {
   id String @id @default(uuid())
 
-  // Credentials
-  username String @unique
-  password String
+  name                String
+  email               String
+  emailVerified       Boolean  @default(false)
+  image               String?
+  createdAt           DateTime @default(now())
+  updatedAt           DateTime @default(now()) @updatedAt
+  phoneNumber         String?
+  phoneNumberVerified Boolean?
 
-  // Profile
-  name      String
-  phone     String
-  birthDate DateTime?
-  gender    Gender?
+  sessions Session[]
+  accounts Account[]
 
-  avatarId String?
-  avatar   File?   @relation(fields: [avatarId], references: [id], name: "UserAvatars")
+  role       String?
+  banned     Boolean?  @default(false)
+  banReason  String?
+  banExpires DateTime?
 
-  // Metadata
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-
-  // Relations
-  uploads File[]
+  @@unique([email])
+  @@unique([phoneNumber])
+  @@map("user")
 }
 
-model File {
+model Session {
   id String @id @default(uuid())
 
-  key      String   @unique
-  size     Int
-  type     FileType
-  isPublic Boolean  @default(false)
+  token String
 
-  userId String?
-  user   User?   @relation(fields: [userId], references: [id])
-
-  admin   Admin?  @relation(fields: [adminId], references: [id])
-  adminId String?
-
-  // Metadata
+  expiresAt DateTime
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
-  // Relations
-  admins Admin[] @relation("AdminAvatars")
-  users  User[]  @relation("UserAvatars")
+  ipAddress String?
+  userAgent String?
+
+  userId String
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  impersonatedBy String?
+
+  @@unique([token])
+  @@map("session")
+}
+
+model Account {
+  id String @id @default(uuid())
+
+  accountId  String
+  providerId String
+
+  userId String
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  accessToken  String?
+  refreshToken String?
+  idToken      String?
+
+  accessTokenExpiresAt  DateTime?
+  refreshTokenExpiresAt DateTime?
+
+  scope     String?
+  password  String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("account")
+}
+
+model Verification {
+  id String @id @default(uuid())
+
+  identifier String
+  value      String
+  expiresAt  DateTime
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @default(now()) @updatedAt
+
+  @@map("verification")
+}
+
+model Post {
+  id String @id @default(uuid())
+
+  serialNumber Int @unique @default(autoincrement())
+
+  title   String
+  content String
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("posts")
 }

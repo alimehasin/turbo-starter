@@ -1,19 +1,20 @@
-'use client';
+"use client";
 
-import { NavLink } from '@mantine/core';
-import Link from 'next/link';
-import { usePathname } from 'next/navigation';
+import { NavLink } from "@mantine/core";
+import type { TablerIcon } from "@tabler/icons-react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 export function ShellLink({
   label,
-  icon,
-  section,
+  icon: Icon,
+  path,
   toggle,
   activeExact = false,
 }: {
   label: string;
-  section: string;
-  icon: React.ReactNode;
+  path: string;
+  icon: TablerIcon;
   toggle?: () => void;
   activeExact?: boolean;
 }) {
@@ -21,15 +22,16 @@ export function ShellLink({
 
   return (
     <NavLink
-      py={4}
-      px={6}
+      py={6}
+      px={10}
+      href={path}
+      bdrs="100vw"
       label={label}
-      href={section}
       variant="filled"
       component={Link}
       onClick={toggle}
-      leftSection={icon}
-      active={activeExact ? pathname === section : pathname.startsWith(section)}
+      leftSection={<Icon size={20} />}
+      active={activeExact ? pathname === path : pathname.startsWith(path)}
     />
   );
 }

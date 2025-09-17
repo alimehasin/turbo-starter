@@ -1,4 +1,5 @@
-export const TOKEN_KEY = 'token';
+export const SHELL_NAVBAR_HEIGHT = 60;
+export const SHELL_SIDEBAR_WIDTH = 260;
 
-export const HEADER_HEIGHT = 48;
-export const SIDEBAR_WIDTH = 260;
+export const DEFAULT_PAGE_SIZE = 10;
+export const PAGE_SIZE_OPTIONS = [10, 20, 30, 40, 50];

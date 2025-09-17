@@ -1,6 +1,6 @@
-import { cors as elysiaCors } from '@elysiajs/cors';
+import { cors as elysiaCors } from "@elysiajs/cors";
 
 export const cors = elysiaCors({
-  allowedHeaders: '*',
+  allowedHeaders: "*",
   credentials: true,
 });

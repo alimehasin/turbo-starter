@@ -5,14 +5,16 @@
     "test": {},
     "typecheck": {},
     "i18n:parse": {},
-    "dev": {
-      "cache": false,
-      "persistent": true
-    },
+    "api:gentype": {},
+
     "build": {
       "dependsOn": ["^build"],
       "inputs": ["$TURBO_DEFAULT$", ".env*"],
-      "outputs": [".next/**", "!.next/cache/**"]
+      "outputs": [".next/**", "!.next/cache/**", "dist/**"]
+    },
+    "dev": {
+      "cache": false,
+      "persistent": true
     }
   }
 }

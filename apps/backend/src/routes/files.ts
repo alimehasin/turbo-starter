@@ -16,7 +16,7 @@ export const files = new Elysia({ prefix: "/files" })
   // Plugins
   .use(setup)
   .use(betterAuth)
-  .guard({ mustAuthed: true })
+  .guard({ mustBeAuthed: true })
 
   .post(
     "/upload",

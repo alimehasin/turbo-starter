@@ -1,5 +1,5 @@
 import { describe, expect, it } from "bun:test";
-import { app } from "@/main";
+import { app } from "@/server";
 
 describe("Elysia", () => {
   it("return a response", async () => {

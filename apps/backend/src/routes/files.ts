@@ -4,7 +4,11 @@ import { Elysia, t } from "elysia";
 import { env } from "@/env";
 import { betterAuth } from "@/plugins/better-auth";
 import { setup } from "@/setup";
-import { uploadImage, uploadVideo } from "@/utils/clients/s3/helpers";
+import {
+  deleteObjects,
+  uploadImage,
+  uploadVideo,
+} from "@/utils/clients/s3/helpers";
 import { HttpError } from "@/utils/error";
 
 export const files = new Elysia({ prefix: "/files" })
@@ -69,4 +73,30 @@ export const files = new Elysia({ prefix: "/files" })
         isPublic: t.Union([t.Literal("true"), t.Literal("false")]),
       }),
     },
+  )
+
+  .delete(
+    "/:id",
+    async ({ t, user, params: { id } }) => {
+      const file = await prisma.file.findUnique({
+        where: {
+          id,
+          userId: user.id,
+        },
+      });
+
+      if (!file) {
+        throw new HttpError({
+          statusCode: 404,
+          message: t({
+            en: "File not found",
+            ar: "يعتذر ايجاد الملف",
+          }),
+        });
+      }
+
+      await deleteObjects(env.STORAGE_BUCKET_NAME, [file.key]);
+      await prisma.file.delete({ where: { id } });
+    },
+    {},
   );

@@ -18,9 +18,3 @@ export const plugins = new Elysia({ name: "plugins" })
   .use(rateLimit)
   .use(betterAuth)
   .use(errorHandler);
-
-// Plugins should be used in routes for type inference
-export const alwaysAuthedPlugin = new Elysia({ name: "always-authed-plugin" })
-  .use(betterAuth)
-  .guard({ auth: true })
-  .as("scoped");

@@ -1,10 +1,10 @@
 import { Elysia } from "elysia";
-import { alwaysAuthedPlugin } from "@/plugins";
+import { betterAuth } from "@/plugins/better-auth";
 
 export const files = new Elysia({ prefix: "/files" })
 
-  // BetterAuth Guard
-  .use(alwaysAuthedPlugin)
+  .use(betterAuth)
+  .guard({ mustAuthed: true })
 
   .get("/", ({ user }) => {
     return user;

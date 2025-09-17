@@ -2,7 +2,7 @@
 CREATE TYPE "public"."FileType" AS ENUM ('Image', 'Video', 'Other');
 
 -- CreateTable
-CREATE TABLE "public"."user" (
+CREATE TABLE "public"."User" (
     "id" TEXT NOT NULL,
     "name" TEXT NOT NULL,
     "email" TEXT NOT NULL,
@@ -17,11 +17,11 @@ CREATE TABLE "public"."user" (
     "banReason" TEXT,
     "banExpires" TIMESTAMP(3),
 
-    CONSTRAINT "user_pkey" PRIMARY KEY ("id")
+    CONSTRAINT "User_pkey" PRIMARY KEY ("id")
 );
 
 -- CreateTable
-CREATE TABLE "public"."session" (
+CREATE TABLE "public"."Session" (
     "id" TEXT NOT NULL,
     "token" TEXT NOT NULL,
     "expiresAt" TIMESTAMP(3) NOT NULL,
@@ -32,11 +32,11 @@ CREATE TABLE "public"."session" (
     "userId" TEXT NOT NULL,
     "impersonatedBy" TEXT,
 
-    CONSTRAINT "session_pkey" PRIMARY KEY ("id")
+    CONSTRAINT "Session_pkey" PRIMARY KEY ("id")
 );
 
 -- CreateTable
-CREATE TABLE "public"."account" (
+CREATE TABLE "public"."Account" (
     "id" TEXT NOT NULL,
     "accountId" TEXT NOT NULL,
     "providerId" TEXT NOT NULL,
@@ -51,11 +51,11 @@ CREATE TABLE "public"."account" (
     "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updatedAt" TIMESTAMP(3) NOT NULL,
 
-    CONSTRAINT "account_pkey" PRIMARY KEY ("id")
+    CONSTRAINT "Account_pkey" PRIMARY KEY ("id")
 );
 
 -- CreateTable
-CREATE TABLE "public"."verification" (
+CREATE TABLE "public"."Verification" (
     "id" TEXT NOT NULL,
     "identifier" TEXT NOT NULL,
     "value" TEXT NOT NULL,
@@ -63,7 +63,7 @@ CREATE TABLE "public"."verification" (
     "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updatedAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
 
-    CONSTRAINT "verification_pkey" PRIMARY KEY ("id")
+    CONSTRAINT "Verification_pkey" PRIMARY KEY ("id")
 );
 
 -- CreateTable
@@ -81,22 +81,22 @@ CREATE TABLE "public"."File" (
 );
 
 -- CreateIndex
-CREATE UNIQUE INDEX "user_email_key" ON "public"."user"("email");
+CREATE UNIQUE INDEX "User_email_key" ON "public"."User"("email");
 
 -- CreateIndex
-CREATE UNIQUE INDEX "user_phoneNumber_key" ON "public"."user"("phoneNumber");
+CREATE UNIQUE INDEX "User_phoneNumber_key" ON "public"."User"("phoneNumber");
 
 -- CreateIndex
-CREATE UNIQUE INDEX "session_token_key" ON "public"."session"("token");
+CREATE UNIQUE INDEX "Session_token_key" ON "public"."Session"("token");
 
 -- CreateIndex
 CREATE UNIQUE INDEX "File_key_key" ON "public"."File"("key");
 
 -- AddForeignKey
-ALTER TABLE "public"."session" ADD CONSTRAINT "session_userId_fkey" FOREIGN KEY ("userId") REFERENCES "public"."user"("id") ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE "public"."Session" ADD CONSTRAINT "Session_userId_fkey" FOREIGN KEY ("userId") REFERENCES "public"."User"("id") ON DELETE CASCADE ON UPDATE CASCADE;
 
 -- AddForeignKey
-ALTER TABLE "public"."account" ADD CONSTRAINT "account_userId_fkey" FOREIGN KEY ("userId") REFERENCES "public"."user"("id") ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE "public"."Account" ADD CONSTRAINT "Account_userId_fkey" FOREIGN KEY ("userId") REFERENCES "public"."User"("id") ON DELETE CASCADE ON UPDATE CASCADE;
 
 -- AddForeignKey
-ALTER TABLE "public"."File" ADD CONSTRAINT "File_userId_fkey" FOREIGN KEY ("userId") REFERENCES "public"."user"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
+ALTER TABLE "public"."File" ADD CONSTRAINT "File_userId_fkey" FOREIGN KEY ("userId") REFERENCES "public"."User"("id") ON DELETE RESTRICT ON UPDATE CASCADE;

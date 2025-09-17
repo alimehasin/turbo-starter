@@ -1,4 +1,3 @@
-
 generator client {
   provider = "prisma-client-js"
 }
@@ -39,7 +38,6 @@ model User {
 
   @@unique([email])
   @@unique([phoneNumber])
-  @@map("user")
 }
 
 model Session {
@@ -60,7 +58,6 @@ model Session {
   impersonatedBy String?
 
   @@unique([token])
-  @@map("session")
 }
 
 model Account {
@@ -85,8 +82,6 @@ model Account {
   // Metadata
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
-
-  @@map("account")
 }
 
 model Verification {
@@ -99,8 +94,6 @@ model Verification {
   // Metadata
   createdAt DateTime @default(now())
   updatedAt DateTime @default(now()) @updatedAt
-
-  @@map("verification")
 }
 
 model File {

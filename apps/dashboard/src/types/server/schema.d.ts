@@ -36,16 +36,16 @@ export interface paths {
     patch?: never;
     trace?: never;
   };
-  "/user/files/": {
+  "/admin/governorates/": {
     parameters: {
       query?: never;
       header?: never;
       path?: never;
       cookie?: never;
     };
-    get: operations["getUserFiles"];
+    get: operations["getAdminGovernorates"];
     put?: never;
-    post?: never;
+    post: operations["postAdminGovernorates"];
     delete?: never;
     options?: never;
     head?: never;
@@ -4517,15 +4517,75 @@ export interface operations {
     requestBody?: never;
     responses: never;
   };
-  getUserFiles: {
+  getAdminGovernorates: {
+    parameters: {
+      query: {
+        page: number;
+        pageSize: number;
+        sortingColumn: string;
+        sortingDirection: string;
+      };
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      /** @description Response for status 200 */
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": {
+            total: number;
+            data: {
+              id: string;
+              name: string;
+              createdAt: Record<string, never> | string | number;
+              updatedAt: Record<string, never> | string | number;
+            }[];
+          };
+        };
+      };
+    };
+  };
+  postAdminGovernorates: {
     parameters: {
       query?: never;
       header?: never;
       path?: never;
       cookie?: never;
     };
-    requestBody?: never;
-    responses: never;
+    requestBody: {
+      content: {
+        "application/json": {
+          name: string;
+        };
+        "application/x-www-form-urlencoded": {
+          name: string;
+        };
+        "multipart/form-data": {
+          name: string;
+        };
+      };
+    };
+    responses: {
+      /** @description Response for status 200 */
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": {
+            id: string;
+            name: string;
+            createdAt: Record<string, never> | string | number;
+            updatedAt: Record<string, never> | string | number;
+          };
+        };
+      };
+    };
   };
   postUserFilesUpload: {
     parameters: {

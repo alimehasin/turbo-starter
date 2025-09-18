@@ -7,11 +7,16 @@
     "noRecords": "لا توجد سجلات لعرضها",
     "recordsPerPageLabel": "عدد السجلات في الصفحة"
   },
+  "governorates": {
+    "createdAt": "تاريخ الإنشاء",
+    "name": "الاسم"
+  },
   "meta": {
-    "title": "تيربوريبو ستارتر",
-    "description": "تيربوريبو ستارتر مع Next.js, Mantine و أكثر"
+    "description": "تيربوريبو ستارتر مع Next.js, Mantine و أكثر",
+    "title": "تيربوريبو ستارتر"
   },
   "sidebar": {
+    "governorates": "المحافظات",
     "home": "الرئيسية"
   }
 }

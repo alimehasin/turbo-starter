@@ -1,5 +1,5 @@
 import { Stack, Text } from "@mantine/core";
-import { IconHome } from "@tabler/icons-react";
+import { IconBuilding, IconHome } from "@tabler/icons-react";
 import { useTranslations } from "next-intl";
 import { ShellLink } from "./shell-link";
 
@@ -18,12 +18,22 @@ export function Sidebar() {
         },
       ],
     },
+    {
+      label: "",
+      links: [
+        {
+          icon: IconBuilding,
+          label: t("sidebar.governorates"),
+          path: "/governorates",
+        },
+      ],
+    },
   ];
 
   return (
     <Stack p="md">
-      {links.map((link) => (
-        <div key={link.label}>
+      {links.map((link, i) => (
+        <div key={i.toString()}>
           <Text fz={12} c="gray">
             {link.label}
           </Text>

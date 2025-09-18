@@ -7,8 +7,16 @@ body {
 .mantine-Input-input {
   border-radius: 100vw;
 }
+
 .mantine-Input-input {
   &:focus-within {
-    outline: rem(2px) solid var(--mantine-primary-color-filled);
+    outline: none;
+    transition: box-shadow 150ms ease;
+    box-shadow: 0 0 0 2px var(--mantine-primary-color-filled);
+  }
+
+  &[data-variant="unstyled"] {
+    outline: none;
+    box-shadow: 0 0 0 0 !important;
   }
 }

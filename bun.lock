@@ -57,6 +57,7 @@
         "@t3-oss/env-nextjs": "^0.13.8",
         "@tabler/icons-react": "^3.35.0",
         "@tanstack/react-query": "^5.89.0",
+        "better-auth": "^1.3.11",
         "dayjs": "^1.11.18",
         "i18next-parser": "^9.3.0",
         "ky": "^1.10.0",

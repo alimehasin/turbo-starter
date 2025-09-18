@@ -3,9 +3,9 @@
   "private": true,
   "version": "0.0.0",
   "scripts": {
-    "dev": "next dev --turbopack --port 3001",
+    "dev": "dotenv -e .env next dev -- --turbopack",
     "build": "next build --turbopack",
-    "start": "next start --port 3001",
+    "start": "dotenv -e .env next start",
     "typecheck": "tsc --noEmit",
     "api:gentype": "bunx openapi-typescript http://localhost:3000/docs/json -o ./src/types/server/schema.d.ts",
     "i18n:parse": "i18next 'src/**/*.{js,jsx,ts,tsx}' '../../packages/**/*.{ts,tsx}' --config i18next-parser.config.json"
@@ -38,6 +38,7 @@
     "@types/node": "^24.5.1",
     "@types/react": "^19.1.13",
     "@types/react-dom": "^19.1.9",
+    "dotenv-cli": "^10.0.0",
     "postcss": "^8.5.6",
     "postcss-preset-mantine": "^1.18.0",
     "postcss-simple-vars": "^7.0.1",

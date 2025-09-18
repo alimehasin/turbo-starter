@@ -6,7 +6,6 @@ import {
   Center,
   FocusTrap,
   Group,
-  Image,
   Menu,
   Paper,
   PasswordInput,
@@ -89,12 +88,7 @@ export default function Login({ locale }: { locale: string }) {
         bg="var(--mantine-primary-color-1)"
       >
         <Center h="100%" p="xl">
-          <Image
-            fit="contain"
-            alt="login-bg"
-            src="/logo-empty.png"
-            w={{ base: 300, md: 400, lg: 500 }}
-          />
+          <Title>{t("login.logo")}</Title>
         </Center>
       </Box>
 

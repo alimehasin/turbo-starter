@@ -20,6 +20,7 @@
     "elysia-helmet": "^3.0.0",
     "elysia-rate-limit": "^4.4.0",
     "logixlysia": "^5.1.1",
+    "prismabox": "^1.1.25",
     "sharp": "^0.34.3"
   },
   "devDependencies": {

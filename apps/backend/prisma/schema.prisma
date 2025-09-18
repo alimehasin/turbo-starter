@@ -3,6 +3,14 @@ generator client {
   output   = "../src/generated/prisma"
 }
 
+generator prismabox {
+  provider                    = "prismabox"
+  output                      = "../src/generated/prismabox"
+  typeboxImportDependencyName = "elysia"
+  typeboxImportVariableName   = "t"
+  inputModel                  = true
+}
+
 datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")

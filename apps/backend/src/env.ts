@@ -6,10 +6,16 @@ export const env = createEnv({
   emptyStringAsUndefined: true,
 
   server: {
+    // Base
     PORT: z.coerce.number().default(3000),
     NODE_ENV: z
       .enum(["development", "test", "production"])
       .default("development"),
+
+    // Better Auth
+    BETTER_AUTH_TRUSTED_ORIGINS: z
+      .string()
+      .transform((str) => str.split(",").map((s) => s.trim())),
 
     // Storage
     STORAGE_REGION: z.string(),

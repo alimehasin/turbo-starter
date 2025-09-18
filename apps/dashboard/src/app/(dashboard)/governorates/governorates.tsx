@@ -5,7 +5,7 @@ import dayjs from "dayjs";
 import { DataTable } from "mantine-datatable";
 import { useTranslations } from "next-intl";
 import { useDataTable } from "@/hooks/use-data-table";
-import type { ApiResponse } from "@/types/server";
+import type { GovernoratesList } from "@/types/server";
 import { ky } from "@/utils/ky";
 
 export function Governorates() {
@@ -16,7 +16,7 @@ export function Governorates() {
     queryKey: ["governorates", sorting, pagination],
     queryFn: () => {
       return ky
-        .get<ApiResponse<"getAdminGovernorates">>("governorates", {
+        .get<GovernoratesList>("governorates", {
           searchParams: { ...sorting, ...pagination },
         })
         .json();

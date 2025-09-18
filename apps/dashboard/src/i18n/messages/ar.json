@@ -1,7 +1,10 @@
 {
   "_": {
+    "done": "تم",
+    "error": "خطأ",
     "hello": "مرحبا",
-    "search": "بحث في الطلبات"
+    "search": "بحث في الطلبات",
+    "success": "نجحت"
   },
   "dataTable": {
     "noRecords": "لا توجد سجلات لعرضها",
@@ -10,6 +13,12 @@
   "governorates": {
     "createdAt": "تاريخ الإنشاء",
     "name": "الاسم"
+  },
+  "login": {
+    "email": "البريد الإلكتروني",
+    "login": "تسجيل الدخول",
+    "loginTitle": "تسجيل الدخول إلى حسابك",
+    "password": "كلمة المرور"
   },
   "meta": {
     "description": "تيربوريبو ستارتر مع Next.js, Mantine و أكثر",

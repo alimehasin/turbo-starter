@@ -1,0 +1,176 @@
+"use client";
+
+import {
+  Box,
+  Button,
+  Center,
+  FocusTrap,
+  Group,
+  Image,
+  Menu,
+  Paper,
+  PasswordInput,
+  SimpleGrid,
+  Stack,
+  TextInput,
+  Title,
+} from "@mantine/core";
+import { useForm } from "@mantine/form";
+import {
+  IconKey,
+  IconLanguage,
+  IconLogin,
+  IconUser,
+} from "@tabler/icons-react";
+import { useMutation } from "@tanstack/react-query";
+import { HTTPError } from "ky";
+import { useRouter } from "next/navigation";
+import { useTranslations } from "next-intl";
+import { useNotifications } from "@/hooks/use-notifications";
+import { setLocale } from "@/server-actions/locale";
+import type { LoginRequestBody, LoginResponseBody401 } from "@/types/server";
+import { ky } from "@/utils/ky";
+
+export default function Login({ locale }: { locale: string }) {
+  const router = useRouter();
+  const t = useTranslations();
+  const n = useNotifications();
+
+  const form = useForm({
+    initialValues: {
+      email: "",
+      password: "",
+    },
+  });
+
+  const setLocaleMut = useMutation({
+    mutationFn: setLocale,
+    onSuccess: router.refresh,
+  });
+
+  const loginMut = useMutation({
+    mutationFn: async ({
+      email,
+      password,
+    }: {
+      email: string;
+      password: string;
+    }) => {
+      return ky
+        .post("auth/sign-in/email", {
+          json: { email, password } satisfies LoginRequestBody,
+        })
+        .json();
+    },
+    onSuccess: () => {
+      router.push("/");
+    },
+    onError: async (error) => {
+      if (error instanceof HTTPError) {
+        if (error.response.status === 401) {
+          const data = await error.response.json<LoginResponseBody401>();
+          n.error(data.message);
+        }
+      }
+    },
+  });
+
+  const handleSubmit = form.onSubmit(({ email, password }) => {
+    loginMut.mutate({ email, password });
+  });
+
+  return (
+    <SimpleGrid cols={{ base: 1, md: 2 }} spacing={0}>
+      <Box
+        w="100%"
+        visibleFrom="md"
+        h={{ base: "auto", md: "100vh" }}
+        mih={{ base: "200px", md: "100vh" }}
+        bg="var(--mantine-primary-color-1)"
+      >
+        <Center h="100%" p="xl">
+          <Image
+            fit="contain"
+            alt="login-bg"
+            src="/logo-empty.png"
+            w={{ base: 300, md: 400, lg: 500 }}
+          />
+        </Center>
+      </Box>
+
+      <Center
+        h={{ base: "100vh", md: "100vh" }}
+        p={{ base: "md", sm: "lg", md: "xl" }}
+      >
+        <Stack w="100%" maw={{ base: "100%", sm: 400, md: 500 }} gap="md">
+          <Title c="nature.7" order={1} size="h1" ta="center">
+            {t("login.loginTitle")}
+          </Title>
+
+          <Paper
+            withBorder
+            radius="md"
+            shadow="sm"
+            p={{ base: "md", sm: "lg" }}
+          >
+            <FocusTrap>
+              <form onSubmit={handleSubmit}>
+                <Stack gap="md">
+                  <TextInput
+                    required
+                    autoCapitalize="off"
+                    label={t("login.email")}
+                    leftSection={<IconUser size={18} />}
+                    {...form.getInputProps("email")}
+                  />
+
+                  <PasswordInput
+                    required
+                    label={t("login.password")}
+                    leftSection={<IconKey size={18} />}
+                    {...form.getInputProps("password")}
+                  />
+
+                  <Button
+                    mt="sm"
+                    fullWidth
+                    type="submit"
+                    loading={loginMut.isPending}
+                    leftSection={<IconLogin size={18} />}
+                  >
+                    {t("login.login")}
+                  </Button>
+                </Stack>
+              </form>
+            </FocusTrap>
+          </Paper>
+
+          {/* Language selector */}
+          <Group>
+            <Menu>
+              <Menu.Target>
+                <Button
+                  color="gray"
+                  variant="subtle"
+                  size="compact-sm"
+                  leftSection={<IconLanguage size={18} />}
+                >
+                  {locale === "ar" ? "العربية" : "English"}
+                </Button>
+              </Menu.Target>
+
+              <Menu.Dropdown>
+                <Menu.Item onClick={() => setLocaleMut.mutate("ar")}>
+                  العربية
+                </Menu.Item>
+                <Menu.Item onClick={() => setLocaleMut.mutate("en")}>
+                  English
+                </Menu.Item>
+              </Menu.Dropdown>
+            </Menu>
+          </Group>
+        </Stack>
+      </Center>
+    </SimpleGrid>
+  );
+}

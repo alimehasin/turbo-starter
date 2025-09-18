@@ -1,7 +1,10 @@
 {
   "_": {
+    "done": "Done",
+    "error": "Error",
     "hello": "Hello",
-    "search": "Search in orders"
+    "search": "Search in orders",
+    "success": "Success"
   },
   "dataTable": {
     "noRecords": "No records to show",
@@ -10,6 +13,12 @@
   "governorates": {
     "createdAt": "Created At",
     "name": "Name"
+  },
+  "login": {
+    "email": "Email",
+    "login": "Login",
+    "loginTitle": "Login to your account",
+    "password": "Password"
   },
   "meta": {
     "description": "Turborepo Starter with Next.js, Mantine and more",

@@ -7,6 +7,10 @@
     "noRecords": "لا توجد سجلات لعرضها",
     "recordsPerPageLabel": "عدد السجلات في الصفحة"
   },
+  "meta": {
+    "title": "تيربوريبو ستارتر",
+    "description": "تيربوريبو ستارتر مع Next.js, Mantine و أكثر"
+  },
   "sidebar": {
     "home": "الرئيسية"
   }

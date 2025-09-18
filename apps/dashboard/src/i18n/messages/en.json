@@ -7,6 +7,10 @@
     "noRecords": "No records to show",
     "recordsPerPageLabel": "Records per page"
   },
+  "meta": {
+    "title": "Turborepo Starter",
+    "description": "Turborepo Starter with Next.js, Mantine and more"
+  },
   "sidebar": {
     "home": "Home"
   }

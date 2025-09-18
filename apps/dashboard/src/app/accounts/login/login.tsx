@@ -22,13 +22,12 @@ import {
   IconUser,
 } from "@tabler/icons-react";
 import { useMutation } from "@tanstack/react-query";
-import { HTTPError } from "ky";
 import { useRouter } from "next/navigation";
 import { useTranslations } from "next-intl";
 import { useNotifications } from "@/hooks/use-notifications";
+import { authClient } from "@/lib/auth-client";
 import { setLocale } from "@/server-actions/locale";
-import type { LoginRequestBody, LoginResponseBody401 } from "@/types/server";
-import { ky } from "@/utils/ky";
+import type { LoginRequestBody } from "@/types/server";
 
 export default function Login({ locale }: { locale: string }) {
   const router = useRouter();
@@ -47,35 +46,26 @@ export default function Login({ locale }: { locale: string }) {
     onSuccess: router.refresh,
   });
 
-  const loginMut = useMutation({
-    mutationFn: async ({
-      email,
-      password,
-    }: {
-      email: string;
-      password: string;
-    }) => {
-      return ky
-        .post("auth/sign-in/email", {
-          json: { email, password } satisfies LoginRequestBody,
-        })
-        .json();
+  const signInMut = useMutation({
+    mutationFn: async ({ email, password }: LoginRequestBody) => {
+      const result = await authClient.signIn.email({ email, password });
+
+      if (result.error) {
+        throw new Error(result.error.message);
+      }
+
+      return result.data;
     },
     onSuccess: () => {
       router.push("/");
     },
-    onError: async (error) => {
-      if (error instanceof HTTPError) {
-        if (error.response.status === 401) {
-          const data = await error.response.json<LoginResponseBody401>();
-          n.error(data.message);
-        }
-      }
+    onError: (error: Error) => {
+      n.error(error.message);
     },
   });
 
   const handleSubmit = form.onSubmit(({ email, password }) => {
-    loginMut.mutate({ email, password });
+    signInMut.mutate({ email, password });
   });
 
   return (
@@ -129,7 +119,7 @@ export default function Login({ locale }: { locale: string }) {
                     mt="sm"
                     fullWidth
                     type="submit"
-                    loading={loginMut.isPending}
+                    loading={signInMut.isPending}
                     leftSection={<IconLogin size={18} />}
                   >
                     {t("login.login")}

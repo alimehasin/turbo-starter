@@ -5,14 +5,16 @@ import { admin, openAPI, phoneNumber } from "better-auth/plugins";
 
 export const auth = betterAuth({
   basePath: "/",
+
+  // TODO: Specify the trusted origins in the env file
+  trustedOrigins: ["http://localhost:3001"],
+
   database: prismaAdapter(prisma, {
     provider: "postgresql",
   }),
 
   advanced: {
-    database: {
-      generateId: false,
-    },
+    database: { generateId: false },
   },
 
   emailAndPassword: {

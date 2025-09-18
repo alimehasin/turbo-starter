@@ -16,7 +16,7 @@ export function Governorates() {
     queryKey: ["governorates", sorting, pagination],
     queryFn: () => {
       return ky
-        .get<GovernoratesList>("governorates", {
+        .get<GovernoratesList>("admin/governorates", {
           searchParams: { ...sorting, ...pagination },
         })
         .json();

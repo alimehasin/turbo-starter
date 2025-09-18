@@ -13,7 +13,7 @@ export default async function DashboardLayout({
     fetchOptions: { headers: headersList },
   });
 
-  if (!session.data?.session) {
+  if (!session.data || session.data.user.role !== "admin") {
     return redirect("/accounts/login");
   }
 

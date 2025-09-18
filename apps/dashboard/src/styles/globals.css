@@ -3,6 +3,12 @@ body {
   background-color: var(--mantine-color-nature-0);
 }
 
-.mantine-Button-root {
+.mantine-Button-root,
+.mantine-Input-input {
   border-radius: 100vw;
+}
+.mantine-Input-input {
+  &:focus-within {
+    outline: rem(2px) solid var(--mantine-primary-color-filled);
+  }
 }

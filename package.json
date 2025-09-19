@@ -6,7 +6,7 @@
     "packages/*",
     "apps/*"
   ],
-  "packageManager": "bun@1.2.21",
+  "packageManager": "bun@1.2.22",
   "scripts": {
     "dev": "turbo dev",
     "build": "turbo build",
@@ -35,7 +35,7 @@
     "@changesets/cli": "^2.29.7",
     "@commitlint/cli": "^19.8.1",
     "@commitlint/config-conventional": "^19.8.1",
-    "@inquirer/prompts": "^7.8.4",
+    "@inquirer/prompts": "^7.8.6",
     "husky": "^9.1.7",
     "lint-staged": "^16.1.6",
     "turbo": "^2.5.6",

@@ -1,6 +1,6 @@
 import { prisma } from "@db/client";
 import { Elysia, t } from "elysia";
-import type { Prisma } from "@/generated/prisma";
+import type { Prisma } from "@/generated/prisma/client";
 import { Governorate } from "@/generated/prismabox/Governorate";
 import { setup } from "@/setup";
 import { parsePaginationProps, parseSortingProps } from "@/utils/helpers";

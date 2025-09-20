@@ -31,15 +31,6 @@ export const openapi = elysiaOpenapi({
   documentation: {
     tags: [],
     paths: transformedPaths,
-    components: {
-      ...components,
-      securitySchemes: {
-        "Bearer Auth": {
-          type: "http",
-          scheme: "bearer",
-          bearerFormat: "JWT",
-        },
-      },
-    },
+    components: components as any,
   },
 });

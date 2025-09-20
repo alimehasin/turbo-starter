@@ -17,6 +17,6 @@ body {
 
   &[data-variant="unstyled"] {
     outline: none;
-    box-shadow: 0 0 0 0 !important;
+    box-shadow: 0 0 0 0;
   }
 }

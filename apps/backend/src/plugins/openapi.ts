@@ -1,3 +1,5 @@
+// biome-ignore-all lint/suspicious/noExplicitAny: TODO
+
 import { openapi as elysiaOpenapi } from "@elysiajs/openapi";
 import { fromTypes } from "@elysiajs/openapi/gen";
 import { env } from "@/env";

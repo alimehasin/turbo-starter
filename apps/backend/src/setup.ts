@@ -2,7 +2,14 @@ import { Elysia } from "elysia";
 
 export const setup = new Elysia({ name: "setup" })
 
-  // Translation
+  .macro({
+    successStatus: (statusCode: number) => ({
+      afterHandle({ set }) {
+        set.status = statusCode;
+      },
+    }),
+  })
+
   .derive({ as: "scoped" }, ({ headers }) => {
     const lang = headers["accept-language"]?.split(",")[0] || "en";
 

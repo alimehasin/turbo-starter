@@ -5,8 +5,14 @@ services:
       dockerfile: apps/backend/Dockerfile
     container_name: turbo-starter-backend
     restart: unless-stopped
-    env_file:
-      - .env
+    environment:
+      - NODE_ENV=${NODE_ENV}
+      - STORAGE_REGION=${STORAGE_REGION}
+      - STORAGE_ENDPOINT=${STORAGE_ENDPOINT}
+      - STORAGE_ACCESS_KEY=${STORAGE_ACCESS_KEY}
+      - STORAGE_SECRET_KEY=${STORAGE_SECRET_KEY}
+      - STORAGE_BUCKET_NAME=${STORAGE_BUCKET_NAME}
+      - BETTER_AUTH_TRUSTED_ORIGINS=${BETTER_AUTH_TRUSTED_ORIGINS}
     ports:
       - "3000:3000"
 
@@ -16,8 +22,9 @@ services:
       dockerfile: apps/dashboard/Dockerfile
     container_name: turbo-starter-dashboard
     restart: unless-stopped
-    env_file:
-      - .env
+    environment:
+      - NEXT_PUBLIC_API_BASE_URL=${NEXT_PUBLIC_API_BASE_URL}
+      - NEXT_PUBLIC_STORAGE_BASE_URL=${NEXT_PUBLIC_STORAGE_BASE_URL}
     ports:
       - "3001:3001"
     depends_on:

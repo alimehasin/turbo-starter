@@ -64,7 +64,7 @@ clean:
 
 clean-all:
 	docker-compose down -v
-	docker system prune -a -f
+	docker system prune -f
 
 # Utility commands
 ps:

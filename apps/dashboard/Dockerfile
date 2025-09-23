@@ -29,7 +29,7 @@ RUN bun run build
 
 # Production image
 FROM base AS runner
-WORKDIR /app
+WORKDIR /app/apps/dashboard
 
 # Create non-root user
 RUN addgroup --system --gid 1001 nodejs
@@ -39,6 +39,7 @@ RUN adduser --system --uid 1001 bunuser
 COPY --from=builder --chown=bunuser:nodejs /app/apps/dashboard/.next ./.next
 COPY --from=builder --chown=bunuser:nodejs /app/apps/dashboard/package.json ./package.json
 COPY --from=builder --chown=bunuser:nodejs /app/apps/dashboard/next.config.ts ./next.config.ts
+COPY --from=builder --chown=bunuser:nodejs /app/apps/dashboard/src ./src
 COPY --from=builder --chown=bunuser:nodejs /app/node_modules ./node_modules
 
 # Switch to non-root user

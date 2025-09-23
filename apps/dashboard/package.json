@@ -3,9 +3,9 @@
   "private": true,
   "version": "0.0.0",
   "scripts": {
-    "dev": "dotenv -e .env next dev -- --turbopack",
+    "dev": "next dev --turbopack --port 3001",
     "build": "next build --turbopack",
-    "start": "dotenv -e .env next start",
+    "start": "next start --port 3001",
     "typecheck": "tsc --noEmit",
     "api:gentype": "bunx openapi-typescript http://localhost:3000/docs/json -o ./src/types/server/schema.d.ts",
     "i18n:parse": "i18next 'src/**/*.{js,jsx,ts,tsx}' '../../packages/**/*.{ts,tsx}' --config i18next-parser.config.json"

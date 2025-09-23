@@ -1,8 +1,7 @@
 # Use Bun's official image
-FROM oven/bun:latest AS base
+FROM oven/bun:latest
 
-# Install dependencies only when needed
-FROM base AS deps
+# Set working directory
 WORKDIR /app
 
 # Copy package files
@@ -13,36 +12,19 @@ COPY configs/ ./configs/
 # Install dependencies
 RUN bun install
 
-# Build the application
-FROM base AS builder
-WORKDIR /app
-
-# Copy dependencies
-COPY --from=deps /app/node_modules ./node_modules
-
 # Copy source code
 COPY . .
 
-# Generate Prisma client
+# Generate Prisma client and build
 WORKDIR /app/apps/backend
-RUN bunx prisma generate
-
-# Build the application
-RUN bun run build
-
-# Production image
-FROM base AS runner
-WORKDIR /app
+RUN bunx prisma generate && bun run build
 
 # Create non-root user
-RUN addgroup --system --gid 1001 nodejs
-RUN adduser --system --uid 1001 bunuser
+RUN addgroup --system --gid 1001 nodejs && \
+    adduser --system --uid 1001 bunuser
 
-# Copy built application
-COPY --from=builder --chown=bunuser:nodejs /app/apps/backend/dist ./dist
-COPY --from=builder --chown=bunuser:nodejs /app/apps/backend/prisma ./prisma
-COPY --from=builder --chown=bunuser:nodejs /app/apps/backend/package.json ./package.json
-COPY --from=builder --chown=bunuser:nodejs /app/node_modules ./node_modules
+# Change ownership of app directory
+RUN chown -R bunuser:nodejs /app
 
 # Switch to non-root user
 USER bunuser

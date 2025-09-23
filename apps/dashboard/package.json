@@ -21,8 +21,8 @@
     "@mantine/notifications": "^8.3.1",
     "@t3-oss/env-nextjs": "^0.13.8",
     "@tabler/icons-react": "^3.35.0",
-    "@tanstack/react-query": "^5.89.0",
-    "better-auth": "^1.3.13",
+    "@tanstack/react-query": "^5.90.2",
+    "better-auth": "^1.3.14",
     "dayjs": "^1.11.18",
     "i18next-parser": "^9.3.0",
     "ky": "^1.10.0",
@@ -32,7 +32,7 @@
     "react": "19.1.1",
     "react-dom": "19.1.1",
     "recharts": "^3.2.1",
-    "zod": "^4.1.9"
+    "zod": "^4.1.11"
   },
   "devDependencies": {
     "@repo/tsconfig": "workspace:*",

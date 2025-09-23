@@ -9,8 +9,8 @@ COPY package.json bun.lock* ./
 COPY apps/dashboard/package.json ./apps/dashboard/
 COPY configs/ ./configs/
 
-# Install dependencies
-RUN bun install
+# Install dependencies using lockfile for exact versions
+RUN bun install --frozen-lockfile
 
 # Copy source code
 COPY . .

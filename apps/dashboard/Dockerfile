@@ -1,8 +1,7 @@
 # Use Bun's official image
-FROM oven/bun:latest AS base
+FROM oven/bun:latest
 
-# Install dependencies only when needed
-FROM base AS deps
+# Set working directory
 WORKDIR /app
 
 # Copy package files
@@ -13,13 +12,6 @@ COPY configs/ ./configs/
 # Install dependencies
 RUN bun install
 
-# Build the application
-FROM base AS builder
-WORKDIR /app
-
-# Copy dependencies
-COPY --from=deps /app/node_modules ./node_modules
-
 # Copy source code
 COPY . .
 
@@ -27,20 +19,12 @@ COPY . .
 WORKDIR /app/apps/dashboard
 RUN bun run build
 
-# Production image
-FROM base AS runner
-WORKDIR /app/apps/dashboard
-
 # Create non-root user
-RUN addgroup --system --gid 1001 nodejs
-RUN adduser --system --uid 1001 bunuser
+RUN addgroup --system --gid 1001 nodejs && \
+    adduser --system --uid 1001 bunuser
 
-# Copy built application
-COPY --from=builder --chown=bunuser:nodejs /app/apps/dashboard/.next ./.next
-COPY --from=builder --chown=bunuser:nodejs /app/apps/dashboard/package.json ./package.json
-COPY --from=builder --chown=bunuser:nodejs /app/apps/dashboard/next.config.ts ./next.config.ts
-COPY --from=builder --chown=bunuser:nodejs /app/apps/dashboard/src ./src
-COPY --from=builder --chown=bunuser:nodejs /app/node_modules ./node_modules
+# Change ownership of app directory
+RUN chown -R bunuser:nodejs /app
 
 # Switch to non-root user
 USER bunuser

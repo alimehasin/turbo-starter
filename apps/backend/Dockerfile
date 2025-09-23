@@ -32,8 +32,5 @@ USER bunuser
 # Expose port
 EXPOSE 3000
 
-# Set environment variables
-ENV NODE_ENV=production
-
 # Start the application
 CMD ["bun", "run", "start"]

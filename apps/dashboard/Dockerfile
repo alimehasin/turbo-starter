@@ -49,7 +49,6 @@ EXPOSE 3001
 
 # Set environment variables
 ENV NODE_ENV=production
-ENV PORT=3001
 
 # Start the application
 CMD ["bun", "run", "start"]

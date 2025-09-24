@@ -1,6 +1,5 @@
 import { prisma } from '@db/client';
-import { FileType } from '@prisma/client';
-import { Elysia, t } from 'elysia';
+import { Elysia } from 'elysia';
 import { env } from '@/env';
 import { betterAuth } from '@/plugins/better-auth';
 import { setup } from '@/setup';
@@ -10,6 +9,7 @@ import {
   uploadVideo,
 } from '@/utils/clients/s3/helpers';
 import { HttpError } from '@/utils/error';
+import { FileModel } from './files.model';
 
 export const files = new Elysia({ prefix: '/files' })
 
@@ -17,6 +17,7 @@ export const files = new Elysia({ prefix: '/files' })
   .use(setup)
   .use(betterAuth)
   .guard({ mustBeAuthed: true })
+  .model(FileModel)
 
   .post(
     '/upload',
@@ -67,11 +68,12 @@ export const files = new Elysia({ prefix: '/files' })
       });
     },
     {
-      body: t.Object({
-        file: t.File(),
-        type: t.Enum(FileType),
-        isPublic: t.Union([t.Literal('true'), t.Literal('false')]),
-      }),
+      successStatus: 201,
+      body: 'UserFileCreateBody',
+      response: {
+        201: 'UserFileCreateResponse',
+        400: 'BadRequestError',
+      },
     },
   )
 
@@ -95,5 +97,11 @@ export const files = new Elysia({ prefix: '/files' })
       await deleteObjects(env.STORAGE_BUCKET_NAME, [file.key]);
       await prisma.file.delete({ where: { id } });
     },
-    {},
+    {
+      successStatus: 204,
+      response: {
+        204: 'UserFileDeleteResponse',
+        400: 'BadRequestError',
+      },
+    },
   );

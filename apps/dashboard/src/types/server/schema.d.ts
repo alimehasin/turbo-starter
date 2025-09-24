@@ -4,38 +4,6 @@
  */
 
 export interface paths {
-  '/': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    get?: never;
-    put?: never;
-    post?: never;
-    delete?: never;
-    options: operations['optionsIndex'];
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/*': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    get?: never;
-    put?: never;
-    post?: never;
-    delete?: never;
-    options: operations['options*'];
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
   '/admin/governorates/': {
     parameters: {
       query?: never;
@@ -50,6 +18,22 @@ export interface paths {
     options?: never;
     head?: never;
     patch?: never;
+    trace?: never;
+  };
+  '/admin/governorates/{id}': {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    get?: never;
+    put?: never;
+    post?: never;
+    delete: operations['deleteAdminGovernoratesById'];
+    options?: never;
+    head?: never;
+    patch: operations['patchAdminGovernoratesById'];
     trace?: never;
   };
   '/user/files/upload': {
@@ -79,6 +63,22 @@ export interface paths {
     put?: never;
     post?: never;
     delete: operations['deleteUserFilesById'];
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  '/user/governorates/': {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    get: operations['getUserGovernorates'];
+    put?: never;
+    post?: never;
+    delete?: never;
     options?: never;
     head?: never;
     patch?: never;
@@ -628,7 +628,7 @@ export interface paths {
           'application/json': {
             /** @description The email address of the user to send a password reset email to */
             email: string;
-            /** @description The URL to redirect the user to reset their password. If the token isn't valid or expired, it'll be redirected with a query parameter `?error=INVALID_TOKEN`. If the token is valid, it'll be redirected with a query parameter `?token=VALID_TOKEN */
+            /** @description The URL to redirect the user to reset their password */
             redirectTo?: string | null;
           };
         };
@@ -1722,7 +1722,7 @@ export interface paths {
           'application/json': {
             /** @description The email address of the user to send a password reset email to */
             email: string;
-            /** @description The URL to redirect the user to reset their password. If the token isn't valid or expired, it'll be redirected with a query parameter `?error=INVALID_TOKEN`. If the token is valid, it'll be redirected with a query parameter `?token=VALID_TOKEN */
+            /** @description The URL to redirect the user to reset their password */
             redirectTo?: string | null;
           };
         };
@@ -3724,7 +3724,7 @@ export interface paths {
       requestBody: {
         content: {
           'application/json': {
-            /** @description Phone number to sign in. Eg: "+1234567890" */
+            /** @description Phone number to sign in. Eg:  */
             phoneNumber: string;
             /** @description Password to use for sign in. */
             password: string;
@@ -3836,7 +3836,7 @@ export interface paths {
       requestBody: {
         content: {
           'application/json': {
-            /** @description Phone number to send OTP. Eg: "+1234567890" */
+            /** @description Phone number to send OTP. Eg:  */
             phoneNumber: string;
           };
         };
@@ -3947,9 +3947,9 @@ export interface paths {
       requestBody: {
         content: {
           'application/json': {
-            /** @description Phone number to verify. Eg: "+1234567890" */
+            /** @description Phone number to verify. Eg:  */
             phoneNumber: string;
-            /** @description OTP code. Eg: "123456" */
+            /** @description OTP code. Eg:  */
             code: string;
             /** @description Disable session creation after verification. Eg: false */
             disableSession?: boolean | null;
@@ -4328,9 +4328,9 @@ export interface paths {
       requestBody: {
         content: {
           'application/json': {
-            /** @description The one time password to reset the password. Eg: "123456" */
+            /** @description The one time password to reset the password. Eg:  */
             otp: string;
-            /** @description The phone number to the account which intends to reset the password for. Eg: "+1234567890" */
+            /** @description The phone number to the account which intends to reset the password for. Eg:  */
             phoneNumber: string;
             /** @description The new password. Eg: "new-and-secure-password" */
             newPassword: string;
@@ -4431,6 +4431,93 @@ export interface paths {
 export type webhooks = Record<string, never>;
 export interface components {
   schemas: {
+    BadRequestError:
+      | {
+          /** @constant */
+          errorCode: 'HttpError';
+          message: string;
+        }
+      | {
+          /** @constant */
+          errorCode: 'ValidationError';
+          errors: string[];
+        };
+    AdminGovernorateListQuery: {
+      /** @default 1 */
+      page: number;
+      /** @default 10 */
+      pageSize: number;
+      /** @default createdAt */
+      sortingColumn: string;
+      /** @default desc */
+      sortingDirection: string;
+      search?: string;
+    };
+    AdminGovernorateListResponse: {
+      total: number;
+      data: {
+        id: string;
+        name: string;
+        createdAt: Record<string, never> | string | number;
+        updatedAt: Record<string, never> | string | number;
+      }[];
+    };
+    AdminGovernorateCreateBody: {
+      name: string;
+    };
+    AdminGovernorateCreateResponse: {
+      id: string;
+      name: string;
+      createdAt: Record<string, never> | string | number;
+      updatedAt: Record<string, never> | string | number;
+    };
+    AdminGovernorateUpdateParams: {
+      /** Format: uuid */
+      id: string;
+    };
+    AdminGovernorateUpdateBody: {
+      name: string;
+    };
+    AdminGovernorateUpdateResponse: {
+      id: string;
+      name: string;
+      createdAt: Record<string, never> | string | number;
+      updatedAt: Record<string, never> | string | number;
+    };
+    AdminGovernorateDeleteParams: {
+      /** Format: uuid */
+      id: string;
+    };
+    AdminGovernorateDeleteResponse: unknown;
+    UserFileCreateBody: {
+      /**
+       * Format: binary
+       * @default File
+       */
+      file: string;
+      /** @enum {string} */
+      type: 'Image' | 'Video' | 'Other';
+      /** @enum {string} */
+      isPublic: 'true' | 'false';
+    };
+    UserFileCreateResponse: {
+      id: string;
+      key: string;
+      size: string | number;
+      /** @enum {string} */
+      type: 'Image' | 'Video' | 'Other';
+      isPublic: boolean;
+      userId: string;
+      createdAt: Record<string, never> | string | number;
+      updatedAt: Record<string, never> | string | number;
+    };
+    UserFileDeleteResponse: unknown;
+    UserGovernorateListResponse: {
+      id: string;
+      name: string;
+      createdAt: Record<string, never> | string | number;
+      updatedAt: Record<string, never> | string | number;
+    }[];
     User: {
       id?: string;
       name: string;
@@ -4449,6 +4536,8 @@ export interface components {
       readonly banExpires?: string;
       phoneNumber?: string;
       readonly phoneNumberVerified?: boolean;
+      gender?: string;
+      avatarId?: string;
     };
     Session: {
       id?: string;
@@ -4497,26 +4586,6 @@ export interface components {
 }
 export type $defs = Record<string, never>;
 export interface operations {
-  optionsIndex: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: never;
-  };
-  'options*': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: never;
-  };
   getAdminGovernorates: {
     parameters: {
       query: {
@@ -4524,6 +4593,7 @@ export interface operations {
         pageSize: number;
         sortingColumn: string;
         sortingDirection: string;
+        search?: string;
       };
       header?: never;
       path?: never;
@@ -4537,15 +4607,16 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          'application/json': {
-            total: number;
-            data: {
-              id: string;
-              name: string;
-              createdAt: Record<string, never> | string | number;
-              updatedAt: Record<string, never> | string | number;
-            }[];
-          };
+          'application/json': components['schemas']['AdminGovernorateListResponse'];
+        };
+      };
+      /** @description Response for status 400 */
+      400: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          'application/json': components['schemas']['BadRequestError'];
         };
       };
     };
@@ -4559,15 +4630,77 @@ export interface operations {
     };
     requestBody: {
       content: {
-        'application/json': {
-          name: string;
+        'application/json': components['schemas']['AdminGovernorateCreateBody'];
+        'application/x-www-form-urlencoded': components['schemas']['AdminGovernorateCreateBody'];
+        'multipart/form-data': components['schemas']['AdminGovernorateCreateBody'];
+      };
+    };
+    responses: {
+      /** @description Response for status 201 */
+      201: {
+        headers: {
+          [name: string]: unknown;
         };
-        'application/x-www-form-urlencoded': {
-          name: string;
+        content: {
+          'application/json': components['schemas']['AdminGovernorateCreateResponse'];
         };
-        'multipart/form-data': {
-          name: string;
+      };
+      /** @description Response for status 400 */
+      400: {
+        headers: {
+          [name: string]: unknown;
         };
+        content: {
+          'application/json': components['schemas']['BadRequestError'];
+        };
+      };
+    };
+  };
+  deleteAdminGovernoratesById: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        id: string;
+      };
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      /** @description Response for status 204 */
+      204: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          'application/json': components['schemas']['AdminGovernorateDeleteResponse'];
+        };
+      };
+      /** @description Response for status 400 */
+      400: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          'application/json': components['schemas']['BadRequestError'];
+        };
+      };
+    };
+  };
+  patchAdminGovernoratesById: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        id: string;
+      };
+      cookie?: never;
+    };
+    requestBody: {
+      content: {
+        'application/json': components['schemas']['AdminGovernorateUpdateBody'];
+        'application/x-www-form-urlencoded': components['schemas']['AdminGovernorateUpdateBody'];
+        'multipart/form-data': components['schemas']['AdminGovernorateUpdateBody'];
       };
     };
     responses: {
@@ -4577,12 +4710,16 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          'application/json': {
-            id: string;
-            name: string;
-            createdAt: Record<string, never> | string | number;
-            updatedAt: Record<string, never> | string | number;
-          };
+          'application/json': components['schemas']['AdminGovernorateUpdateResponse'];
+        };
+      };
+      /** @description Response for status 400 */
+      400: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          'application/json': components['schemas']['BadRequestError'];
         };
       };
     };
@@ -4596,38 +4733,64 @@ export interface operations {
     };
     requestBody: {
       content: {
-        'application/json': {
-          /**
-           * Format: binary
-           * @default File
-           */
-          file: string;
-          type: 'Image' | 'Video' | 'Other';
-          isPublic: 'true' | 'false';
+        'application/json': components['schemas']['UserFileCreateBody'];
+        'application/x-www-form-urlencoded': components['schemas']['UserFileCreateBody'];
+        'multipart/form-data': components['schemas']['UserFileCreateBody'];
+      };
+    };
+    responses: {
+      /** @description Response for status 201 */
+      201: {
+        headers: {
+          [name: string]: unknown;
         };
-        'application/x-www-form-urlencoded': {
-          /**
-           * Format: binary
-           * @default File
-           */
-          file: string;
-          type: 'Image' | 'Video' | 'Other';
-          isPublic: 'true' | 'false';
+        content: {
+          'application/json': components['schemas']['UserFileCreateResponse'];
         };
-        'multipart/form-data': {
-          /**
-           * Format: binary
-           * @default File
-           */
-          file: string;
-          type: 'Image' | 'Video' | 'Other';
-          isPublic: 'true' | 'false';
+      };
+      /** @description Response for status 400 */
+      400: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          'application/json': components['schemas']['BadRequestError'];
         };
       };
     };
-    responses: never;
   };
   deleteUserFilesById: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        id: string;
+      };
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      /** @description Response for status 204 */
+      204: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          'application/json': components['schemas']['UserFileDeleteResponse'];
+        };
+      };
+      /** @description Response for status 400 */
+      400: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          'application/json': components['schemas']['BadRequestError'];
+        };
+      };
+    };
+  };
+  getUserGovernorates: {
     parameters: {
       query?: never;
       header?: never;
@@ -4635,7 +4798,26 @@ export interface operations {
       cookie?: never;
     };
     requestBody?: never;
-    responses: never;
+    responses: {
+      /** @description Response for status 200 */
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          'application/json': components['schemas']['UserGovernorateListResponse'];
+        };
+      };
+      /** @description Response for status 400 */
+      400: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          'application/json': components['schemas']['BadRequestError'];
+        };
+      };
+    };
   };
   socialSignIn: {
     parameters: {

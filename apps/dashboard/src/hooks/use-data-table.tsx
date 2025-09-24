@@ -67,7 +67,7 @@ export function useDataTable({
     let props: DataTableProps<T> = {
       noRecordsText: t('dataTable.noRecords'),
 
-      borderRadius: 'md',
+      borderRadius: 'lg',
       withRowBorders: true,
       withTableBorder: true,
       withColumnBorders: true,

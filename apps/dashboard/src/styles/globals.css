@@ -4,8 +4,14 @@ body {
 }
 
 .mantine-Button-root,
-.mantine-Input-input {
+.mantine-Input-input,
+.mantine-ActionIcon-root,
+.mantine-Pagination-control {
   border-radius: 100vw;
+}
+
+.mantine-Menu-dropdown {
+  min-width: 120px;
 }
 
 .mantine-Input-input {

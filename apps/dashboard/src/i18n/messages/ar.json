@@ -6,9 +6,21 @@
     "search": "بحث في الطلبات",
     "success": "نجحت"
   },
+  "confirmDelete": {
+    "actionCannotBeUndone": "لا يمكن التراجع عن هذا الإجراء.",
+    "areYouSureAboutThisAction": "هل أنت متأكد أنك تريد القيام بهذا الإجراء؟",
+    "cancel": "إلغاء",
+    "confirm": "تأكيد"
+  },
   "dataTable": {
     "noRecords": "لا توجد سجلات لعرضها",
     "recordsPerPageLabel": "عدد السجلات في الصفحة"
+  },
+  "downloadCsvFile": {
+    "description": "اضغط على الزر \"تحميل\" أدناه لتحميل جميع البيانات كملف CSV",
+    "download": "تحميل",
+    "title": "تحميل الملف كملف CSV",
+    "tooltip": "تحميل الملف كملف CSV"
   },
   "governorates": {
     "createdAt": "تاريخ الإنشاء",
@@ -25,8 +37,33 @@
     "description": "تيربوريبو ستارتر مع Next.js, Mantine و أكثر",
     "title": "تيربوريبو ستارتر"
   },
+  "notFound": {
+    "description": "قد تكون الصفحة المطلوبة قد تم نقلها أو حذفها، أو ربما أدخلت رابطاً خاطئاً.",
+    "errorCode": "404",
+    "goBack": "العودة للخلف",
+    "goHome": "العودة للرئيسية",
+    "subtitle": "عذراً! الصفحة التي تبحث عنها غير موجودة.",
+    "title": "الصفحة غير موجودة"
+  },
   "sidebar": {
+    "announcements": "الإعلانات",
+    "attributes": "الخصائص",
+    "banners": "اللافتات",
+    "catalogGroup": "الكتالوج",
+    "categories": "الفئات",
+    "coupons": "الكوبونات",
     "governorates": "المحافظات",
-    "home": "الرئيسية"
+    "helpInfo": "المساعدة والمعلومات",
+    "home": "الرئيسية",
+    "managementGroup": "الإدارة",
+    "marketingGroup": "التسويق",
+    "orders": "الطلبات",
+    "overviewGroup": "نظرة عامة",
+    "priceReports": "تقارير الأسعار",
+    "products": "المنتجات",
+    "profile": "الحساب",
+    "settings": "الإعدادات",
+    "users": "المستخدمين",
+    "warranties": "الضمانات"
   }
 }

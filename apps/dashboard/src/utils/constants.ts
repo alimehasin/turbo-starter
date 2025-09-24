@@ -1,4 +1,3 @@
-export const SHELL_NAVBAR_HEIGHT = 60;
 export const SHELL_SIDEBAR_WIDTH = 260;
 
 export const DEFAULT_PAGE_SIZE = 10;

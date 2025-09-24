@@ -42,8 +42,10 @@ export const auth = betterAuth({
 
     phoneNumber({
       sendOTP: async ({ code, phoneNumber }) => {
+        console.log('======================== OTP =========================');
         console.log(code);
         console.log(phoneNumber);
+        console.log('======================== OTP =========================');
       },
 
       signUpOnVerification: {

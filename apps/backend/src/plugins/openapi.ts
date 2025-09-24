@@ -1,7 +1,6 @@
 // biome-ignore-all lint/suspicious/noExplicitAny: TODO
 
 import { openapi as elysiaOpenapi } from '@elysiajs/openapi';
-import { fromTypes } from '@elysiajs/openapi/gen';
 import { env } from '@/env';
 import { auth } from '@/utils/auth';
 
@@ -27,7 +26,6 @@ for (const path of Object.keys(paths)) {
 
 export const openapi = elysiaOpenapi({
   path: '/docs',
-  references: fromTypes('src/server.ts'),
   enabled: env.NODE_ENV === 'development',
 
   documentation: {

@@ -38,8 +38,8 @@
     "password": "Password"
   },
   "meta": {
-    "description": "Daffa is the new base for future ecommerce",
-    "title": "Daffa"
+    "description": "Turbo Starter | A starter kit with Elysia and Next.js",
+    "title": "Turbo Starter | Dashboard"
   },
   "notFound": {
     "description": "The page you requested might have been moved, deleted, or you might have entered the wrong URL.",

@@ -3,6 +3,7 @@
     "done": "Done",
     "error": "Error",
     "hello": "Hello",
+    "save": "Save",
     "search": "Search in orders",
     "success": "Success"
   },
@@ -23,8 +24,11 @@
     "tooltip": "Download file as CSV"
   },
   "governorates": {
+    "add": "Add Governorate",
     "createdAt": "Created At",
-    "name": "Name"
+    "deletedSuccessfully": "Governorate deleted successfully",
+    "name": "Name",
+    "savedSuccessfully": "Governorate saved successfully"
   },
   "login": {
     "email": "Email",

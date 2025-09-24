@@ -3,6 +3,7 @@
     "done": "تم",
     "error": "خطأ",
     "hello": "مرحبا",
+    "save": "حفظ",
     "search": "بحث في الطلبات",
     "success": "نجحت"
   },
@@ -23,8 +24,11 @@
     "tooltip": "تحميل الملف كملف CSV"
   },
   "governorates": {
+    "add": "اضافة محافظة",
     "createdAt": "تاريخ الإنشاء",
-    "name": "الاسم"
+    "deletedSuccessfully": "تم حذف المحافظة بنجاح",
+    "name": "الاسم",
+    "savedSuccessfully": "تم حفظ المحافظة بنجاح"
   },
   "login": {
     "email": "البريد الإلكتروني",

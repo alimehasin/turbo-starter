@@ -19,6 +19,20 @@ export const auth = betterAuth({
     enabled: true,
   },
 
+  user: {
+    additionalFields: {
+      gender: {
+        type: 'string',
+        enum: ['Male', 'Female'],
+      },
+
+      avatarId: {
+        type: 'string',
+        required: false,
+      },
+    },
+  },
+
   plugins: [
     admin({}),
 

@@ -1,6 +1,9 @@
 -- CreateEnum
 CREATE TYPE "public"."FileType" AS ENUM ('Image', 'Video', 'Other');
 
+-- CreateEnum
+CREATE TYPE "public"."Gender" AS ENUM ('Male', 'Female');
+
 -- CreateTable
 CREATE TABLE "public"."User" (
     "id" TEXT NOT NULL,
@@ -16,6 +19,8 @@ CREATE TABLE "public"."User" (
     "banned" BOOLEAN DEFAULT false,
     "banReason" TEXT,
     "banExpires" TIMESTAMP(3),
+    "gender" "public"."Gender",
+    "avatarId" TEXT,
 
     CONSTRAINT "User_pkey" PRIMARY KEY ("id")
 );
@@ -104,6 +109,9 @@ CREATE UNIQUE INDEX "File_key_key" ON "public"."File"("key");
 
 -- CreateIndex
 CREATE UNIQUE INDEX "Governorate_name_key" ON "public"."Governorate"("name");
+
+-- AddForeignKey
+ALTER TABLE "public"."User" ADD CONSTRAINT "User_avatarId_fkey" FOREIGN KEY ("avatarId") REFERENCES "public"."File"("id") ON DELETE SET NULL ON UPDATE CASCADE;
 
 -- AddForeignKey
 ALTER TABLE "public"."Session" ADD CONSTRAINT "Session_userId_fkey" FOREIGN KEY ("userId") REFERENCES "public"."User"("id") ON DELETE CASCADE ON UPDATE CASCADE;

@@ -12,7 +12,6 @@ import { HttpError } from '@/utils/error';
 import { FileAdminModel } from './files.admin.model';
 
 export const files = new Elysia({ prefix: '/files' })
-
   .use(setup)
   .model(FileAdminModel)
 

@@ -12,7 +12,6 @@ import { HttpError } from '@/utils/error';
 import { FileUserModel } from './files.user.model';
 
 export const files = new Elysia({ prefix: '/files' })
-
   .use(setup)
   .model(FileUserModel)
 

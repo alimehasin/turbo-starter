@@ -9,15 +9,15 @@ import {
   uploadVideo,
 } from '@/utils/clients/s3/helpers';
 import { HttpError } from '@/utils/error';
-import { FileUserModel } from './files.user.model';
+import { FileAdminModel } from './files.admin.model';
 
 export const files = new Elysia({ prefix: '/files' })
 
-  // Plugins
   .use(setup)
+  .model(FileAdminModel)
+
   .use(betterAuth)
   .guard({ mustBeAuthed: true })
-  .model(FileUserModel)
 
   .post(
     '/upload',

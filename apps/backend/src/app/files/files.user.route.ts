@@ -13,11 +13,11 @@ import { FileUserModel } from './files.user.model';
 
 export const files = new Elysia({ prefix: '/files' })
 
-  // Plugins
   .use(setup)
+  .model(FileUserModel)
+
   .use(betterAuth)
   .guard({ mustBeAuthed: true })
-  .model(FileUserModel)
 
   .post(
     '/upload',

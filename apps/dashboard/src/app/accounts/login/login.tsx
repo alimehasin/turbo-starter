@@ -26,7 +26,7 @@ import { useRouter } from 'next/navigation';
 import { useTranslations } from 'next-intl';
 import { useNotifications } from '@/hooks/use-notifications';
 import { authClient } from '@/lib/auth-client';
-import { setLocale } from '@/server-actions/locale';
+import { setLocale } from '@/server/actions/locale';
 import type { LoginRequestBody } from '@/types/server';
 
 export default function Login({ locale }: { locale: string }) {

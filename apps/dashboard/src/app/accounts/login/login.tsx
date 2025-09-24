@@ -25,9 +25,9 @@ import { useMutation } from '@tanstack/react-query';
 import { useRouter } from 'next/navigation';
 import { useTranslations } from 'next-intl';
 import { useNotifications } from '@/hooks/use-notifications';
-import { authClient } from '@/lib/auth-client';
 import { setLocale } from '@/server/actions/locale';
 import type { LoginRequestBody } from '@/types/server';
+import { authClient } from '@/utils/auth-client';
 
 export default function Login({ locale }: { locale: string }) {
   const router = useRouter();

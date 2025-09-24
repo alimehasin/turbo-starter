@@ -10,7 +10,7 @@ COPY apps/dashboard/package.json ./apps/dashboard/
 COPY configs/ ./configs/
 
 # Install dependencies using lockfile for exact versions
-RUN bun install --frozen-lockfile
+RUN bun install
 
 # Copy source code
 COPY . .

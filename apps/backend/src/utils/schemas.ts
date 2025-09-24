@@ -1,4 +1,4 @@
-import { t } from "elysia";
+import { t } from 'elysia';
 
 export const paginationSchema = {
   page: t.Number({ default: 1 }),
@@ -6,6 +6,6 @@ export const paginationSchema = {
 };
 
 export const sortingSchema = {
-  sortingColumn: t.String({ default: "createdAt" }),
-  sortingDirection: t.String({ default: "desc" }),
+  sortingColumn: t.String({ default: 'createdAt' }),
+  sortingDirection: t.String({ default: 'desc' }),
 };

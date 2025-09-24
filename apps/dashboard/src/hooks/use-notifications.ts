@@ -1,5 +1,5 @@
-import { showNotification } from "@mantine/notifications";
-import { useTranslations } from "next-intl";
+import { showNotification } from '@mantine/notifications';
+import { useTranslations } from 'next-intl';
 
 export function useNotifications() {
   const t = useTranslations();
@@ -7,24 +7,24 @@ export function useNotifications() {
   return {
     success: (message: string) => {
       showNotification({
-        color: "green",
-        title: t("_.success"),
+        color: 'green',
+        title: t('_.success'),
         message,
       });
     },
 
     info: (message: string) => {
       showNotification({
-        color: "blue",
-        title: t("_.done"),
+        color: 'blue',
+        title: t('_.done'),
         message,
       });
     },
 
     error: (message: string) => {
       showNotification({
-        color: "red",
-        title: t("_.error"),
+        color: 'red',
+        title: t('_.error'),
         message,
       });
     },

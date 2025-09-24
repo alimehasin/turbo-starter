@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 import {
   Box,
@@ -13,21 +13,21 @@ import {
   Stack,
   TextInput,
   Title,
-} from "@mantine/core";
-import { useForm } from "@mantine/form";
+} from '@mantine/core';
+import { useForm } from '@mantine/form';
 import {
   IconKey,
   IconLanguage,
   IconLogin,
   IconUser,
-} from "@tabler/icons-react";
-import { useMutation } from "@tanstack/react-query";
-import { useRouter } from "next/navigation";
-import { useTranslations } from "next-intl";
-import { useNotifications } from "@/hooks/use-notifications";
-import { authClient } from "@/lib/auth-client";
-import { setLocale } from "@/server-actions/locale";
-import type { LoginRequestBody } from "@/types/server";
+} from '@tabler/icons-react';
+import { useMutation } from '@tanstack/react-query';
+import { useRouter } from 'next/navigation';
+import { useTranslations } from 'next-intl';
+import { useNotifications } from '@/hooks/use-notifications';
+import { authClient } from '@/lib/auth-client';
+import { setLocale } from '@/server-actions/locale';
+import type { LoginRequestBody } from '@/types/server';
 
 export default function Login({ locale }: { locale: string }) {
   const router = useRouter();
@@ -36,8 +36,8 @@ export default function Login({ locale }: { locale: string }) {
 
   const form = useForm({
     initialValues: {
-      email: "",
-      password: "",
+      email: '',
+      password: '',
     },
   });
 
@@ -57,7 +57,7 @@ export default function Login({ locale }: { locale: string }) {
       return result.data;
     },
     onSuccess: () => {
-      router.push("/");
+      router.push('/');
     },
     onError: (error: Error) => {
       n.error(error.message);
@@ -73,29 +73,29 @@ export default function Login({ locale }: { locale: string }) {
       <Box
         w="100%"
         visibleFrom="md"
-        h={{ base: "auto", md: "100vh" }}
-        mih={{ base: "200px", md: "100vh" }}
+        h={{ base: 'auto', md: '100vh' }}
+        mih={{ base: '200px', md: '100vh' }}
         bg="var(--mantine-primary-color-1)"
       >
         <Center h="100%" p="xl">
-          <Title>{t("login.logo")}</Title>
+          <Title>{t('login.logo')}</Title>
         </Center>
       </Box>
 
       <Center
-        h={{ base: "100vh", md: "100vh" }}
-        p={{ base: "md", sm: "lg", md: "xl" }}
+        h={{ base: '100vh', md: '100vh' }}
+        p={{ base: 'md', sm: 'lg', md: 'xl' }}
       >
-        <Stack w="100%" maw={{ base: "100%", sm: 400, md: 500 }} gap="md">
+        <Stack w="100%" maw={{ base: '100%', sm: 400, md: 500 }} gap="md">
           <Title c="nature.7" order={1} size="h1" ta="center">
-            {t("login.loginTitle")}
+            {t('login.loginTitle')}
           </Title>
 
           <Paper
             withBorder
             radius="md"
             shadow="sm"
-            p={{ base: "md", sm: "lg" }}
+            p={{ base: 'md', sm: 'lg' }}
           >
             <FocusTrap>
               <form onSubmit={handleSubmit}>
@@ -103,16 +103,16 @@ export default function Login({ locale }: { locale: string }) {
                   <TextInput
                     required
                     autoCapitalize="off"
-                    label={t("login.email")}
+                    label={t('login.email')}
                     leftSection={<IconUser size={18} />}
-                    {...form.getInputProps("email")}
+                    {...form.getInputProps('email')}
                   />
 
                   <PasswordInput
                     required
-                    label={t("login.password")}
+                    label={t('login.password')}
                     leftSection={<IconKey size={18} />}
-                    {...form.getInputProps("password")}
+                    {...form.getInputProps('password')}
                   />
 
                   <Button
@@ -122,7 +122,7 @@ export default function Login({ locale }: { locale: string }) {
                     loading={signInMut.isPending}
                     leftSection={<IconLogin size={18} />}
                   >
-                    {t("login.login")}
+                    {t('login.login')}
                   </Button>
                 </Stack>
               </form>
@@ -139,15 +139,15 @@ export default function Login({ locale }: { locale: string }) {
                   size="compact-sm"
                   leftSection={<IconLanguage size={18} />}
                 >
-                  {locale === "ar" ? "العربية" : "English"}
+                  {locale === 'ar' ? 'العربية' : 'English'}
                 </Button>
               </Menu.Target>
 
               <Menu.Dropdown>
-                <Menu.Item onClick={() => setLocaleMut.mutate("ar")}>
+                <Menu.Item onClick={() => setLocaleMut.mutate('ar')}>
                   العربية
                 </Menu.Item>
-                <Menu.Item onClick={() => setLocaleMut.mutate("en")}>
+                <Menu.Item onClick={() => setLocaleMut.mutate('en')}>
                   English
                 </Menu.Item>
               </Menu.Dropdown>

@@ -1,16 +1,16 @@
-import { prisma } from "@db/client";
-import type { Prisma } from "@prisma/client";
-import { Elysia, t } from "elysia";
-import { Governorate } from "@/generated/prismabox/Governorate";
-import { setup } from "@/setup";
-import { parsePaginationProps, parseSortingProps } from "@/utils/helpers";
-import { paginationSchema, sortingSchema } from "@/utils/schemas";
+import { prisma } from '@db/client';
+import type { Prisma } from '@prisma/client';
+import { Elysia, t } from 'elysia';
+import { Governorate } from '@/generated/prismabox/Governorate';
+import { setup } from '@/setup';
+import { parsePaginationProps, parseSortingProps } from '@/utils/helpers';
+import { paginationSchema, sortingSchema } from '@/utils/schemas';
 
-export const governorates = new Elysia({ prefix: "/governorates" })
+export const governorates = new Elysia({ prefix: '/governorates' })
   .use(setup)
 
   .get(
-    "/",
+    '/',
     async ({ query: { page, pageSize, sortingColumn, sortingDirection } }) => {
       const where: Prisma.GovernorateWhereInput = {};
 
@@ -39,7 +39,7 @@ export const governorates = new Elysia({ prefix: "/governorates" })
   )
 
   .post(
-    "/",
+    '/',
     async ({ body }) => {
       return prisma.governorate.create({
         data: body,

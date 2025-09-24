@@ -1,18 +1,18 @@
-"use client";
+'use client';
 
-import "@mantine/core/styles.css";
-import "@mantine/dates/styles.css";
-import "@mantine/charts/styles.css";
-import "@mantine/dropzone/styles.css";
-import "@mantine/notifications/styles.css";
-import "mantine-datatable/styles.css";
-import "@/styles/globals.css";
+import '@mantine/core/styles.css';
+import '@mantine/dates/styles.css';
+import '@mantine/charts/styles.css';
+import '@mantine/dropzone/styles.css';
+import '@mantine/notifications/styles.css';
+import 'mantine-datatable/styles.css';
+import '@/styles/globals.css';
 
-import { DirectionProvider, MantineProvider } from "@mantine/core";
-import { DatesProvider } from "@mantine/dates";
-import { ModalsProvider } from "@mantine/modals";
-import { Notifications } from "@mantine/notifications";
-import { theme } from "@/styles/theme";
+import { DirectionProvider, MantineProvider } from '@mantine/core';
+import { DatesProvider } from '@mantine/dates';
+import { ModalsProvider } from '@mantine/modals';
+import { Notifications } from '@mantine/notifications';
+import { theme } from '@/styles/theme';
 
 export function MantineProviders({
   locale,
@@ -20,7 +20,7 @@ export function MantineProviders({
   children,
 }: {
   locale: string;
-  initialDirection: "ltr" | "rtl";
+  initialDirection: 'ltr' | 'rtl';
   children: React.ReactNode;
 }) {
   return (

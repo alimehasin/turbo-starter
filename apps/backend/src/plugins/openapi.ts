@@ -1,9 +1,9 @@
 // biome-ignore-all lint/suspicious/noExplicitAny: TODO
 
-import { openapi as elysiaOpenapi } from "@elysiajs/openapi";
-import { fromTypes } from "@elysiajs/openapi/gen";
-import { env } from "@/env";
-import { auth } from "@/utils/auth";
+import { openapi as elysiaOpenapi } from '@elysiajs/openapi';
+import { fromTypes } from '@elysiajs/openapi/gen';
+import { env } from '@/env';
+import { auth } from '@/utils/auth';
 
 const { components, paths } = await auth.api.generateOpenAPISchema();
 
@@ -19,16 +19,16 @@ for (const path of Object.keys(paths)) {
 
   for (const method of Object.keys(pathData)) {
     const operation = transformedPaths[key]?.[method];
-    if (operation && typeof operation === "object" && operation !== null) {
-      (operation as { tags?: string[] }).tags = ["Authentication"];
+    if (operation && typeof operation === 'object' && operation !== null) {
+      (operation as { tags?: string[] }).tags = ['Authentication'];
     }
   }
 }
 
 export const openapi = elysiaOpenapi({
-  path: "/docs",
-  references: fromTypes("src/server.ts"),
-  enabled: env.NODE_ENV === "development",
+  path: '/docs',
+  references: fromTypes('src/server.ts'),
+  enabled: env.NODE_ENV === 'development',
 
   documentation: {
     tags: [],

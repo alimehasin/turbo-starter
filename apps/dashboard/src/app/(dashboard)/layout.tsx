@@ -1,7 +1,7 @@
-import { headers } from "next/headers";
-import { redirect } from "next/navigation";
-import { Shell } from "@/components/shell";
-import { authClient } from "@/lib/auth-client";
+import { headers } from 'next/headers';
+import { redirect } from 'next/navigation';
+import { Shell } from '@/components/shell';
+import { authClient } from '@/lib/auth-client';
 
 export default async function DashboardLayout({
   children,
@@ -13,8 +13,8 @@ export default async function DashboardLayout({
     fetchOptions: { headers: headersList },
   });
 
-  if (!session.data || session.data.user.role !== "admin") {
-    return redirect("/accounts/login");
+  if (!session.data || session.data.user.role !== 'admin') {
+    return redirect('/accounts/login');
   }
 
   return <Shell>{children}</Shell>;

@@ -1,30 +1,30 @@
-import { Stack, Text } from "@mantine/core";
-import { IconBuilding, IconHome } from "@tabler/icons-react";
-import { useTranslations } from "next-intl";
-import { ShellLink } from "./shell-link";
+import { Stack, Text } from '@mantine/core';
+import { IconBuilding, IconHome } from '@tabler/icons-react';
+import { useTranslations } from 'next-intl';
+import { ShellLink } from './shell-link';
 
 export function Sidebar() {
   const t = useTranslations();
 
   const links = [
     {
-      label: "",
+      label: '',
       links: [
         {
           icon: IconHome,
-          label: t("sidebar.home"),
-          path: "/",
+          label: t('sidebar.home'),
+          path: '/',
           activeExact: true,
         },
       ],
     },
     {
-      label: "",
+      label: '',
       links: [
         {
           icon: IconBuilding,
-          label: t("sidebar.governorates"),
-          path: "/governorates",
+          label: t('sidebar.governorates'),
+          path: '/governorates',
         },
       ],
     },

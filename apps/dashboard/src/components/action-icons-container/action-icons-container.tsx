@@ -1,4 +1,4 @@
-import { Group } from "@mantine/core";
+import { Group } from '@mantine/core';
 
 export function ActionIconsContainer({
   children,

@@ -1,18 +1,18 @@
-import { ColorSchemeScript, mantineHtmlProps } from "@mantine/core";
-import type { Metadata } from "next";
-import { getLocale, getTranslations } from "next-intl/server";
-import { DayjsProvider } from "@/providers/dayjs-provider";
-import { MantineProviders } from "@/providers/mantine-providers";
-import { NextIntlProvider } from "@/providers/nex-intl-provider";
-import { QueryClientProvider } from "@/providers/query-client-provider";
+import { ColorSchemeScript, mantineHtmlProps } from '@mantine/core';
+import type { Metadata } from 'next';
+import { getLocale, getTranslations } from 'next-intl/server';
+import { DayjsProvider } from '@/providers/dayjs-provider';
+import { MantineProviders } from '@/providers/mantine-providers';
+import { NextIntlProvider } from '@/providers/nex-intl-provider';
+import { QueryClientProvider } from '@/providers/query-client-provider';
 
 export async function generateMetadata(): Promise<Metadata> {
   const t = await getTranslations();
 
   return {
-    title: t("meta.title"),
-    description: t("meta.description"),
-    robots: "noindex, nofollow",
+    title: t('meta.title'),
+    description: t('meta.description'),
+    robots: 'noindex, nofollow',
   };
 }
 
@@ -22,7 +22,7 @@ export default async function RootLayout({
   children: React.ReactNode;
 }) {
   const locale = await getLocale();
-  const dir = locale === "ar" ? "rtl" : "ltr";
+  const dir = locale === 'ar' ? 'rtl' : 'ltr';
 
   return (
     <html dir={dir} lang={locale} {...mantineHtmlProps}>

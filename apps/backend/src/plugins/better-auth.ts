@@ -1,8 +1,8 @@
-import { Elysia } from "elysia";
-import { auth } from "@/utils/auth";
+import { Elysia } from 'elysia';
+import { auth } from '@/utils/auth';
 
-export const betterAuth = new Elysia({ name: "better-auth" })
-  .mount("/auth", auth.handler)
+export const betterAuth = new Elysia({ name: 'better-auth' })
+  .mount('/auth', auth.handler)
   .macro({
     maybeAuthed: {
       async resolve({ request: { headers } }) {
@@ -47,7 +47,7 @@ export const betterAuth = new Elysia({ name: "better-auth" })
           headers,
         });
 
-        if (!session || session.user.role !== "admin") {
+        if (!session || session.user.role !== 'admin') {
           return status(401);
         }
 

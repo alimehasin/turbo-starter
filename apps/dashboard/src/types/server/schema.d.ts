@@ -4,7 +4,7 @@
  */
 
 export interface paths {
-  "/": {
+  '/': {
     parameters: {
       query?: never;
       header?: never;
@@ -15,12 +15,12 @@ export interface paths {
     put?: never;
     post?: never;
     delete?: never;
-    options: operations["optionsIndex"];
+    options: operations['optionsIndex'];
     head?: never;
     patch?: never;
     trace?: never;
   };
-  "/*": {
+  '/*': {
     parameters: {
       query?: never;
       header?: never;
@@ -31,28 +31,28 @@ export interface paths {
     put?: never;
     post?: never;
     delete?: never;
-    options: operations["options*"];
+    options: operations['options*'];
     head?: never;
     patch?: never;
     trace?: never;
   };
-  "/admin/governorates/": {
+  '/admin/governorates/': {
     parameters: {
       query?: never;
       header?: never;
       path?: never;
       cookie?: never;
     };
-    get: operations["getAdminGovernorates"];
+    get: operations['getAdminGovernorates'];
     put?: never;
-    post: operations["postAdminGovernorates"];
+    post: operations['postAdminGovernorates'];
     delete?: never;
     options?: never;
     head?: never;
     patch?: never;
     trace?: never;
   };
-  "/user/files/upload": {
+  '/user/files/upload': {
     parameters: {
       query?: never;
       header?: never;
@@ -61,14 +61,14 @@ export interface paths {
     };
     get?: never;
     put?: never;
-    post: operations["postUserFilesUpload"];
+    post: operations['postUserFilesUpload'];
     delete?: never;
     options?: never;
     head?: never;
     patch?: never;
     trace?: never;
   };
-  "/user/files/{id}": {
+  '/user/files/{id}': {
     parameters: {
       query?: never;
       header?: never;
@@ -78,13 +78,13 @@ export interface paths {
     get?: never;
     put?: never;
     post?: never;
-    delete: operations["deleteUserFilesById"];
+    delete: operations['deleteUserFilesById'];
     options?: never;
     head?: never;
     patch?: never;
     trace?: never;
   };
-  "/auth/sign-in/social": {
+  '/auth/sign-in/social': {
     parameters: {
       query?: never;
       header?: never;
@@ -94,14 +94,14 @@ export interface paths {
     get?: never;
     put?: never;
     /** @description Sign in with a social provider */
-    post: operations["socialSignIn"];
+    post: operations['socialSignIn'];
     delete?: never;
     options?: never;
     head?: never;
     patch?: never;
     trace?: never;
   };
-  "/auth/get-session": {
+  '/auth/get-session': {
     parameters: {
       query?: never;
       header?: never;
@@ -124,9 +124,9 @@ export interface paths {
             [name: string]: unknown;
           };
           content: {
-            "application/json": {
-              session: components["schemas"]["Session"];
-              user: components["schemas"]["User"];
+            'application/json': {
+              session: components['schemas']['Session'];
+              user: components['schemas']['User'];
             };
           };
         };
@@ -136,7 +136,7 @@ export interface paths {
             [name: string]: unknown;
           };
           content: {
-            "application/json": {
+            'application/json': {
               message: string;
             };
           };
@@ -147,7 +147,7 @@ export interface paths {
             [name: string]: unknown;
           };
           content: {
-            "application/json": {
+            'application/json': {
               message: string;
             };
           };
@@ -158,7 +158,7 @@ export interface paths {
             [name: string]: unknown;
           };
           content: {
-            "application/json": {
+            'application/json': {
               message?: string;
             };
           };
@@ -169,7 +169,7 @@ export interface paths {
             [name: string]: unknown;
           };
           content: {
-            "application/json": {
+            'application/json': {
               message?: string;
             };
           };
@@ -180,7 +180,7 @@ export interface paths {
             [name: string]: unknown;
           };
           content: {
-            "application/json": {
+            'application/json': {
               message?: string;
             };
           };
@@ -191,7 +191,7 @@ export interface paths {
             [name: string]: unknown;
           };
           content: {
-            "application/json": {
+            'application/json': {
               message?: string;
             };
           };
@@ -206,7 +206,7 @@ export interface paths {
     patch?: never;
     trace?: never;
   };
-  "/auth/sign-out": {
+  '/auth/sign-out': {
     parameters: {
       query?: never;
       header?: never;
@@ -225,7 +225,7 @@ export interface paths {
       };
       requestBody?: {
         content: {
-          "application/json": Record<string, never>;
+          'application/json': Record<string, never>;
         };
       };
       responses: {
@@ -235,7 +235,7 @@ export interface paths {
             [name: string]: unknown;
           };
           content: {
-            "application/json": {
+            'application/json': {
               success?: boolean;
             };
           };
@@ -246,7 +246,7 @@ export interface paths {
             [name: string]: unknown;
           };
           content: {
-            "application/json": {
+            'application/json': {
               message: string;
             };
           };
@@ -257,7 +257,7 @@ export interface paths {
             [name: string]: unknown;
           };
           content: {
-            "application/json": {
+            'application/json': {
               message: string;
             };
           };
@@ -268,7 +268,7 @@ export interface paths {
             [name: string]: unknown;
           };
           content: {
-            "application/json": {
+            'application/json': {
               message?: string;
             };
           };
@@ -279,7 +279,7 @@ export interface paths {
             [name: string]: unknown;
           };
           content: {
-            "application/json": {
+            'application/json': {
               message?: string;
             };
           };
@@ -290,7 +290,7 @@ export interface paths {
             [name: string]: unknown;
           };
           content: {
-            "application/json": {
+            'application/json': {
               message?: string;
             };
           };
@@ -301,7 +301,7 @@ export interface paths {
             [name: string]: unknown;
           };
           content: {
-            "application/json": {
+            'application/json': {
               message?: string;
             };
           };
@@ -314,7 +314,7 @@ export interface paths {
     patch?: never;
     trace?: never;
   };
-  "/auth/sign-up/email": {
+  '/auth/sign-up/email': {
     parameters: {
       query?: never;
       header?: never;
@@ -333,7 +333,7 @@ export interface paths {
       };
       requestBody?: {
         content: {
-          "application/json": {
+          'application/json': {
             /** @description The name of the user */
             name: string;
             /** @description The email of the user */
@@ -356,7 +356,7 @@ export interface paths {
             [name: string]: unknown;
           };
           content: {
-            "application/json": {
+            'application/json': {
               /** @description Authentication token for the session */
               token?: string | null;
               user: {
@@ -396,7 +396,7 @@ export interface paths {
             [name: string]: unknown;
           };
           content: {
-            "application/json": {
+            'application/json': {
               message: string;
             };
           };
@@ -407,7 +407,7 @@ export interface paths {
             [name: string]: unknown;
           };
           content: {
-            "application/json": {
+            'application/json': {
               message: string;
             };
           };
@@ -418,7 +418,7 @@ export interface paths {
             [name: string]: unknown;
           };
           content: {
-            "application/json": {
+            'application/json': {
               message?: string;
             };
           };
@@ -429,7 +429,7 @@ export interface paths {
             [name: string]: unknown;
           };
           content: {
-            "application/json": {
+            'application/json': {
               message?: string;
             };
           };
@@ -440,7 +440,7 @@ export interface paths {
             [name: string]: unknown;
           };
           content: {
-            "application/json": {
+            'application/json': {
               message?: string;
             };
           };
@@ -451,7 +451,7 @@ export interface paths {
             [name: string]: unknown;
           };
           content: {
-            "application/json": {
+            'application/json': {
               message?: string;
             };
           };
@@ -462,7 +462,7 @@ export interface paths {
             [name: string]: unknown;
           };
           content: {
-            "application/json": {
+            'application/json': {
               message?: string;
             };
           };
@@ -475,7 +475,7 @@ export interface paths {
     patch?: never;
     trace?: never;
   };
-  "/auth/sign-in/email": {
+  '/auth/sign-in/email': {
     parameters: {
       query?: never;
       header?: never;
@@ -494,7 +494,7 @@ export interface paths {
       };
       requestBody: {
         content: {
-          "application/json": {
+          'application/json': {
             /** @description Email of the user */
             email: string;
             /** @description Password of the user */
@@ -512,7 +512,7 @@ export interface paths {
             [name: string]: unknown;
           };
           content: {
-            "application/json": {
+            'application/json': {
               /** @enum {boolean} */
               redirect: false;
               /** @description Session token */
@@ -538,7 +538,7 @@ export interface paths {
             [name: string]: unknown;
           };
           content: {
-            "application/json": {
+            'application/json': {
               message: string;
             };
           };
@@ -549,7 +549,7 @@ export interface paths {
             [name: string]: unknown;
           };
           content: {
-            "application/json": {
+            'application/json': {
               message: string;
             };
           };
@@ -560,7 +560,7 @@ export interface paths {
             [name: string]: unknown;
           };
           content: {
-            "application/json": {
+            'application/json': {
               message?: string;
             };
           };
@@ -571,7 +571,7 @@ export interface paths {
             [name: string]: unknown;
           };
           content: {
-            "application/json": {
+            'application/json': {
               message?: string;
             };
           };
@@ -582,7 +582,7 @@ export interface paths {
             [name: string]: unknown;
           };
           content: {
-            "application/json": {
+            'application/json': {
               message?: string;
             };
           };
@@ -593,7 +593,7 @@ export interface paths {
             [name: string]: unknown;
           };
           content: {
-            "application/json": {
+            'application/json': {
               message?: string;
             };
           };
@@ -606,7 +606,7 @@ export interface paths {
     patch?: never;
     trace?: never;
   };
-  "/auth/forget-password": {
+  '/auth/forget-password': {
     parameters: {
       query?: never;
       header?: never;
@@ -625,7 +625,7 @@ export interface paths {
       };
       requestBody: {
         content: {
-          "application/json": {
+          'application/json': {
             /** @description The email address of the user to send a password reset email to */
             email: string;
             /** @description The URL to redirect the user to reset their password. If the token isn't valid or expired, it'll be redirected with a query parameter `?error=INVALID_TOKEN`. If the token is valid, it'll be redirected with a query parameter `?token=VALID_TOKEN */
@@ -640,7 +640,7 @@ export interface paths {
             [name: string]: unknown;
           };
           content: {
-            "application/json": {
+            'application/json': {
               status?: boolean;
               message?: string;
             };
@@ -652,7 +652,7 @@ export interface paths {
             [name: string]: unknown;
           };
           content: {
-            "application/json": {
+            'application/json': {
               message: string;
             };
           };
@@ -663,7 +663,7 @@ export interface paths {
             [name: string]: unknown;
           };
           content: {
-            "application/json": {
+            'application/json': {
               message: string;
             };
           };
@@ -674,7 +674,7 @@ export interface paths {
             [name: string]: unknown;
           };
           content: {
-            "application/json": {
+            'application/json': {
               message?: string;
             };
           };
@@ -685,7 +685,7 @@ export interface paths {
             [name: string]: unknown;
           };
           content: {
-            "application/json": {
+            'application/json': {
               message?: string;
             };
           };
@@ -696,7 +696,7 @@ export interface paths {
             [name: string]: unknown;
           };
           content: {
-            "application/json": {
+            'application/json': {
               message?: string;
             };
           };
@@ -707,7 +707,7 @@ export interface paths {
             [name: string]: unknown;
           };
           content: {
-            "application/json": {
+            'application/json': {
               message?: string;
             };
           };
@@ -720,7 +720,7 @@ export interface paths {
     patch?: never;
     trace?: never;
   };
-  "/auth/reset-password": {
+  '/auth/reset-password': {
     parameters: {
       query?: never;
       header?: never;
@@ -739,7 +739,7 @@ export interface paths {
       };
       requestBody: {
         content: {
-          "application/json": {
+          'application/json': {
             /** @description The new password to set */
             newPassword: string;
             /** @description The token to reset the password */
@@ -754,7 +754,7 @@ export interface paths {
             [name: string]: unknown;
           };
           content: {
-            "application/json": {
+            'application/json': {
               status?: boolean;
             };
           };
@@ -765,7 +765,7 @@ export interface paths {
             [name: string]: unknown;
           };
           content: {
-            "application/json": {
+            'application/json': {
               message: string;
             };
           };
@@ -776,7 +776,7 @@ export interface paths {
             [name: string]: unknown;
           };
           content: {
-            "application/json": {
+            'application/json': {
               message: string;
             };
           };
@@ -787,7 +787,7 @@ export interface paths {
             [name: string]: unknown;
           };
           content: {
-            "application/json": {
+            'application/json': {
               message?: string;
             };
           };
@@ -798,7 +798,7 @@ export interface paths {
             [name: string]: unknown;
           };
           content: {
-            "application/json": {
+            'application/json': {
               message?: string;
             };
           };
@@ -809,7 +809,7 @@ export interface paths {
             [name: string]: unknown;
           };
           content: {
-            "application/json": {
+            'application/json': {
               message?: string;
             };
           };
@@ -820,7 +820,7 @@ export interface paths {
             [name: string]: unknown;
           };
           content: {
-            "application/json": {
+            'application/json': {
               message?: string;
             };
           };
@@ -833,7 +833,7 @@ export interface paths {
     patch?: never;
     trace?: never;
   };
-  "/auth/verify-email": {
+  '/auth/verify-email': {
     parameters: {
       query?: never;
       header?: never;
@@ -861,7 +861,7 @@ export interface paths {
             [name: string]: unknown;
           };
           content: {
-            "application/json": {
+            'application/json': {
               user: {
                 /** @description User ID */
                 id: string;
@@ -889,7 +889,7 @@ export interface paths {
             [name: string]: unknown;
           };
           content: {
-            "application/json": {
+            'application/json': {
               message: string;
             };
           };
@@ -900,7 +900,7 @@ export interface paths {
             [name: string]: unknown;
           };
           content: {
-            "application/json": {
+            'application/json': {
               message: string;
             };
           };
@@ -911,7 +911,7 @@ export interface paths {
             [name: string]: unknown;
           };
           content: {
-            "application/json": {
+            'application/json': {
               message?: string;
             };
           };
@@ -922,7 +922,7 @@ export interface paths {
             [name: string]: unknown;
           };
           content: {
-            "application/json": {
+            'application/json': {
               message?: string;
             };
           };
@@ -933,7 +933,7 @@ export interface paths {
             [name: string]: unknown;
           };
           content: {
-            "application/json": {
+            'application/json': {
               message?: string;
             };
           };
@@ -944,7 +944,7 @@ export interface paths {
             [name: string]: unknown;
           };
           content: {
-            "application/json": {
+            'application/json': {
               message?: string;
             };
           };
@@ -959,7 +959,7 @@ export interface paths {
     patch?: never;
     trace?: never;
   };
-  "/auth/send-verification-email": {
+  '/auth/send-verification-email': {
     parameters: {
       query?: never;
       header?: never;
@@ -978,7 +978,7 @@ export interface paths {
       };
       requestBody?: {
         content: {
-          "application/json": {
+          'application/json': {
             /**
              * @description The email to send the verification email to
              * @example user@example.com
@@ -999,7 +999,7 @@ export interface paths {
             [name: string]: unknown;
           };
           content: {
-            "application/json": {
+            'application/json': {
               /**
                * @description Indicates if the email was sent successfully
                * @example true
@@ -1014,7 +1014,7 @@ export interface paths {
             [name: string]: unknown;
           };
           content: {
-            "application/json": {
+            'application/json': {
               /**
                * @description Error message
                * @example Verification email isn't enabled
@@ -1029,7 +1029,7 @@ export interface paths {
             [name: string]: unknown;
           };
           content: {
-            "application/json": {
+            'application/json': {
               message: string;
             };
           };
@@ -1040,7 +1040,7 @@ export interface paths {
             [name: string]: unknown;
           };
           content: {
-            "application/json": {
+            'application/json': {
               message?: string;
             };
           };
@@ -1051,7 +1051,7 @@ export interface paths {
             [name: string]: unknown;
           };
           content: {
-            "application/json": {
+            'application/json': {
               message?: string;
             };
           };
@@ -1062,7 +1062,7 @@ export interface paths {
             [name: string]: unknown;
           };
           content: {
-            "application/json": {
+            'application/json': {
               message?: string;
             };
           };
@@ -1073,7 +1073,7 @@ export interface paths {
             [name: string]: unknown;
           };
           content: {
-            "application/json": {
+            'application/json': {
               message?: string;
             };
           };
@@ -1086,7 +1086,7 @@ export interface paths {
     patch?: never;
     trace?: never;
   };
-  "/auth/change-email": {
+  '/auth/change-email': {
     parameters: {
       query?: never;
       header?: never;
@@ -1104,7 +1104,7 @@ export interface paths {
       };
       requestBody: {
         content: {
-          "application/json": {
+          'application/json': {
             /** @description The new email address to set must be a valid email address */
             newEmail: string;
             /** @description The URL to redirect to after email verification */
@@ -1119,14 +1119,14 @@ export interface paths {
             [name: string]: unknown;
           };
           content: {
-            "application/json": {
+            'application/json': {
               /** @description Indicates if the request was successful */
               status: boolean;
               /**
                * @description Status message of the email change process
                * @enum {string|null}
                */
-              message?: "Email updated" | "Verification email sent" | null;
+              message?: 'Email updated' | 'Verification email sent' | null;
             };
           };
         };
@@ -1136,7 +1136,7 @@ export interface paths {
             [name: string]: unknown;
           };
           content: {
-            "application/json": {
+            'application/json': {
               message: string;
             };
           };
@@ -1147,7 +1147,7 @@ export interface paths {
             [name: string]: unknown;
           };
           content: {
-            "application/json": {
+            'application/json': {
               message: string;
             };
           };
@@ -1158,7 +1158,7 @@ export interface paths {
             [name: string]: unknown;
           };
           content: {
-            "application/json": {
+            'application/json': {
               message?: string;
             };
           };
@@ -1169,7 +1169,7 @@ export interface paths {
             [name: string]: unknown;
           };
           content: {
-            "application/json": {
+            'application/json': {
               message?: string;
             };
           };
@@ -1180,7 +1180,7 @@ export interface paths {
             [name: string]: unknown;
           };
           content: {
-            "application/json": {
+            'application/json': {
               message?: string;
             };
           };
@@ -1191,7 +1191,7 @@ export interface paths {
             [name: string]: unknown;
           };
           content: {
-            "application/json": {
+            'application/json': {
               message?: string;
             };
           };
@@ -1202,7 +1202,7 @@ export interface paths {
             [name: string]: unknown;
           };
           content: {
-            "application/json": {
+            'application/json': {
               message?: string;
             };
           };
@@ -1215,7 +1215,7 @@ export interface paths {
     patch?: never;
     trace?: never;
   };
-  "/auth/change-password": {
+  '/auth/change-password': {
     parameters: {
       query?: never;
       header?: never;
@@ -1234,7 +1234,7 @@ export interface paths {
       };
       requestBody: {
         content: {
-          "application/json": {
+          'application/json': {
             /** @description The new password to set */
             newPassword: string;
             /** @description The current password is required */
@@ -1251,7 +1251,7 @@ export interface paths {
             [name: string]: unknown;
           };
           content: {
-            "application/json": {
+            'application/json': {
               /** @description New session token if other sessions were revoked */
               token?: string | null;
               user: {
@@ -1291,7 +1291,7 @@ export interface paths {
             [name: string]: unknown;
           };
           content: {
-            "application/json": {
+            'application/json': {
               message: string;
             };
           };
@@ -1302,7 +1302,7 @@ export interface paths {
             [name: string]: unknown;
           };
           content: {
-            "application/json": {
+            'application/json': {
               message: string;
             };
           };
@@ -1313,7 +1313,7 @@ export interface paths {
             [name: string]: unknown;
           };
           content: {
-            "application/json": {
+            'application/json': {
               message?: string;
             };
           };
@@ -1324,7 +1324,7 @@ export interface paths {
             [name: string]: unknown;
           };
           content: {
-            "application/json": {
+            'application/json': {
               message?: string;
             };
           };
@@ -1335,7 +1335,7 @@ export interface paths {
             [name: string]: unknown;
           };
           content: {
-            "application/json": {
+            'application/json': {
               message?: string;
             };
           };
@@ -1346,7 +1346,7 @@ export interface paths {
             [name: string]: unknown;
           };
           content: {
-            "application/json": {
+            'application/json': {
               message?: string;
             };
           };
@@ -1359,7 +1359,7 @@ export interface paths {
     patch?: never;
     trace?: never;
   };
-  "/auth/update-user": {
+  '/auth/update-user': {
     parameters: {
       query?: never;
       header?: never;
@@ -1378,7 +1378,7 @@ export interface paths {
       };
       requestBody?: {
         content: {
-          "application/json": {
+          'application/json': {
             /** @description The name of the user */
             name?: string;
             /** @description The image of the user */
@@ -1393,7 +1393,7 @@ export interface paths {
             [name: string]: unknown;
           };
           content: {
-            "application/json": {
+            'application/json': {
               /** @description Indicates if the update was successful */
               status?: boolean;
             };
@@ -1405,7 +1405,7 @@ export interface paths {
             [name: string]: unknown;
           };
           content: {
-            "application/json": {
+            'application/json': {
               message: string;
             };
           };
@@ -1416,7 +1416,7 @@ export interface paths {
             [name: string]: unknown;
           };
           content: {
-            "application/json": {
+            'application/json': {
               message: string;
             };
           };
@@ -1427,7 +1427,7 @@ export interface paths {
             [name: string]: unknown;
           };
           content: {
-            "application/json": {
+            'application/json': {
               message?: string;
             };
           };
@@ -1438,7 +1438,7 @@ export interface paths {
             [name: string]: unknown;
           };
           content: {
-            "application/json": {
+            'application/json': {
               message?: string;
             };
           };
@@ -1449,7 +1449,7 @@ export interface paths {
             [name: string]: unknown;
           };
           content: {
-            "application/json": {
+            'application/json': {
               message?: string;
             };
           };
@@ -1460,7 +1460,7 @@ export interface paths {
             [name: string]: unknown;
           };
           content: {
-            "application/json": {
+            'application/json': {
               message?: string;
             };
           };
@@ -1473,7 +1473,7 @@ export interface paths {
     patch?: never;
     trace?: never;
   };
-  "/auth/delete-user": {
+  '/auth/delete-user': {
     parameters: {
       query?: never;
       header?: never;
@@ -1492,7 +1492,7 @@ export interface paths {
       };
       requestBody: {
         content: {
-          "application/json": {
+          'application/json': {
             /** @description The callback URL to redirect to after the user is deleted */
             callbackURL?: string | null;
             /** @description The password of the user is required to delete the user */
@@ -1509,14 +1509,14 @@ export interface paths {
             [name: string]: unknown;
           };
           content: {
-            "application/json": {
+            'application/json': {
               /** @description Indicates if the operation was successful */
               success: boolean;
               /**
                * @description Status message of the deletion process
                * @enum {string}
                */
-              message: "User deleted" | "Verification email sent";
+              message: 'User deleted' | 'Verification email sent';
             };
           };
         };
@@ -1526,7 +1526,7 @@ export interface paths {
             [name: string]: unknown;
           };
           content: {
-            "application/json": {
+            'application/json': {
               message: string;
             };
           };
@@ -1537,7 +1537,7 @@ export interface paths {
             [name: string]: unknown;
           };
           content: {
-            "application/json": {
+            'application/json': {
               message: string;
             };
           };
@@ -1548,7 +1548,7 @@ export interface paths {
             [name: string]: unknown;
           };
           content: {
-            "application/json": {
+            'application/json': {
               message?: string;
             };
           };
@@ -1559,7 +1559,7 @@ export interface paths {
             [name: string]: unknown;
           };
           content: {
-            "application/json": {
+            'application/json': {
               message?: string;
             };
           };
@@ -1570,7 +1570,7 @@ export interface paths {
             [name: string]: unknown;
           };
           content: {
-            "application/json": {
+            'application/json': {
               message?: string;
             };
           };
@@ -1581,7 +1581,7 @@ export interface paths {
             [name: string]: unknown;
           };
           content: {
-            "application/json": {
+            'application/json': {
               message?: string;
             };
           };
@@ -1594,7 +1594,7 @@ export interface paths {
     patch?: never;
     trace?: never;
   };
-  "/auth/reset-password/{token}": {
+  '/auth/reset-password/{token}': {
     parameters: {
       query?: never;
       header?: never;
@@ -1619,7 +1619,7 @@ export interface paths {
             [name: string]: unknown;
           };
           content: {
-            "application/json": {
+            'application/json': {
               token?: string;
             };
           };
@@ -1630,7 +1630,7 @@ export interface paths {
             [name: string]: unknown;
           };
           content: {
-            "application/json": {
+            'application/json': {
               message: string;
             };
           };
@@ -1641,7 +1641,7 @@ export interface paths {
             [name: string]: unknown;
           };
           content: {
-            "application/json": {
+            'application/json': {
               message: string;
             };
           };
@@ -1652,7 +1652,7 @@ export interface paths {
             [name: string]: unknown;
           };
           content: {
-            "application/json": {
+            'application/json': {
               message?: string;
             };
           };
@@ -1663,7 +1663,7 @@ export interface paths {
             [name: string]: unknown;
           };
           content: {
-            "application/json": {
+            'application/json': {
               message?: string;
             };
           };
@@ -1674,7 +1674,7 @@ export interface paths {
             [name: string]: unknown;
           };
           content: {
-            "application/json": {
+            'application/json': {
               message?: string;
             };
           };
@@ -1685,7 +1685,7 @@ export interface paths {
             [name: string]: unknown;
           };
           content: {
-            "application/json": {
+            'application/json': {
               message?: string;
             };
           };
@@ -1700,7 +1700,7 @@ export interface paths {
     patch?: never;
     trace?: never;
   };
-  "/auth/request-password-reset": {
+  '/auth/request-password-reset': {
     parameters: {
       query?: never;
       header?: never;
@@ -1719,7 +1719,7 @@ export interface paths {
       };
       requestBody: {
         content: {
-          "application/json": {
+          'application/json': {
             /** @description The email address of the user to send a password reset email to */
             email: string;
             /** @description The URL to redirect the user to reset their password. If the token isn't valid or expired, it'll be redirected with a query parameter `?error=INVALID_TOKEN`. If the token is valid, it'll be redirected with a query parameter `?token=VALID_TOKEN */
@@ -1734,7 +1734,7 @@ export interface paths {
             [name: string]: unknown;
           };
           content: {
-            "application/json": {
+            'application/json': {
               status?: boolean;
               message?: string;
             };
@@ -1746,7 +1746,7 @@ export interface paths {
             [name: string]: unknown;
           };
           content: {
-            "application/json": {
+            'application/json': {
               message: string;
             };
           };
@@ -1757,7 +1757,7 @@ export interface paths {
             [name: string]: unknown;
           };
           content: {
-            "application/json": {
+            'application/json': {
               message: string;
             };
           };
@@ -1768,7 +1768,7 @@ export interface paths {
             [name: string]: unknown;
           };
           content: {
-            "application/json": {
+            'application/json': {
               message?: string;
             };
           };
@@ -1779,7 +1779,7 @@ export interface paths {
             [name: string]: unknown;
           };
           content: {
-            "application/json": {
+            'application/json': {
               message?: string;
             };
           };
@@ -1790,7 +1790,7 @@ export interface paths {
             [name: string]: unknown;
           };
           content: {
-            "application/json": {
+            'application/json': {
               message?: string;
             };
           };
@@ -1801,7 +1801,7 @@ export interface paths {
             [name: string]: unknown;
           };
           content: {
-            "application/json": {
+            'application/json': {
               message?: string;
             };
           };
@@ -1814,7 +1814,7 @@ export interface paths {
     patch?: never;
     trace?: never;
   };
-  "/auth/list-sessions": {
+  '/auth/list-sessions': {
     parameters: {
       query?: never;
       header?: never;
@@ -1837,7 +1837,7 @@ export interface paths {
             [name: string]: unknown;
           };
           content: {
-            "application/json": components["schemas"]["Session"][];
+            'application/json': components['schemas']['Session'][];
           };
         };
         /** @description Bad Request. Usually due to missing parameters, or invalid parameters. */
@@ -1846,7 +1846,7 @@ export interface paths {
             [name: string]: unknown;
           };
           content: {
-            "application/json": {
+            'application/json': {
               message: string;
             };
           };
@@ -1857,7 +1857,7 @@ export interface paths {
             [name: string]: unknown;
           };
           content: {
-            "application/json": {
+            'application/json': {
               message: string;
             };
           };
@@ -1868,7 +1868,7 @@ export interface paths {
             [name: string]: unknown;
           };
           content: {
-            "application/json": {
+            'application/json': {
               message?: string;
             };
           };
@@ -1879,7 +1879,7 @@ export interface paths {
             [name: string]: unknown;
           };
           content: {
-            "application/json": {
+            'application/json': {
               message?: string;
             };
           };
@@ -1890,7 +1890,7 @@ export interface paths {
             [name: string]: unknown;
           };
           content: {
-            "application/json": {
+            'application/json': {
               message?: string;
             };
           };
@@ -1901,7 +1901,7 @@ export interface paths {
             [name: string]: unknown;
           };
           content: {
-            "application/json": {
+            'application/json': {
               message?: string;
             };
           };
@@ -1916,7 +1916,7 @@ export interface paths {
     patch?: never;
     trace?: never;
   };
-  "/auth/revoke-session": {
+  '/auth/revoke-session': {
     parameters: {
       query?: never;
       header?: never;
@@ -1935,7 +1935,7 @@ export interface paths {
       };
       requestBody?: {
         content: {
-          "application/json": {
+          'application/json': {
             /** @description The token to revoke */
             token: string;
           };
@@ -1948,7 +1948,7 @@ export interface paths {
             [name: string]: unknown;
           };
           content: {
-            "application/json": {
+            'application/json': {
               /** @description Indicates if the session was revoked successfully */
               status: boolean;
             };
@@ -1960,7 +1960,7 @@ export interface paths {
             [name: string]: unknown;
           };
           content: {
-            "application/json": {
+            'application/json': {
               message: string;
             };
           };
@@ -1971,7 +1971,7 @@ export interface paths {
             [name: string]: unknown;
           };
           content: {
-            "application/json": {
+            'application/json': {
               message: string;
             };
           };
@@ -1982,7 +1982,7 @@ export interface paths {
             [name: string]: unknown;
           };
           content: {
-            "application/json": {
+            'application/json': {
               message?: string;
             };
           };
@@ -1993,7 +1993,7 @@ export interface paths {
             [name: string]: unknown;
           };
           content: {
-            "application/json": {
+            'application/json': {
               message?: string;
             };
           };
@@ -2004,7 +2004,7 @@ export interface paths {
             [name: string]: unknown;
           };
           content: {
-            "application/json": {
+            'application/json': {
               message?: string;
             };
           };
@@ -2015,7 +2015,7 @@ export interface paths {
             [name: string]: unknown;
           };
           content: {
-            "application/json": {
+            'application/json': {
               message?: string;
             };
           };
@@ -2028,7 +2028,7 @@ export interface paths {
     patch?: never;
     trace?: never;
   };
-  "/auth/revoke-sessions": {
+  '/auth/revoke-sessions': {
     parameters: {
       query?: never;
       header?: never;
@@ -2047,7 +2047,7 @@ export interface paths {
       };
       requestBody?: {
         content: {
-          "application/json": Record<string, never>;
+          'application/json': Record<string, never>;
         };
       };
       responses: {
@@ -2057,7 +2057,7 @@ export interface paths {
             [name: string]: unknown;
           };
           content: {
-            "application/json": {
+            'application/json': {
               /** @description Indicates if all sessions were revoked successfully */
               status: boolean;
             };
@@ -2069,7 +2069,7 @@ export interface paths {
             [name: string]: unknown;
           };
           content: {
-            "application/json": {
+            'application/json': {
               message: string;
             };
           };
@@ -2080,7 +2080,7 @@ export interface paths {
             [name: string]: unknown;
           };
           content: {
-            "application/json": {
+            'application/json': {
               message: string;
             };
           };
@@ -2091,7 +2091,7 @@ export interface paths {
             [name: string]: unknown;
           };
           content: {
-            "application/json": {
+            'application/json': {
               message?: string;
             };
           };
@@ -2102,7 +2102,7 @@ export interface paths {
             [name: string]: unknown;
           };
           content: {
-            "application/json": {
+            'application/json': {
               message?: string;
             };
           };
@@ -2113,7 +2113,7 @@ export interface paths {
             [name: string]: unknown;
           };
           content: {
-            "application/json": {
+            'application/json': {
               message?: string;
             };
           };
@@ -2124,7 +2124,7 @@ export interface paths {
             [name: string]: unknown;
           };
           content: {
-            "application/json": {
+            'application/json': {
               message?: string;
             };
           };
@@ -2137,7 +2137,7 @@ export interface paths {
     patch?: never;
     trace?: never;
   };
-  "/auth/revoke-other-sessions": {
+  '/auth/revoke-other-sessions': {
     parameters: {
       query?: never;
       header?: never;
@@ -2156,7 +2156,7 @@ export interface paths {
       };
       requestBody?: {
         content: {
-          "application/json": Record<string, never>;
+          'application/json': Record<string, never>;
         };
       };
       responses: {
@@ -2166,7 +2166,7 @@ export interface paths {
             [name: string]: unknown;
           };
           content: {
-            "application/json": {
+            'application/json': {
               /** @description Indicates if all other sessions were revoked successfully */
               status: boolean;
             };
@@ -2178,7 +2178,7 @@ export interface paths {
             [name: string]: unknown;
           };
           content: {
-            "application/json": {
+            'application/json': {
               message: string;
             };
           };
@@ -2189,7 +2189,7 @@ export interface paths {
             [name: string]: unknown;
           };
           content: {
-            "application/json": {
+            'application/json': {
               message: string;
             };
           };
@@ -2200,7 +2200,7 @@ export interface paths {
             [name: string]: unknown;
           };
           content: {
-            "application/json": {
+            'application/json': {
               message?: string;
             };
           };
@@ -2211,7 +2211,7 @@ export interface paths {
             [name: string]: unknown;
           };
           content: {
-            "application/json": {
+            'application/json': {
               message?: string;
             };
           };
@@ -2222,7 +2222,7 @@ export interface paths {
             [name: string]: unknown;
           };
           content: {
-            "application/json": {
+            'application/json': {
               message?: string;
             };
           };
@@ -2233,7 +2233,7 @@ export interface paths {
             [name: string]: unknown;
           };
           content: {
-            "application/json": {
+            'application/json': {
               message?: string;
             };
           };
@@ -2246,7 +2246,7 @@ export interface paths {
     patch?: never;
     trace?: never;
   };
-  "/auth/link-social": {
+  '/auth/link-social': {
     parameters: {
       query?: never;
       header?: never;
@@ -2265,7 +2265,7 @@ export interface paths {
       };
       requestBody: {
         content: {
-          "application/json": {
+          'application/json': {
             /** @description The URL to redirect to after the user has signed in */
             callbackURL?: string | null;
             provider: string;
@@ -2293,7 +2293,7 @@ export interface paths {
             [name: string]: unknown;
           };
           content: {
-            "application/json": {
+            'application/json': {
               /** @description The authorization URL to redirect the user to */
               url?: string;
               /** @description Indicates if the user should be redirected to the authorization URL */
@@ -2308,7 +2308,7 @@ export interface paths {
             [name: string]: unknown;
           };
           content: {
-            "application/json": {
+            'application/json': {
               message: string;
             };
           };
@@ -2319,7 +2319,7 @@ export interface paths {
             [name: string]: unknown;
           };
           content: {
-            "application/json": {
+            'application/json': {
               message: string;
             };
           };
@@ -2330,7 +2330,7 @@ export interface paths {
             [name: string]: unknown;
           };
           content: {
-            "application/json": {
+            'application/json': {
               message?: string;
             };
           };
@@ -2341,7 +2341,7 @@ export interface paths {
             [name: string]: unknown;
           };
           content: {
-            "application/json": {
+            'application/json': {
               message?: string;
             };
           };
@@ -2352,7 +2352,7 @@ export interface paths {
             [name: string]: unknown;
           };
           content: {
-            "application/json": {
+            'application/json': {
               message?: string;
             };
           };
@@ -2363,7 +2363,7 @@ export interface paths {
             [name: string]: unknown;
           };
           content: {
-            "application/json": {
+            'application/json': {
               message?: string;
             };
           };
@@ -2376,7 +2376,7 @@ export interface paths {
     patch?: never;
     trace?: never;
   };
-  "/auth/list-accounts": {
+  '/auth/list-accounts': {
     parameters: {
       query?: never;
       header?: never;
@@ -2399,7 +2399,7 @@ export interface paths {
             [name: string]: unknown;
           };
           content: {
-            "application/json": {
+            'application/json': {
               id: string;
               providerId: string;
               /** Format: date-time */
@@ -2417,7 +2417,7 @@ export interface paths {
             [name: string]: unknown;
           };
           content: {
-            "application/json": {
+            'application/json': {
               message: string;
             };
           };
@@ -2428,7 +2428,7 @@ export interface paths {
             [name: string]: unknown;
           };
           content: {
-            "application/json": {
+            'application/json': {
               message: string;
             };
           };
@@ -2439,7 +2439,7 @@ export interface paths {
             [name: string]: unknown;
           };
           content: {
-            "application/json": {
+            'application/json': {
               message?: string;
             };
           };
@@ -2450,7 +2450,7 @@ export interface paths {
             [name: string]: unknown;
           };
           content: {
-            "application/json": {
+            'application/json': {
               message?: string;
             };
           };
@@ -2461,7 +2461,7 @@ export interface paths {
             [name: string]: unknown;
           };
           content: {
-            "application/json": {
+            'application/json': {
               message?: string;
             };
           };
@@ -2472,7 +2472,7 @@ export interface paths {
             [name: string]: unknown;
           };
           content: {
-            "application/json": {
+            'application/json': {
               message?: string;
             };
           };
@@ -2487,7 +2487,7 @@ export interface paths {
     patch?: never;
     trace?: never;
   };
-  "/auth/delete-user/callback": {
+  '/auth/delete-user/callback': {
     parameters: {
       query?: never;
       header?: never;
@@ -2513,14 +2513,14 @@ export interface paths {
             [name: string]: unknown;
           };
           content: {
-            "application/json": {
+            'application/json': {
               /** @description Indicates if the deletion was successful */
               success: boolean;
               /**
                * @description Confirmation message
                * @enum {string}
                */
-              message: "User deleted";
+              message: 'User deleted';
             };
           };
         };
@@ -2530,7 +2530,7 @@ export interface paths {
             [name: string]: unknown;
           };
           content: {
-            "application/json": {
+            'application/json': {
               message: string;
             };
           };
@@ -2541,7 +2541,7 @@ export interface paths {
             [name: string]: unknown;
           };
           content: {
-            "application/json": {
+            'application/json': {
               message: string;
             };
           };
@@ -2552,7 +2552,7 @@ export interface paths {
             [name: string]: unknown;
           };
           content: {
-            "application/json": {
+            'application/json': {
               message?: string;
             };
           };
@@ -2563,7 +2563,7 @@ export interface paths {
             [name: string]: unknown;
           };
           content: {
-            "application/json": {
+            'application/json': {
               message?: string;
             };
           };
@@ -2574,7 +2574,7 @@ export interface paths {
             [name: string]: unknown;
           };
           content: {
-            "application/json": {
+            'application/json': {
               message?: string;
             };
           };
@@ -2585,7 +2585,7 @@ export interface paths {
             [name: string]: unknown;
           };
           content: {
-            "application/json": {
+            'application/json': {
               message?: string;
             };
           };
@@ -2600,7 +2600,7 @@ export interface paths {
     patch?: never;
     trace?: never;
   };
-  "/auth/unlink-account": {
+  '/auth/unlink-account': {
     parameters: {
       query?: never;
       header?: never;
@@ -2619,7 +2619,7 @@ export interface paths {
       };
       requestBody: {
         content: {
-          "application/json": {
+          'application/json': {
             providerId: string;
             accountId?: string | null;
           };
@@ -2632,7 +2632,7 @@ export interface paths {
             [name: string]: unknown;
           };
           content: {
-            "application/json": {
+            'application/json': {
               status?: boolean;
             };
           };
@@ -2643,7 +2643,7 @@ export interface paths {
             [name: string]: unknown;
           };
           content: {
-            "application/json": {
+            'application/json': {
               message: string;
             };
           };
@@ -2654,7 +2654,7 @@ export interface paths {
             [name: string]: unknown;
           };
           content: {
-            "application/json": {
+            'application/json': {
               message: string;
             };
           };
@@ -2665,7 +2665,7 @@ export interface paths {
             [name: string]: unknown;
           };
           content: {
-            "application/json": {
+            'application/json': {
               message?: string;
             };
           };
@@ -2676,7 +2676,7 @@ export interface paths {
             [name: string]: unknown;
           };
           content: {
-            "application/json": {
+            'application/json': {
               message?: string;
             };
           };
@@ -2687,7 +2687,7 @@ export interface paths {
             [name: string]: unknown;
           };
           content: {
-            "application/json": {
+            'application/json': {
               message?: string;
             };
           };
@@ -2698,7 +2698,7 @@ export interface paths {
             [name: string]: unknown;
           };
           content: {
-            "application/json": {
+            'application/json': {
               message?: string;
             };
           };
@@ -2711,7 +2711,7 @@ export interface paths {
     patch?: never;
     trace?: never;
   };
-  "/auth/refresh-token": {
+  '/auth/refresh-token': {
     parameters: {
       query?: never;
       header?: never;
@@ -2730,7 +2730,7 @@ export interface paths {
       };
       requestBody: {
         content: {
-          "application/json": {
+          'application/json': {
             /** @description The provider ID for the OAuth provider */
             providerId: string;
             /** @description The account ID associated with the refresh token */
@@ -2747,7 +2747,7 @@ export interface paths {
             [name: string]: unknown;
           };
           content: {
-            "application/json": {
+            'application/json': {
               tokenType?: string;
               idToken?: string;
               accessToken?: string;
@@ -2772,7 +2772,7 @@ export interface paths {
             [name: string]: unknown;
           };
           content: {
-            "application/json": {
+            'application/json': {
               message: string;
             };
           };
@@ -2783,7 +2783,7 @@ export interface paths {
             [name: string]: unknown;
           };
           content: {
-            "application/json": {
+            'application/json': {
               message?: string;
             };
           };
@@ -2794,7 +2794,7 @@ export interface paths {
             [name: string]: unknown;
           };
           content: {
-            "application/json": {
+            'application/json': {
               message?: string;
             };
           };
@@ -2805,7 +2805,7 @@ export interface paths {
             [name: string]: unknown;
           };
           content: {
-            "application/json": {
+            'application/json': {
               message?: string;
             };
           };
@@ -2816,7 +2816,7 @@ export interface paths {
             [name: string]: unknown;
           };
           content: {
-            "application/json": {
+            'application/json': {
               message?: string;
             };
           };
@@ -2829,7 +2829,7 @@ export interface paths {
     patch?: never;
     trace?: never;
   };
-  "/auth/get-access-token": {
+  '/auth/get-access-token': {
     parameters: {
       query?: never;
       header?: never;
@@ -2848,7 +2848,7 @@ export interface paths {
       };
       requestBody: {
         content: {
-          "application/json": {
+          'application/json': {
             /** @description The provider ID for the OAuth provider */
             providerId: string;
             /** @description The account ID associated with the refresh token */
@@ -2865,7 +2865,7 @@ export interface paths {
             [name: string]: unknown;
           };
           content: {
-            "application/json": {
+            'application/json': {
               tokenType?: string;
               idToken?: string;
               accessToken?: string;
@@ -2890,7 +2890,7 @@ export interface paths {
             [name: string]: unknown;
           };
           content: {
-            "application/json": {
+            'application/json': {
               message: string;
             };
           };
@@ -2901,7 +2901,7 @@ export interface paths {
             [name: string]: unknown;
           };
           content: {
-            "application/json": {
+            'application/json': {
               message?: string;
             };
           };
@@ -2912,7 +2912,7 @@ export interface paths {
             [name: string]: unknown;
           };
           content: {
-            "application/json": {
+            'application/json': {
               message?: string;
             };
           };
@@ -2923,7 +2923,7 @@ export interface paths {
             [name: string]: unknown;
           };
           content: {
-            "application/json": {
+            'application/json': {
               message?: string;
             };
           };
@@ -2934,7 +2934,7 @@ export interface paths {
             [name: string]: unknown;
           };
           content: {
-            "application/json": {
+            'application/json': {
               message?: string;
             };
           };
@@ -2947,7 +2947,7 @@ export interface paths {
     patch?: never;
     trace?: never;
   };
-  "/auth/account-info": {
+  '/auth/account-info': {
     parameters: {
       query?: never;
       header?: never;
@@ -2966,7 +2966,7 @@ export interface paths {
       };
       requestBody: {
         content: {
-          "application/json": {
+          'application/json': {
             /** @description The provider given account id for which to get the account info */
             accountId: string;
           };
@@ -2979,7 +2979,7 @@ export interface paths {
             [name: string]: unknown;
           };
           content: {
-            "application/json": {
+            'application/json': {
               user: {
                 id: string;
                 name?: string;
@@ -2999,7 +2999,7 @@ export interface paths {
             [name: string]: unknown;
           };
           content: {
-            "application/json": {
+            'application/json': {
               message: string;
             };
           };
@@ -3010,7 +3010,7 @@ export interface paths {
             [name: string]: unknown;
           };
           content: {
-            "application/json": {
+            'application/json': {
               message: string;
             };
           };
@@ -3021,7 +3021,7 @@ export interface paths {
             [name: string]: unknown;
           };
           content: {
-            "application/json": {
+            'application/json': {
               message?: string;
             };
           };
@@ -3032,7 +3032,7 @@ export interface paths {
             [name: string]: unknown;
           };
           content: {
-            "application/json": {
+            'application/json': {
               message?: string;
             };
           };
@@ -3043,7 +3043,7 @@ export interface paths {
             [name: string]: unknown;
           };
           content: {
-            "application/json": {
+            'application/json': {
               message?: string;
             };
           };
@@ -3054,7 +3054,7 @@ export interface paths {
             [name: string]: unknown;
           };
           content: {
-            "application/json": {
+            'application/json': {
               message?: string;
             };
           };
@@ -3067,7 +3067,7 @@ export interface paths {
     patch?: never;
     trace?: never;
   };
-  "/auth/ok": {
+  '/auth/ok': {
     parameters: {
       query?: never;
       header?: never;
@@ -3090,7 +3090,7 @@ export interface paths {
             [name: string]: unknown;
           };
           content: {
-            "application/json": {
+            'application/json': {
               /** @description Indicates if the API is working */
               ok: boolean;
             };
@@ -3102,7 +3102,7 @@ export interface paths {
             [name: string]: unknown;
           };
           content: {
-            "application/json": {
+            'application/json': {
               message: string;
             };
           };
@@ -3113,7 +3113,7 @@ export interface paths {
             [name: string]: unknown;
           };
           content: {
-            "application/json": {
+            'application/json': {
               message: string;
             };
           };
@@ -3124,7 +3124,7 @@ export interface paths {
             [name: string]: unknown;
           };
           content: {
-            "application/json": {
+            'application/json': {
               message?: string;
             };
           };
@@ -3135,7 +3135,7 @@ export interface paths {
             [name: string]: unknown;
           };
           content: {
-            "application/json": {
+            'application/json': {
               message?: string;
             };
           };
@@ -3146,7 +3146,7 @@ export interface paths {
             [name: string]: unknown;
           };
           content: {
-            "application/json": {
+            'application/json': {
               message?: string;
             };
           };
@@ -3157,7 +3157,7 @@ export interface paths {
             [name: string]: unknown;
           };
           content: {
-            "application/json": {
+            'application/json': {
               message?: string;
             };
           };
@@ -3172,7 +3172,7 @@ export interface paths {
     patch?: never;
     trace?: never;
   };
-  "/auth/error": {
+  '/auth/error': {
     parameters: {
       query?: never;
       header?: never;
@@ -3195,7 +3195,7 @@ export interface paths {
             [name: string]: unknown;
           };
           content: {
-            "text/html": string;
+            'text/html': string;
           };
         };
         /** @description Bad Request. Usually due to missing parameters, or invalid parameters. */
@@ -3204,7 +3204,7 @@ export interface paths {
             [name: string]: unknown;
           };
           content: {
-            "application/json": {
+            'application/json': {
               message: string;
             };
           };
@@ -3215,7 +3215,7 @@ export interface paths {
             [name: string]: unknown;
           };
           content: {
-            "application/json": {
+            'application/json': {
               message: string;
             };
           };
@@ -3226,7 +3226,7 @@ export interface paths {
             [name: string]: unknown;
           };
           content: {
-            "application/json": {
+            'application/json': {
               message?: string;
             };
           };
@@ -3237,7 +3237,7 @@ export interface paths {
             [name: string]: unknown;
           };
           content: {
-            "application/json": {
+            'application/json': {
               message?: string;
             };
           };
@@ -3248,7 +3248,7 @@ export interface paths {
             [name: string]: unknown;
           };
           content: {
-            "application/json": {
+            'application/json': {
               message?: string;
             };
           };
@@ -3259,7 +3259,7 @@ export interface paths {
             [name: string]: unknown;
           };
           content: {
-            "application/json": {
+            'application/json': {
               message?: string;
             };
           };
@@ -3274,7 +3274,7 @@ export interface paths {
     patch?: never;
     trace?: never;
   };
-  "/auth/admin/set-role": {
+  '/auth/admin/set-role': {
     parameters: {
       query?: never;
       header?: never;
@@ -3284,14 +3284,14 @@ export interface paths {
     get?: never;
     put?: never;
     /** @description Set the role of a user */
-    post: operations["setRole"];
+    post: operations['setRole'];
     delete?: never;
     options?: never;
     head?: never;
     patch?: never;
     trace?: never;
   };
-  "/auth/admin/get-user": {
+  '/auth/admin/get-user': {
     parameters: {
       query?: never;
       header?: never;
@@ -3299,7 +3299,7 @@ export interface paths {
       cookie?: never;
     };
     /** @description Get an existing user */
-    get: operations["getUser"];
+    get: operations['getUser'];
     put?: never;
     post?: never;
     delete?: never;
@@ -3308,7 +3308,7 @@ export interface paths {
     patch?: never;
     trace?: never;
   };
-  "/auth/admin/create-user": {
+  '/auth/admin/create-user': {
     parameters: {
       query?: never;
       header?: never;
@@ -3318,14 +3318,14 @@ export interface paths {
     get?: never;
     put?: never;
     /** @description Create a new user */
-    post: operations["createUser"];
+    post: operations['createUser'];
     delete?: never;
     options?: never;
     head?: never;
     patch?: never;
     trace?: never;
   };
-  "/auth/admin/update-user": {
+  '/auth/admin/update-user': {
     parameters: {
       query?: never;
       header?: never;
@@ -3335,14 +3335,14 @@ export interface paths {
     get?: never;
     put?: never;
     /** @description Update a user's details */
-    post: operations["updateUser"];
+    post: operations['updateUser'];
     delete?: never;
     options?: never;
     head?: never;
     patch?: never;
     trace?: never;
   };
-  "/auth/admin/list-users": {
+  '/auth/admin/list-users': {
     parameters: {
       query?: never;
       header?: never;
@@ -3350,7 +3350,7 @@ export interface paths {
       cookie?: never;
     };
     /** @description List users */
-    get: operations["listUsers"];
+    get: operations['listUsers'];
     put?: never;
     post?: never;
     delete?: never;
@@ -3359,7 +3359,7 @@ export interface paths {
     patch?: never;
     trace?: never;
   };
-  "/auth/admin/list-user-sessions": {
+  '/auth/admin/list-user-sessions': {
     parameters: {
       query?: never;
       header?: never;
@@ -3369,14 +3369,14 @@ export interface paths {
     get?: never;
     put?: never;
     /** @description List user sessions */
-    post: operations["listUserSessions"];
+    post: operations['listUserSessions'];
     delete?: never;
     options?: never;
     head?: never;
     patch?: never;
     trace?: never;
   };
-  "/auth/admin/unban-user": {
+  '/auth/admin/unban-user': {
     parameters: {
       query?: never;
       header?: never;
@@ -3386,14 +3386,14 @@ export interface paths {
     get?: never;
     put?: never;
     /** @description Unban a user */
-    post: operations["unbanUser"];
+    post: operations['unbanUser'];
     delete?: never;
     options?: never;
     head?: never;
     patch?: never;
     trace?: never;
   };
-  "/auth/admin/ban-user": {
+  '/auth/admin/ban-user': {
     parameters: {
       query?: never;
       header?: never;
@@ -3403,14 +3403,14 @@ export interface paths {
     get?: never;
     put?: never;
     /** @description Ban a user */
-    post: operations["banUser"];
+    post: operations['banUser'];
     delete?: never;
     options?: never;
     head?: never;
     patch?: never;
     trace?: never;
   };
-  "/auth/admin/impersonate-user": {
+  '/auth/admin/impersonate-user': {
     parameters: {
       query?: never;
       header?: never;
@@ -3420,14 +3420,14 @@ export interface paths {
     get?: never;
     put?: never;
     /** @description Impersonate a user */
-    post: operations["impersonateUser"];
+    post: operations['impersonateUser'];
     delete?: never;
     options?: never;
     head?: never;
     patch?: never;
     trace?: never;
   };
-  "/auth/admin/stop-impersonating": {
+  '/auth/admin/stop-impersonating': {
     parameters: {
       query?: never;
       header?: never;
@@ -3451,7 +3451,7 @@ export interface paths {
             [name: string]: unknown;
           };
           content: {
-            "application/json": {
+            'application/json': {
               message: string;
             };
           };
@@ -3462,7 +3462,7 @@ export interface paths {
             [name: string]: unknown;
           };
           content: {
-            "application/json": {
+            'application/json': {
               message: string;
             };
           };
@@ -3473,7 +3473,7 @@ export interface paths {
             [name: string]: unknown;
           };
           content: {
-            "application/json": {
+            'application/json': {
               message?: string;
             };
           };
@@ -3484,7 +3484,7 @@ export interface paths {
             [name: string]: unknown;
           };
           content: {
-            "application/json": {
+            'application/json': {
               message?: string;
             };
           };
@@ -3495,7 +3495,7 @@ export interface paths {
             [name: string]: unknown;
           };
           content: {
-            "application/json": {
+            'application/json': {
               message?: string;
             };
           };
@@ -3506,7 +3506,7 @@ export interface paths {
             [name: string]: unknown;
           };
           content: {
-            "application/json": {
+            'application/json': {
               message?: string;
             };
           };
@@ -3519,7 +3519,7 @@ export interface paths {
     patch?: never;
     trace?: never;
   };
-  "/auth/admin/revoke-user-session": {
+  '/auth/admin/revoke-user-session': {
     parameters: {
       query?: never;
       header?: never;
@@ -3529,14 +3529,14 @@ export interface paths {
     get?: never;
     put?: never;
     /** @description Revoke a user session */
-    post: operations["revokeUserSession"];
+    post: operations['revokeUserSession'];
     delete?: never;
     options?: never;
     head?: never;
     patch?: never;
     trace?: never;
   };
-  "/auth/admin/revoke-user-sessions": {
+  '/auth/admin/revoke-user-sessions': {
     parameters: {
       query?: never;
       header?: never;
@@ -3546,14 +3546,14 @@ export interface paths {
     get?: never;
     put?: never;
     /** @description Revoke all user sessions */
-    post: operations["revokeUserSessions"];
+    post: operations['revokeUserSessions'];
     delete?: never;
     options?: never;
     head?: never;
     patch?: never;
     trace?: never;
   };
-  "/auth/admin/remove-user": {
+  '/auth/admin/remove-user': {
     parameters: {
       query?: never;
       header?: never;
@@ -3563,14 +3563,14 @@ export interface paths {
     get?: never;
     put?: never;
     /** @description Delete a user and all their sessions and accounts. Cannot be undone. */
-    post: operations["removeUser"];
+    post: operations['removeUser'];
     delete?: never;
     options?: never;
     head?: never;
     patch?: never;
     trace?: never;
   };
-  "/auth/admin/set-user-password": {
+  '/auth/admin/set-user-password': {
     parameters: {
       query?: never;
       header?: never;
@@ -3580,14 +3580,14 @@ export interface paths {
     get?: never;
     put?: never;
     /** @description Set a user's password */
-    post: operations["setUserPassword"];
+    post: operations['setUserPassword'];
     delete?: never;
     options?: never;
     head?: never;
     patch?: never;
     trace?: never;
   };
-  "/auth/admin/has-permission": {
+  '/auth/admin/has-permission': {
     parameters: {
       query?: never;
       header?: never;
@@ -3606,7 +3606,7 @@ export interface paths {
       };
       requestBody?: {
         content: {
-          "application/json": {
+          'application/json': {
             /**
              * @deprecated
              * @description The permission to check
@@ -3624,7 +3624,7 @@ export interface paths {
             [name: string]: unknown;
           };
           content: {
-            "application/json": {
+            'application/json': {
               error?: string;
               success: boolean;
             };
@@ -3636,7 +3636,7 @@ export interface paths {
             [name: string]: unknown;
           };
           content: {
-            "application/json": {
+            'application/json': {
               message: string;
             };
           };
@@ -3647,7 +3647,7 @@ export interface paths {
             [name: string]: unknown;
           };
           content: {
-            "application/json": {
+            'application/json': {
               message: string;
             };
           };
@@ -3658,7 +3658,7 @@ export interface paths {
             [name: string]: unknown;
           };
           content: {
-            "application/json": {
+            'application/json': {
               message?: string;
             };
           };
@@ -3669,7 +3669,7 @@ export interface paths {
             [name: string]: unknown;
           };
           content: {
-            "application/json": {
+            'application/json': {
               message?: string;
             };
           };
@@ -3680,7 +3680,7 @@ export interface paths {
             [name: string]: unknown;
           };
           content: {
-            "application/json": {
+            'application/json': {
               message?: string;
             };
           };
@@ -3691,7 +3691,7 @@ export interface paths {
             [name: string]: unknown;
           };
           content: {
-            "application/json": {
+            'application/json': {
               message?: string;
             };
           };
@@ -3704,7 +3704,7 @@ export interface paths {
     patch?: never;
     trace?: never;
   };
-  "/auth/sign-in/phone-number": {
+  '/auth/sign-in/phone-number': {
     parameters: {
       query?: never;
       header?: never;
@@ -3723,7 +3723,7 @@ export interface paths {
       };
       requestBody: {
         content: {
-          "application/json": {
+          'application/json': {
             /** @description Phone number to sign in. Eg: "+1234567890" */
             phoneNumber: string;
             /** @description Password to use for sign in. */
@@ -3740,9 +3740,9 @@ export interface paths {
             [name: string]: unknown;
           };
           content: {
-            "application/json": {
-              user?: components["schemas"]["User"];
-              session?: components["schemas"]["Session"];
+            'application/json': {
+              user?: components['schemas']['User'];
+              session?: components['schemas']['Session'];
             };
           };
         };
@@ -3759,7 +3759,7 @@ export interface paths {
             [name: string]: unknown;
           };
           content: {
-            "application/json": {
+            'application/json': {
               message: string;
             };
           };
@@ -3770,7 +3770,7 @@ export interface paths {
             [name: string]: unknown;
           };
           content: {
-            "application/json": {
+            'application/json': {
               message?: string;
             };
           };
@@ -3781,7 +3781,7 @@ export interface paths {
             [name: string]: unknown;
           };
           content: {
-            "application/json": {
+            'application/json': {
               message?: string;
             };
           };
@@ -3792,7 +3792,7 @@ export interface paths {
             [name: string]: unknown;
           };
           content: {
-            "application/json": {
+            'application/json': {
               message?: string;
             };
           };
@@ -3803,7 +3803,7 @@ export interface paths {
             [name: string]: unknown;
           };
           content: {
-            "application/json": {
+            'application/json': {
               message?: string;
             };
           };
@@ -3816,7 +3816,7 @@ export interface paths {
     patch?: never;
     trace?: never;
   };
-  "/auth/phone-number/send-otp": {
+  '/auth/phone-number/send-otp': {
     parameters: {
       query?: never;
       header?: never;
@@ -3835,7 +3835,7 @@ export interface paths {
       };
       requestBody: {
         content: {
-          "application/json": {
+          'application/json': {
             /** @description Phone number to send OTP. Eg: "+1234567890" */
             phoneNumber: string;
           };
@@ -3848,7 +3848,7 @@ export interface paths {
             [name: string]: unknown;
           };
           content: {
-            "application/json": {
+            'application/json': {
               message?: string;
             };
           };
@@ -3859,7 +3859,7 @@ export interface paths {
             [name: string]: unknown;
           };
           content: {
-            "application/json": {
+            'application/json': {
               message: string;
             };
           };
@@ -3870,7 +3870,7 @@ export interface paths {
             [name: string]: unknown;
           };
           content: {
-            "application/json": {
+            'application/json': {
               message: string;
             };
           };
@@ -3881,7 +3881,7 @@ export interface paths {
             [name: string]: unknown;
           };
           content: {
-            "application/json": {
+            'application/json': {
               message?: string;
             };
           };
@@ -3892,7 +3892,7 @@ export interface paths {
             [name: string]: unknown;
           };
           content: {
-            "application/json": {
+            'application/json': {
               message?: string;
             };
           };
@@ -3903,7 +3903,7 @@ export interface paths {
             [name: string]: unknown;
           };
           content: {
-            "application/json": {
+            'application/json': {
               message?: string;
             };
           };
@@ -3914,7 +3914,7 @@ export interface paths {
             [name: string]: unknown;
           };
           content: {
-            "application/json": {
+            'application/json': {
               message?: string;
             };
           };
@@ -3927,7 +3927,7 @@ export interface paths {
     patch?: never;
     trace?: never;
   };
-  "/auth/phone-number/verify": {
+  '/auth/phone-number/verify': {
     parameters: {
       query?: never;
       header?: never;
@@ -3946,7 +3946,7 @@ export interface paths {
       };
       requestBody: {
         content: {
-          "application/json": {
+          'application/json': {
             /** @description Phone number to verify. Eg: "+1234567890" */
             phoneNumber: string;
             /** @description OTP code. Eg: "123456" */
@@ -3965,7 +3965,7 @@ export interface paths {
             [name: string]: unknown;
           };
           content: {
-            "application/json": {
+            'application/json': {
               /**
                * @description Indicates if the verification was successful
                * @enum {boolean}
@@ -4022,7 +4022,7 @@ export interface paths {
             [name: string]: unknown;
           };
           content: {
-            "application/json": {
+            'application/json': {
               message: string;
             };
           };
@@ -4033,7 +4033,7 @@ export interface paths {
             [name: string]: unknown;
           };
           content: {
-            "application/json": {
+            'application/json': {
               message?: string;
             };
           };
@@ -4044,7 +4044,7 @@ export interface paths {
             [name: string]: unknown;
           };
           content: {
-            "application/json": {
+            'application/json': {
               message?: string;
             };
           };
@@ -4055,7 +4055,7 @@ export interface paths {
             [name: string]: unknown;
           };
           content: {
-            "application/json": {
+            'application/json': {
               message?: string;
             };
           };
@@ -4066,7 +4066,7 @@ export interface paths {
             [name: string]: unknown;
           };
           content: {
-            "application/json": {
+            'application/json': {
               message?: string;
             };
           };
@@ -4079,7 +4079,7 @@ export interface paths {
     patch?: never;
     trace?: never;
   };
-  "/auth/phone-number/forget-password": {
+  '/auth/phone-number/forget-password': {
     parameters: {
       query?: never;
       header?: never;
@@ -4098,7 +4098,7 @@ export interface paths {
       };
       requestBody: {
         content: {
-          "application/json": {
+          'application/json': {
             /** @description The phone number which is associated with the user. Eg: "+1234567890" */
             phoneNumber: string;
           };
@@ -4111,7 +4111,7 @@ export interface paths {
             [name: string]: unknown;
           };
           content: {
-            "application/json": {
+            'application/json': {
               /**
                * @description Indicates if the OTP was sent successfully
                * @enum {boolean}
@@ -4126,7 +4126,7 @@ export interface paths {
             [name: string]: unknown;
           };
           content: {
-            "application/json": {
+            'application/json': {
               message: string;
             };
           };
@@ -4137,7 +4137,7 @@ export interface paths {
             [name: string]: unknown;
           };
           content: {
-            "application/json": {
+            'application/json': {
               message: string;
             };
           };
@@ -4148,7 +4148,7 @@ export interface paths {
             [name: string]: unknown;
           };
           content: {
-            "application/json": {
+            'application/json': {
               message?: string;
             };
           };
@@ -4159,7 +4159,7 @@ export interface paths {
             [name: string]: unknown;
           };
           content: {
-            "application/json": {
+            'application/json': {
               message?: string;
             };
           };
@@ -4170,7 +4170,7 @@ export interface paths {
             [name: string]: unknown;
           };
           content: {
-            "application/json": {
+            'application/json': {
               message?: string;
             };
           };
@@ -4181,7 +4181,7 @@ export interface paths {
             [name: string]: unknown;
           };
           content: {
-            "application/json": {
+            'application/json': {
               message?: string;
             };
           };
@@ -4194,7 +4194,7 @@ export interface paths {
     patch?: never;
     trace?: never;
   };
-  "/auth/phone-number/request-password-reset": {
+  '/auth/phone-number/request-password-reset': {
     parameters: {
       query?: never;
       header?: never;
@@ -4213,7 +4213,7 @@ export interface paths {
       };
       requestBody: {
         content: {
-          "application/json": {
+          'application/json': {
             phoneNumber: string;
           };
         };
@@ -4225,7 +4225,7 @@ export interface paths {
             [name: string]: unknown;
           };
           content: {
-            "application/json": {
+            'application/json': {
               /**
                * @description Indicates if the OTP was sent successfully
                * @enum {boolean}
@@ -4240,7 +4240,7 @@ export interface paths {
             [name: string]: unknown;
           };
           content: {
-            "application/json": {
+            'application/json': {
               message: string;
             };
           };
@@ -4251,7 +4251,7 @@ export interface paths {
             [name: string]: unknown;
           };
           content: {
-            "application/json": {
+            'application/json': {
               message: string;
             };
           };
@@ -4262,7 +4262,7 @@ export interface paths {
             [name: string]: unknown;
           };
           content: {
-            "application/json": {
+            'application/json': {
               message?: string;
             };
           };
@@ -4273,7 +4273,7 @@ export interface paths {
             [name: string]: unknown;
           };
           content: {
-            "application/json": {
+            'application/json': {
               message?: string;
             };
           };
@@ -4284,7 +4284,7 @@ export interface paths {
             [name: string]: unknown;
           };
           content: {
-            "application/json": {
+            'application/json': {
               message?: string;
             };
           };
@@ -4295,7 +4295,7 @@ export interface paths {
             [name: string]: unknown;
           };
           content: {
-            "application/json": {
+            'application/json': {
               message?: string;
             };
           };
@@ -4308,7 +4308,7 @@ export interface paths {
     patch?: never;
     trace?: never;
   };
-  "/auth/phone-number/reset-password": {
+  '/auth/phone-number/reset-password': {
     parameters: {
       query?: never;
       header?: never;
@@ -4327,7 +4327,7 @@ export interface paths {
       };
       requestBody: {
         content: {
-          "application/json": {
+          'application/json': {
             /** @description The one time password to reset the password. Eg: "123456" */
             otp: string;
             /** @description The phone number to the account which intends to reset the password for. Eg: "+1234567890" */
@@ -4344,7 +4344,7 @@ export interface paths {
             [name: string]: unknown;
           };
           content: {
-            "application/json": {
+            'application/json': {
               /**
                * @description Indicates if the password was reset successfully
                * @enum {boolean}
@@ -4359,7 +4359,7 @@ export interface paths {
             [name: string]: unknown;
           };
           content: {
-            "application/json": {
+            'application/json': {
               message: string;
             };
           };
@@ -4370,7 +4370,7 @@ export interface paths {
             [name: string]: unknown;
           };
           content: {
-            "application/json": {
+            'application/json': {
               message: string;
             };
           };
@@ -4381,7 +4381,7 @@ export interface paths {
             [name: string]: unknown;
           };
           content: {
-            "application/json": {
+            'application/json': {
               message?: string;
             };
           };
@@ -4392,7 +4392,7 @@ export interface paths {
             [name: string]: unknown;
           };
           content: {
-            "application/json": {
+            'application/json': {
               message?: string;
             };
           };
@@ -4403,7 +4403,7 @@ export interface paths {
             [name: string]: unknown;
           };
           content: {
-            "application/json": {
+            'application/json': {
               message?: string;
             };
           };
@@ -4414,7 +4414,7 @@ export interface paths {
             [name: string]: unknown;
           };
           content: {
-            "application/json": {
+            'application/json': {
               message?: string;
             };
           };
@@ -4507,7 +4507,7 @@ export interface operations {
     requestBody?: never;
     responses: never;
   };
-  "options*": {
+  'options*': {
     parameters: {
       query?: never;
       header?: never;
@@ -4537,7 +4537,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": {
+          'application/json': {
             total: number;
             data: {
               id: string;
@@ -4559,13 +4559,13 @@ export interface operations {
     };
     requestBody: {
       content: {
-        "application/json": {
+        'application/json': {
           name: string;
         };
-        "application/x-www-form-urlencoded": {
+        'application/x-www-form-urlencoded': {
           name: string;
         };
-        "multipart/form-data": {
+        'multipart/form-data': {
           name: string;
         };
       };
@@ -4577,7 +4577,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": {
+          'application/json': {
             id: string;
             name: string;
             createdAt: Record<string, never> | string | number;
@@ -4596,32 +4596,32 @@ export interface operations {
     };
     requestBody: {
       content: {
-        "application/json": {
+        'application/json': {
           /**
            * Format: binary
            * @default File
            */
           file: string;
-          type: "Image" | "Video" | "Other";
-          isPublic: "true" | "false";
+          type: 'Image' | 'Video' | 'Other';
+          isPublic: 'true' | 'false';
         };
-        "application/x-www-form-urlencoded": {
+        'application/x-www-form-urlencoded': {
           /**
            * Format: binary
            * @default File
            */
           file: string;
-          type: "Image" | "Video" | "Other";
-          isPublic: "true" | "false";
+          type: 'Image' | 'Video' | 'Other';
+          isPublic: 'true' | 'false';
         };
-        "multipart/form-data": {
+        'multipart/form-data': {
           /**
            * Format: binary
            * @default File
            */
           file: string;
-          type: "Image" | "Video" | "Other";
-          isPublic: "true" | "false";
+          type: 'Image' | 'Video' | 'Other';
+          isPublic: 'true' | 'false';
         };
       };
     };
@@ -4646,7 +4646,7 @@ export interface operations {
     };
     requestBody: {
       content: {
-        "application/json": {
+        'application/json': {
           /** @description Callback URL to redirect to after the user has signed in */
           callbackURL?: string | null;
           newUserCallbackURL?: string | null;
@@ -4683,7 +4683,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": {
+          'application/json': {
             /** @enum {boolean} */
             redirect: false;
             /** @description Session token */
@@ -4697,7 +4697,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": {
+          'application/json': {
             message: string;
           };
         };
@@ -4708,7 +4708,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": {
+          'application/json': {
             message: string;
           };
         };
@@ -4719,7 +4719,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": {
+          'application/json': {
             message?: string;
           };
         };
@@ -4730,7 +4730,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": {
+          'application/json': {
             message?: string;
           };
         };
@@ -4741,7 +4741,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": {
+          'application/json': {
             message?: string;
           };
         };
@@ -4752,7 +4752,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": {
+          'application/json': {
             message?: string;
           };
         };
@@ -4768,7 +4768,7 @@ export interface operations {
     };
     requestBody: {
       content: {
-        "application/json": {
+        'application/json': {
           /** @description The user id */
           userId: string;
           /** @description The role to set, this can be a string or an array of strings. Eg: `admin` or `[admin, user]` */
@@ -4783,8 +4783,8 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": {
-            user?: components["schemas"]["User"];
+          'application/json': {
+            user?: components['schemas']['User'];
           };
         };
       };
@@ -4794,7 +4794,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": {
+          'application/json': {
             message: string;
           };
         };
@@ -4805,7 +4805,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": {
+          'application/json': {
             message: string;
           };
         };
@@ -4816,7 +4816,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": {
+          'application/json': {
             message?: string;
           };
         };
@@ -4827,7 +4827,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": {
+          'application/json': {
             message?: string;
           };
         };
@@ -4838,7 +4838,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": {
+          'application/json': {
             message?: string;
           };
         };
@@ -4849,7 +4849,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": {
+          'application/json': {
             message?: string;
           };
         };
@@ -4873,8 +4873,8 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": {
-            user?: components["schemas"]["User"];
+          'application/json': {
+            user?: components['schemas']['User'];
           };
         };
       };
@@ -4884,7 +4884,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": {
+          'application/json': {
             message: string;
           };
         };
@@ -4895,7 +4895,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": {
+          'application/json': {
             message: string;
           };
         };
@@ -4906,7 +4906,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": {
+          'application/json': {
             message?: string;
           };
         };
@@ -4917,7 +4917,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": {
+          'application/json': {
             message?: string;
           };
         };
@@ -4928,7 +4928,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": {
+          'application/json': {
             message?: string;
           };
         };
@@ -4939,7 +4939,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": {
+          'application/json': {
             message?: string;
           };
         };
@@ -4955,7 +4955,7 @@ export interface operations {
     };
     requestBody: {
       content: {
-        "application/json": {
+        'application/json': {
           /** @description The email of the user */
           email: string;
           /** @description The password of the user */
@@ -4974,8 +4974,8 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": {
-            user?: components["schemas"]["User"];
+          'application/json': {
+            user?: components['schemas']['User'];
           };
         };
       };
@@ -4985,7 +4985,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": {
+          'application/json': {
             message: string;
           };
         };
@@ -4996,7 +4996,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": {
+          'application/json': {
             message: string;
           };
         };
@@ -5007,7 +5007,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": {
+          'application/json': {
             message?: string;
           };
         };
@@ -5018,7 +5018,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": {
+          'application/json': {
             message?: string;
           };
         };
@@ -5029,7 +5029,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": {
+          'application/json': {
             message?: string;
           };
         };
@@ -5040,7 +5040,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": {
+          'application/json': {
             message?: string;
           };
         };
@@ -5056,7 +5056,7 @@ export interface operations {
     };
     requestBody: {
       content: {
-        "application/json": {
+        'application/json': {
           /** @description The user id */
           userId: string;
           /** @description The user data to update */
@@ -5071,8 +5071,8 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": {
-            user?: components["schemas"]["User"];
+          'application/json': {
+            user?: components['schemas']['User'];
           };
         };
       };
@@ -5082,7 +5082,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": {
+          'application/json': {
             message: string;
           };
         };
@@ -5093,7 +5093,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": {
+          'application/json': {
             message: string;
           };
         };
@@ -5104,7 +5104,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": {
+          'application/json': {
             message?: string;
           };
         };
@@ -5115,7 +5115,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": {
+          'application/json': {
             message?: string;
           };
         };
@@ -5126,7 +5126,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": {
+          'application/json': {
             message?: string;
           };
         };
@@ -5137,7 +5137,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": {
+          'application/json': {
             message?: string;
           };
         };
@@ -5170,8 +5170,8 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": {
-            users: components["schemas"]["User"][];
+          'application/json': {
+            users: components['schemas']['User'][];
             total: number;
             limit?: number;
             offset?: number;
@@ -5184,7 +5184,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": {
+          'application/json': {
             message: string;
           };
         };
@@ -5195,7 +5195,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": {
+          'application/json': {
             message: string;
           };
         };
@@ -5206,7 +5206,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": {
+          'application/json': {
             message?: string;
           };
         };
@@ -5217,7 +5217,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": {
+          'application/json': {
             message?: string;
           };
         };
@@ -5228,7 +5228,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": {
+          'application/json': {
             message?: string;
           };
         };
@@ -5239,7 +5239,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": {
+          'application/json': {
             message?: string;
           };
         };
@@ -5255,7 +5255,7 @@ export interface operations {
     };
     requestBody: {
       content: {
-        "application/json": {
+        'application/json': {
           /** @description The user id */
           userId: string;
         };
@@ -5268,8 +5268,8 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": {
-            sessions?: components["schemas"]["Session"][];
+          'application/json': {
+            sessions?: components['schemas']['Session'][];
           };
         };
       };
@@ -5279,7 +5279,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": {
+          'application/json': {
             message: string;
           };
         };
@@ -5290,7 +5290,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": {
+          'application/json': {
             message: string;
           };
         };
@@ -5301,7 +5301,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": {
+          'application/json': {
             message?: string;
           };
         };
@@ -5312,7 +5312,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": {
+          'application/json': {
             message?: string;
           };
         };
@@ -5323,7 +5323,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": {
+          'application/json': {
             message?: string;
           };
         };
@@ -5334,7 +5334,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": {
+          'application/json': {
             message?: string;
           };
         };
@@ -5350,7 +5350,7 @@ export interface operations {
     };
     requestBody: {
       content: {
-        "application/json": {
+        'application/json': {
           /** @description The user id */
           userId: string;
         };
@@ -5363,8 +5363,8 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": {
-            user?: components["schemas"]["User"];
+          'application/json': {
+            user?: components['schemas']['User'];
           };
         };
       };
@@ -5374,7 +5374,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": {
+          'application/json': {
             message: string;
           };
         };
@@ -5385,7 +5385,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": {
+          'application/json': {
             message: string;
           };
         };
@@ -5396,7 +5396,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": {
+          'application/json': {
             message?: string;
           };
         };
@@ -5407,7 +5407,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": {
+          'application/json': {
             message?: string;
           };
         };
@@ -5418,7 +5418,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": {
+          'application/json': {
             message?: string;
           };
         };
@@ -5429,7 +5429,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": {
+          'application/json': {
             message?: string;
           };
         };
@@ -5445,7 +5445,7 @@ export interface operations {
     };
     requestBody: {
       content: {
-        "application/json": {
+        'application/json': {
           /** @description The user id */
           userId: string;
           /** @description The reason for the ban */
@@ -5462,8 +5462,8 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": {
-            user?: components["schemas"]["User"];
+          'application/json': {
+            user?: components['schemas']['User'];
           };
         };
       };
@@ -5473,7 +5473,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": {
+          'application/json': {
             message: string;
           };
         };
@@ -5484,7 +5484,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": {
+          'application/json': {
             message: string;
           };
         };
@@ -5495,7 +5495,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": {
+          'application/json': {
             message?: string;
           };
         };
@@ -5506,7 +5506,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": {
+          'application/json': {
             message?: string;
           };
         };
@@ -5517,7 +5517,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": {
+          'application/json': {
             message?: string;
           };
         };
@@ -5528,7 +5528,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": {
+          'application/json': {
             message?: string;
           };
         };
@@ -5544,7 +5544,7 @@ export interface operations {
     };
     requestBody: {
       content: {
-        "application/json": {
+        'application/json': {
           /** @description The user id */
           userId: string;
         };
@@ -5557,9 +5557,9 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": {
-            session?: components["schemas"]["Session"];
-            user?: components["schemas"]["User"];
+          'application/json': {
+            session?: components['schemas']['Session'];
+            user?: components['schemas']['User'];
           };
         };
       };
@@ -5569,7 +5569,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": {
+          'application/json': {
             message: string;
           };
         };
@@ -5580,7 +5580,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": {
+          'application/json': {
             message: string;
           };
         };
@@ -5591,7 +5591,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": {
+          'application/json': {
             message?: string;
           };
         };
@@ -5602,7 +5602,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": {
+          'application/json': {
             message?: string;
           };
         };
@@ -5613,7 +5613,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": {
+          'application/json': {
             message?: string;
           };
         };
@@ -5624,7 +5624,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": {
+          'application/json': {
             message?: string;
           };
         };
@@ -5640,7 +5640,7 @@ export interface operations {
     };
     requestBody: {
       content: {
-        "application/json": {
+        'application/json': {
           /** @description The session token */
           sessionToken: string;
         };
@@ -5653,7 +5653,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": {
+          'application/json': {
             success?: boolean;
           };
         };
@@ -5664,7 +5664,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": {
+          'application/json': {
             message: string;
           };
         };
@@ -5675,7 +5675,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": {
+          'application/json': {
             message: string;
           };
         };
@@ -5686,7 +5686,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": {
+          'application/json': {
             message?: string;
           };
         };
@@ -5697,7 +5697,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": {
+          'application/json': {
             message?: string;
           };
         };
@@ -5708,7 +5708,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": {
+          'application/json': {
             message?: string;
           };
         };
@@ -5719,7 +5719,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": {
+          'application/json': {
             message?: string;
           };
         };
@@ -5735,7 +5735,7 @@ export interface operations {
     };
     requestBody: {
       content: {
-        "application/json": {
+        'application/json': {
           /** @description The user id */
           userId: string;
         };
@@ -5748,7 +5748,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": {
+          'application/json': {
             success?: boolean;
           };
         };
@@ -5759,7 +5759,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": {
+          'application/json': {
             message: string;
           };
         };
@@ -5770,7 +5770,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": {
+          'application/json': {
             message: string;
           };
         };
@@ -5781,7 +5781,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": {
+          'application/json': {
             message?: string;
           };
         };
@@ -5792,7 +5792,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": {
+          'application/json': {
             message?: string;
           };
         };
@@ -5803,7 +5803,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": {
+          'application/json': {
             message?: string;
           };
         };
@@ -5814,7 +5814,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": {
+          'application/json': {
             message?: string;
           };
         };
@@ -5830,7 +5830,7 @@ export interface operations {
     };
     requestBody: {
       content: {
-        "application/json": {
+        'application/json': {
           /** @description The user id */
           userId: string;
         };
@@ -5843,7 +5843,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": {
+          'application/json': {
             success?: boolean;
           };
         };
@@ -5854,7 +5854,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": {
+          'application/json': {
             message: string;
           };
         };
@@ -5865,7 +5865,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": {
+          'application/json': {
             message: string;
           };
         };
@@ -5876,7 +5876,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": {
+          'application/json': {
             message?: string;
           };
         };
@@ -5887,7 +5887,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": {
+          'application/json': {
             message?: string;
           };
         };
@@ -5898,7 +5898,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": {
+          'application/json': {
             message?: string;
           };
         };
@@ -5909,7 +5909,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": {
+          'application/json': {
             message?: string;
           };
         };
@@ -5925,7 +5925,7 @@ export interface operations {
     };
     requestBody: {
       content: {
-        "application/json": {
+        'application/json': {
           /** @description The new password */
           newPassword: string;
           /** @description The user id */
@@ -5940,7 +5940,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": {
+          'application/json': {
             status?: boolean;
           };
         };
@@ -5951,7 +5951,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": {
+          'application/json': {
             message: string;
           };
         };
@@ -5962,7 +5962,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": {
+          'application/json': {
             message: string;
           };
         };
@@ -5973,7 +5973,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": {
+          'application/json': {
             message?: string;
           };
         };
@@ -5984,7 +5984,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": {
+          'application/json': {
             message?: string;
           };
         };
@@ -5995,7 +5995,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": {
+          'application/json': {
             message?: string;
           };
         };
@@ -6006,7 +6006,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": {
+          'application/json': {
             message?: string;
           };
         };

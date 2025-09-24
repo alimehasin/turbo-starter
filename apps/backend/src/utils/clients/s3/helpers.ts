@@ -1,9 +1,9 @@
 // TODO: Try to replace this with bun
-import * as path from "node:path";
+import * as path from 'node:path';
 
-import { DeleteObjectsCommand, PutObjectCommand } from "@aws-sdk/client-s3";
-import sharp from "sharp";
-import { storage } from "./client";
+import { DeleteObjectsCommand, PutObjectCommand } from '@aws-sdk/client-s3';
+import sharp from 'sharp';
+import { storage } from './client';
 
 export async function deleteObjects(bucketName: string, files: string[]) {
   const command = new DeleteObjectsCommand({
@@ -28,7 +28,7 @@ export async function uploadObject(
     Body: file,
     ContentType: contentType,
     ContentLength: fileSize,
-    ACL: isPublic ? "public-read" : "private",
+    ACL: isPublic ? 'public-read' : 'private',
   });
 
   await storage.send(command);
@@ -42,12 +42,12 @@ async function compressImage(imageFile: File, fileName: string): Promise<File> {
     .toBuffer();
 
   return new File([new Uint8Array(webpBuffer)], fileName, {
-    type: "image/webp",
+    type: 'image/webp',
   });
 }
 
 function replaceFileExtension(fileName: string, newExtension: string): string {
-  const baseName = fileName.slice(0, fileName.lastIndexOf("."));
+  const baseName = fileName.slice(0, fileName.lastIndexOf('.'));
   return `${baseName}.${newExtension}`;
 }
 
@@ -63,7 +63,7 @@ export async function uploadImage({
   useNameAsKey?: boolean;
 }) {
   const key = useNameAsKey
-    ? replaceFileExtension(file.name, "webp")
+    ? replaceFileExtension(file.name, 'webp')
     : `${crypto.randomUUID()}.webp`;
 
   const f = await compressImage(file, key);

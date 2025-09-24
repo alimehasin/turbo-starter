@@ -1,7 +1,7 @@
-import { Elysia } from "elysia";
-import { env } from "./env";
-import { plugins } from "./plugins";
-import { routes } from "./routes";
+import { Elysia } from 'elysia';
+import { env } from './env';
+import { plugins } from './plugins';
+import { routes } from './routes';
 
 export const app = new Elysia()
 

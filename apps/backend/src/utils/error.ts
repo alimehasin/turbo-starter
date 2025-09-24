@@ -3,7 +3,7 @@ export class HttpError extends Error {
 
   constructor({
     statusCode = 400,
-    message = "Bad Request",
+    message = 'Bad Request',
   }: { statusCode?: number; message?: string }) {
     super(message);
     this.statusCode = statusCode;

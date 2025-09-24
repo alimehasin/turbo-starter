@@ -1,5 +1,5 @@
-import { S3Client } from "@aws-sdk/client-s3";
-import { env } from "@/env";
+import { S3Client } from '@aws-sdk/client-s3';
+import { env } from '@/env';
 
 export const storage = new S3Client({
   region: env.STORAGE_REGION,

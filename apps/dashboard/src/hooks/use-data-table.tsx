@@ -1,12 +1,12 @@
-import { useSetState } from "@mantine/hooks";
-import type { UseQueryResult } from "@tanstack/react-query";
+import { useSetState } from '@mantine/hooks';
+import type { UseQueryResult } from '@tanstack/react-query';
 import type {
   DataTableColumn,
   DataTableProps,
   DataTableSortStatus,
-} from "mantine-datatable";
-import { useTranslations } from "next-intl";
-import { DEFAULT_PAGE_SIZE, PAGE_SIZE_OPTIONS } from "@/utils/constants";
+} from 'mantine-datatable';
+import { useTranslations } from 'next-intl';
+import { DEFAULT_PAGE_SIZE, PAGE_SIZE_OPTIONS } from '@/utils/constants';
 
 interface Pagination {
   page: number;
@@ -15,7 +15,7 @@ interface Pagination {
 
 interface Sorting {
   column: string;
-  direction: "asc" | "desc";
+  direction: 'asc' | 'desc';
 }
 
 interface GetTablePropsParams<T extends Record<string, unknown>> {
@@ -41,13 +41,13 @@ export function useDataTable({
   );
 
   const [sorting, setSorting] = useSetState<Sorting>(
-    defaultSorting ?? { column: "createdAt", direction: "desc" },
+    defaultSorting ?? { column: 'createdAt', direction: 'desc' },
   );
 
   const [dtSorting, setDtSorting] = useSetState<DataTableSortStatus>({
-    columnAccessor: defaultSorting?.column ?? "createdAt",
-    direction: defaultSorting?.direction ?? "desc",
-    sortKey: defaultSorting?.column ?? "createdAt",
+    columnAccessor: defaultSorting?.column ?? 'createdAt',
+    direction: defaultSorting?.direction ?? 'desc',
+    sortKey: defaultSorting?.column ?? 'createdAt',
   });
 
   function handleSetDtSorting(newSorting: DataTableSortStatus) {
@@ -65,9 +65,9 @@ export function useDataTable({
     isSorting = true,
   }: GetTablePropsParams<T>) {
     let props: DataTableProps<T> = {
-      noRecordsText: t("dataTable.noRecords"),
+      noRecordsText: t('dataTable.noRecords'),
 
-      borderRadius: "md",
+      borderRadius: 'md',
       withRowBorders: true,
       withTableBorder: true,
       withColumnBorders: true,
@@ -86,7 +86,7 @@ export function useDataTable({
         onPageChange: (page) => setPagination({ page }),
         recordsPerPage: pagination.pageSize,
         onRecordsPerPageChange: (pageSize) => setPagination({ pageSize }),
-        recordsPerPageLabel: t("dataTable.recordsPerPageLabel"),
+        recordsPerPageLabel: t('dataTable.recordsPerPageLabel'),
       };
     }
 

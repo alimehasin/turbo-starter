@@ -1,14 +1,14 @@
-import { prisma } from "@db/client";
-import { betterAuth } from "better-auth";
-import { prismaAdapter } from "better-auth/adapters/prisma";
-import { admin, openAPI, phoneNumber } from "better-auth/plugins";
-import { env } from "@/env";
+import { prisma } from '@db/client';
+import { betterAuth } from 'better-auth';
+import { prismaAdapter } from 'better-auth/adapters/prisma';
+import { admin, openAPI, phoneNumber } from 'better-auth/plugins';
+import { env } from '@/env';
 
 export const auth = betterAuth({
-  basePath: "/",
+  basePath: '/',
   trustedOrigins: env.BETTER_AUTH_TRUSTED_ORIGINS,
   database: prismaAdapter(prisma, {
-    provider: "postgresql",
+    provider: 'postgresql',
   }),
 
   advanced: {

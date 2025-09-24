@@ -23,7 +23,7 @@ export function parseSortingProps(sorting?: {
     return undefined;
   }
 
-  const children = sorting.sortingColumn.split(".");
+  const children = sorting.sortingColumn.split('.');
   const lastChild = children.pop();
 
   if (!lastChild) {

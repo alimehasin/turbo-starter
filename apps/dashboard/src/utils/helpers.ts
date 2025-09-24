@@ -1,4 +1,4 @@
-import { env } from "@/env";
+import { env } from '@/env';
 
 export function constructImageUrl(key: string | undefined) {
   if (!key) {

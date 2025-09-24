@@ -1,15 +1,15 @@
-"use client";
+'use client';
 
-import { ActionIcon, Burger, Button, Container, Group } from "@mantine/core";
+import { ActionIcon, Burger, Button, Container, Group } from '@mantine/core';
 import {
   IconInfoCircle,
   IconSearch,
   IconSettings,
   IconSpeakerphone,
   IconUser,
-} from "@tabler/icons-react";
-import { useTranslations } from "next-intl";
-import { ActionIconsContainer } from "@/components/action-icons-container";
+} from '@tabler/icons-react';
+import { useTranslations } from 'next-intl';
+import { ActionIconsContainer } from '@/components/action-icons-container';
 
 export function Header({
   opened,
@@ -29,7 +29,7 @@ export function Header({
 
         <Group gap="sm">
           <Button visibleFrom="sm" h={44} leftSection={<IconSearch />}>
-            {t("_.search")}
+            {t('_.search')}
           </Button>
 
           <ActionIconsContainer>

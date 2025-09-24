@@ -1,17 +1,17 @@
-import { prisma } from "@db/client";
-import { FileType } from "@prisma/client";
-import { Elysia, t } from "elysia";
-import { env } from "@/env";
-import { betterAuth } from "@/plugins/better-auth";
-import { setup } from "@/setup";
+import { prisma } from '@db/client';
+import { FileType } from '@prisma/client';
+import { Elysia, t } from 'elysia';
+import { env } from '@/env';
+import { betterAuth } from '@/plugins/better-auth';
+import { setup } from '@/setup';
 import {
   deleteObjects,
   uploadImage,
   uploadVideo,
-} from "@/utils/clients/s3/helpers";
-import { HttpError } from "@/utils/error";
+} from '@/utils/clients/s3/helpers';
+import { HttpError } from '@/utils/error';
 
-export const files = new Elysia({ prefix: "/files" })
+export const files = new Elysia({ prefix: '/files' })
 
   // Plugins
   .use(setup)
@@ -19,11 +19,11 @@ export const files = new Elysia({ prefix: "/files" })
   .guard({ mustBeAuthed: true })
 
   .post(
-    "/upload",
+    '/upload',
     async ({ t, user, body }) => {
-      const isPublic = body.isPublic === "true";
+      const isPublic = body.isPublic === 'true';
 
-      if (body.type === "Image") {
+      if (body.type === 'Image') {
         const { key, size } = await uploadImage({
           isPublic,
           file: body.file,
@@ -41,7 +41,7 @@ export const files = new Elysia({ prefix: "/files" })
         });
       }
 
-      if (body.type === "Video") {
+      if (body.type === 'Video') {
         const { key, size } = await uploadVideo({
           file: body.file,
           bucketName: env.STORAGE_BUCKET_NAME,
@@ -61,8 +61,8 @@ export const files = new Elysia({ prefix: "/files" })
 
       throw new HttpError({
         message: t({
-          en: "Invalid file type",
-          ar: "نوع الملف غير صالح",
+          en: 'Invalid file type',
+          ar: 'نوع الملف غير صالح',
         }),
       });
     },
@@ -70,13 +70,13 @@ export const files = new Elysia({ prefix: "/files" })
       body: t.Object({
         file: t.File(),
         type: t.Enum(FileType),
-        isPublic: t.Union([t.Literal("true"), t.Literal("false")]),
+        isPublic: t.Union([t.Literal('true'), t.Literal('false')]),
       }),
     },
   )
 
   .delete(
-    "/:id",
+    '/:id',
     async ({ t, user, params: { id } }) => {
       const file = await prisma.file.findUnique({
         where: { id, userId: user.id },
@@ -86,8 +86,8 @@ export const files = new Elysia({ prefix: "/files" })
         throw new HttpError({
           statusCode: 404,
           message: t({
-            en: "File not found",
-            ar: "يعتذر ايجاد الملف",
+            en: 'File not found',
+            ar: 'يعتذر ايجاد الملف',
           }),
         });
       }

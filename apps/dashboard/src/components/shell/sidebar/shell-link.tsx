@@ -1,9 +1,9 @@
-"use client";
+'use client';
 
-import { NavLink } from "@mantine/core";
-import type { TablerIcon } from "@tabler/icons-react";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { NavLink } from '@mantine/core';
+import type { TablerIcon } from '@tabler/icons-react';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 
 export function ShellLink({
   label,

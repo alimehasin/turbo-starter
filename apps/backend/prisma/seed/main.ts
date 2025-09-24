@@ -1,9 +1,17 @@
 import { PrismaClient } from '@prisma/client';
+import { env } from '@/env';
+import { seedFiles } from './tables/files';
+import { seedGovernorates } from './tables/governorates';
 
 const prisma = new PrismaClient();
 
 async function main() {
-  console.log('Seeding database...');
+  if (env.NODE_ENV !== 'development') {
+    return;
+  }
+
+  await seedFiles(prisma);
+  await seedGovernorates(prisma);
 }
 
 await main()

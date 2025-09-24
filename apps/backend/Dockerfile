@@ -1,46 +1,37 @@
-FROM oven/bun:latest AS base
-
-
-# =================================
-# ========== Build stage ==========
-# =================================
-FROM base AS builder
+# Use Bun's official image
+FROM oven/bun:latest
 
 # Set working directory
 WORKDIR /app
-COPY . .
-RUN bun add -g turbo
-RUN turbo prune @repo/backend --docker
 
+# Copy package files
+COPY package.json bun.lock* ./
+COPY apps/backend/package.json ./apps/backend/
+COPY configs/ ./configs/
 
-# =====================================
-# ========== Installer stage ==========
-# =====================================
-FROM base AS installer
-WORKDIR /app
-
-# First install dependencies (as they change less often)
-COPY --from=builder /app/out/json/ .
+# Install dependencies using lockfile for exact versions
+RUN apt-get update -y && apt-get install -y openssl
 RUN bun install
 
-# Build the project and its dependencies
-COPY --from=builder /app/out/full/ .
-RUN bun db:generate
-RUN bun run build
+# Copy source code
+COPY . .
 
+# Generate Prisma client and build
+WORKDIR /app/apps/backend
+RUN bunx prisma generate && bun run build
 
-# ==================================
-# ========== Runner stage ==========
-# ==================================
-FROM base AS runner
-WORKDIR /app
+# Create non-root user
+RUN addgroup --system --gid 1001 nodejs && \
+    adduser --system --uid 1001 bunuser
 
-# Don't run production as root
-RUN addgroup --system --gid 1001 bunuser
-RUN adduser --system --uid 1001 bunuser
+# Change ownership of app directory
+RUN chown -R bunuser:nodejs /app
+
+# Switch to non-root user
 USER bunuser
 
-# Copy the necessary files for the backend
-COPY --from=installer /app/apps/backend/dist ./
+# Expose port
+EXPOSE 3000
 
-CMD ["bun", "index.js"]
+# Start the application
+CMD ["bun", "run", "start"]

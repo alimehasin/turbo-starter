@@ -5,6 +5,7 @@ import {
   Button,
   Center,
   FocusTrap,
+  Group,
   Menu,
   Paper,
   PasswordInput,
@@ -14,22 +15,28 @@ import {
   Title,
 } from '@mantine/core';
 import { useForm } from '@mantine/form';
-import { IconKey, IconLanguage, IconLogin, IconUser } from '@tabler/icons-react';
+import {
+  IconKey,
+  IconLanguage,
+  IconLogin,
+  IconUser,
+} from '@tabler/icons-react';
 import { useMutation } from '@tanstack/react-query';
 import { useRouter } from 'next/navigation';
 import { useTranslations } from 'next-intl';
-import { setToken } from '@/server/actions/auth';
+import { useNotifications } from '@/hooks/use-notifications';
 import { setLocale } from '@/server/actions/locale';
-import { api } from '@/server/callers/client';
+import type { LoginRequestBody } from '@/types/server';
+import { authClient } from '@/utils/auth-client';
 
 export default function Login({ locale }: { locale: string }) {
   const router = useRouter();
   const t = useTranslations();
+  const n = useNotifications();
 
   const form = useForm({
-    name: 'trpc-form',
     initialValues: {
-      username: '',
+      email: '',
       password: '',
     },
   });
@@ -39,63 +46,99 @@ export default function Login({ locale }: { locale: string }) {
     onSuccess: router.refresh,
   });
 
-  const loginMut = api.accounts.login.useMutation({
-    onSuccess: async (v) => {
-      await setToken(v);
+  const signInMut = useMutation({
+    mutationFn: async ({ email, password }: LoginRequestBody) => {
+      const result = await authClient.signIn.email({ email, password });
+
+      if (result.error) {
+        throw new Error(result.error.message);
+      }
+
+      return result.data;
+    },
+    onSuccess: () => {
       router.push('/');
+    },
+    onError: (error: Error) => {
+      n.error(error.message);
     },
   });
 
-  const handleSubmit = form.onSubmit(({ username, password }) => {
-    loginMut.mutate({ username, password });
+  const handleSubmit = form.onSubmit(({ email, password }) => {
+    signInMut.mutate({ email, password });
   });
 
   return (
-    <SimpleGrid cols={{ md: 2 }} spacing={0}>
+    <SimpleGrid cols={{ base: 1, md: 2 }} spacing={0}>
       <Box
         w="100%"
-        h="100vh"
         visibleFrom="md"
-        bg="var(--mantine-primary-color-filled)"
-      />
+        h={{ base: 'auto', md: '100vh' }}
+        mih={{ base: '200px', md: '100vh' }}
+        bg="var(--mantine-primary-color-1)"
+      >
+        <Center h="100%" p="xl">
+          <Title>{t('login.logo')}</Title>
+        </Center>
+      </Box>
 
-      <Center h="100vh">
-        <Stack p="sm">
-          <Title c="nature.7">{t('common.loginTitle')}</Title>
+      <Center
+        h={{ base: '100vh', md: '100vh' }}
+        p={{ base: 'md', sm: 'lg', md: 'xl' }}
+      >
+        <Stack w="100%" maw={{ base: '100%', sm: 400, md: 500 }} gap="md">
+          <Title c="nature.7" order={1} size="h1" ta="center">
+            {t('login.loginTitle')}
+          </Title>
 
-          <Paper withBorder p="sm">
+          <Paper
+            withBorder
+            radius="md"
+            shadow="sm"
+            p={{ base: 'md', sm: 'lg' }}
+          >
             <FocusTrap>
               <form onSubmit={handleSubmit}>
-                <Stack w={{ base: '100%', md: 500 }}>
+                <Stack gap="md">
                   <TextInput
+                    required
                     autoCapitalize="off"
-                    label={t('common.username')}
-                    leftSection={<IconUser />}
-                    {...form.getInputProps('username')}
+                    label={t('login.email')}
+                    leftSection={<IconUser size={18} />}
+                    {...form.getInputProps('email')}
                   />
 
                   <PasswordInput
-                    label={t('common.password')}
-                    leftSection={<IconKey />}
+                    required
+                    label={t('login.password')}
+                    leftSection={<IconKey size={18} />}
                     {...form.getInputProps('password')}
                   />
 
                   <Button
+                    mt="sm"
+                    fullWidth
                     type="submit"
-                    leftSection={<IconLogin />}
-                    loading={loginMut.isPending}
+                    loading={signInMut.isPending}
+                    leftSection={<IconLogin size={18} />}
                   >
-                    {t('common.login')}
+                    {t('login.login')}
                   </Button>
                 </Stack>
               </form>
             </FocusTrap>
           </Paper>
 
-          <div>
+          {/* Language selector */}
+          <Group>
             <Menu>
               <Menu.Target>
-                <Button color="gray" variant="subtle" leftSection={<IconLanguage />}>
+                <Button
+                  color="gray"
+                  variant="subtle"
+                  size="compact-sm"
+                  leftSection={<IconLanguage size={18} />}
+                >
                   {locale === 'ar' ? 'العربية' : 'English'}
                 </Button>
               </Menu.Target>
@@ -109,7 +152,7 @@ export default function Login({ locale }: { locale: string }) {
                 </Menu.Item>
               </Menu.Dropdown>
             </Menu>
-          </div>
+          </Group>
         </Stack>
       </Center>
     </SimpleGrid>

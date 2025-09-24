@@ -8,7 +8,7 @@ export function useNotifications() {
     success: (message: string) => {
       showNotification({
         color: 'green',
-        title: t('common.success'),
+        title: t('_.success'),
         message,
       });
     },
@@ -16,7 +16,7 @@ export function useNotifications() {
     info: (message: string) => {
       showNotification({
         color: 'blue',
-        title: t('common.done'),
+        title: t('_.done'),
         message,
       });
     },
@@ -24,7 +24,7 @@ export function useNotifications() {
     error: (message: string) => {
       showNotification({
         color: 'red',
-        title: t('common.error'),
+        title: t('_.error'),
         message,
       });
     },

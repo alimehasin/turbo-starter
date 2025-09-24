@@ -1,0 +1,7 @@
+.errorCode {
+  font-size: 8rem;
+  line-height: 1;
+  font-weight: 900;
+  font-family: monospace;
+  color: var(--mantine-color-primary-6);
+}

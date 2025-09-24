@@ -1,14 +1,39 @@
 services:
-  postgres:
-    image: postgres:16
+  backend:
+    build:
+      context: .
+      dockerfile: apps/backend/Dockerfile
+    container_name: turbo-starter-backend
     restart: unless-stopped
-    container_name: ${POSTGRES_CONTAINER_NAME}
-    env_file:
-      - .env
+    environment:
+      - NODE_ENV=${NODE_ENV}
+      - STORAGE_REGION=${STORAGE_REGION}
+      - STORAGE_ENDPOINT=${STORAGE_ENDPOINT}
+      - STORAGE_ACCESS_KEY=${STORAGE_ACCESS_KEY}
+      - STORAGE_SECRET_KEY=${STORAGE_SECRET_KEY}
+      - STORAGE_BUCKET_NAME=${STORAGE_BUCKET_NAME}
+      - BETTER_AUTH_TRUSTED_ORIGINS=${BETTER_AUTH_TRUSTED_ORIGINS}
     ports:
-      - "${POSTGRES_PORT}:5432"
-    volumes:
-      - postgres-data:/var/lib/postgresql/data
+      - "3000:3000"
+    networks:
+      - turbo-starter-network
 
-volumes:
-  postgres-data:
+  dashboard:
+    build:
+      context: .
+      dockerfile: apps/dashboard/Dockerfile
+      args:
+        - NEXT_PUBLIC_API_BASE_URL=${NEXT_PUBLIC_API_BASE_URL}
+        - NEXT_PUBLIC_STORAGE_BASE_URL=${NEXT_PUBLIC_STORAGE_BASE_URL}
+    container_name: turbo-starter-dashboard
+    restart: unless-stopped
+    ports:
+      - "3001:3001"
+    depends_on:
+      - backend
+    networks:
+      - turbo-starter-network
+
+networks:
+  turbo-starter-network:
+    driver: bridge

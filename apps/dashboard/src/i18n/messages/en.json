@@ -1,43 +1,73 @@
 {
-  "common": {
+  "_": {
+    "done": "Done",
+    "error": "Error",
+    "hello": "Hello",
+    "save": "Save",
+    "search": "Search in orders",
+    "success": "Success"
+  },
+  "confirmDelete": {
     "actionCannotBeUndone": "This action cannot be undone.",
     "areYouSureAboutThisAction": "Are you sure you want to perform this action?",
     "cancel": "Cancel",
-    "clickToCallWhatsApp": "Click to call on WhatsApp",
-    "confirm": "Confirm",
-    "done": "Done",
-    "error": "Error",
-    "language": "English",
-    "login": "Login",
-    "loginTitle": "Login to Your Account",
-    "logout": "Logout",
-    "logoutSuccess": "You have been logged out",
-    "no": "No",
-    "nothingFound": "Nothing found",
-    "password": "Password",
-    "search": "Search",
-    "success": "Success",
-    "title": "Hello world!",
-    "uploadImageFailed": "Failed to upload image",
-    "username": "Username",
-    "yes": "Yes"
+    "confirm": "Confirm"
   },
   "dataTable": {
     "noRecords": "No records to show",
     "recordsPerPageLabel": "Records per page"
   },
-  "downloadCsvButton": {
+  "downloadCsvFile": {
     "description": "Click the \"Download\" button below to download all the data as a CSV file",
     "download": "Download",
     "title": "Download file as CSV",
     "tooltip": "Download file as CSV"
   },
-  "dropzone": {
-    "accept": "Yes, now just release the image",
-    "idle": "Drop your images here",
-    "reject": "Oh no, you can't drop this file"
+  "governorates": {
+    "add": "Add Governorate",
+    "createdAt": "Created At",
+    "deletedSuccessfully": "Governorate deleted successfully",
+    "name": "Name",
+    "savedSuccessfully": "Governorate saved successfully"
+  },
+  "login": {
+    "email": "Email",
+    "login": "Login",
+    "loginTitle": "Login to your account",
+    "logo": "Logo Here",
+    "password": "Password"
+  },
+  "meta": {
+    "description": "Turbo Starter | A starter kit with Elysia and Next.js",
+    "title": "Turbo Starter | Dashboard"
+  },
+  "notFound": {
+    "description": "The page you requested might have been moved, deleted, or you might have entered the wrong URL.",
+    "errorCode": "404",
+    "goBack": "Go Back",
+    "goHome": "Go Home",
+    "subtitle": "Oops! The page you're looking for doesn't exist.",
+    "title": "Page Not Found"
   },
   "sidebar": {
-    "home": "Home"
+    "announcements": "Announcements",
+    "attributes": "Attributes",
+    "banners": "Banners",
+    "catalogGroup": "Catalog",
+    "categories": "Categories",
+    "coupons": "Coupons",
+    "governorates": "Governorates",
+    "helpInfo": "Help & Info",
+    "home": "Home",
+    "managementGroup": "Management",
+    "marketingGroup": "Marketing",
+    "orders": "Orders",
+    "overviewGroup": "Overview",
+    "priceReports": "Price Reports",
+    "products": "Products",
+    "profile": "Profile",
+    "settings": "Settings",
+    "users": "Users",
+    "warranties": "Warranties"
   }
 }

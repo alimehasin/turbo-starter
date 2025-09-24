@@ -1,23 +1,21 @@
-import { Container } from '@mantine/core';
+import { headers } from 'next/headers';
 import { redirect } from 'next/navigation';
 import { Shell } from '@/components/shell';
-import { authenticate, getToken } from '@/server/actions/auth';
+import { authClient } from '@/utils/auth-client';
 
 export default async function DashboardLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  const token = await getToken();
-  const admin = await authenticate(token);
+  const headersList = await headers();
+  const session = await authClient.getSession({
+    fetchOptions: { headers: headersList },
+  });
 
-  if (!admin) {
-    redirect('/accounts/login');
+  if (!session.data || session.data.user.role !== 'admin') {
+    return redirect('/accounts/login');
   }
 
-  return (
-    <Shell>
-      <Container size="xl">{children}</Container>
-    </Shell>
-  );
+  return <Shell>{children}</Shell>;
 }

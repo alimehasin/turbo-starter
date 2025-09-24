@@ -1,38 +1,28 @@
 'use client';
 
-import {
-  AppShell,
-  AppShellHeader,
-  AppShellMain,
-  AppShellNavbar,
-} from '@mantine/core';
+import { AppShell, AppShellNavbar } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
-import { HEADER_HEIGHT, SIDEBAR_WIDTH } from '@/utils/constants';
-import { Header } from './header';
+import { SHELL_SIDEBAR_WIDTH } from '@/utils/constants';
 import { Sidebar } from './sidebar';
 
 export function Shell({ children }: { children: React.ReactNode }) {
-  const [opened, { toggle }] = useDisclosure();
+  const [opened] = useDisclosure();
 
   return (
     <AppShell
-      padding={{ base: 'xs', md: 'md' }}
-      header={{ height: HEADER_HEIGHT }}
+      layout="alt"
+      padding="md"
       navbar={{
-        breakpoint: 'md',
-        width: SIDEBAR_WIDTH,
+        breakpoint: 'sm',
+        width: SHELL_SIDEBAR_WIDTH,
         collapsed: { mobile: !opened },
       }}
     >
-      <AppShellHeader>
-        <Header opened={opened} toggle={toggle} />
-      </AppShellHeader>
-
       <AppShellNavbar>
-        <Sidebar toggle={toggle} />
+        <Sidebar />
       </AppShellNavbar>
 
-      <AppShellMain>{children}</AppShellMain>
+      <AppShell.Main>{children}</AppShell.Main>
     </AppShell>
   );
 }

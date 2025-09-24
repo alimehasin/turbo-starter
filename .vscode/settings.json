@@ -1,8 +1,13 @@
 {
   "editor.tabSize": 2,
   "editor.formatOnSave": true,
-  "editor.insertSpaces": true,
   "editor.defaultFormatter": "biomejs.biome",
+
+  "emmet.showExpandedAbbreviation": "never",
+  "editor.codeActionsOnSave": {
+    "source.fixAll.biome": "explicit",
+    "source.organizeImports.biome": "explicit"
+  },
 
   "[prisma]": {
     "editor.defaultFormatter": "Prisma.prisma"

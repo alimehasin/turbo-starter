@@ -1,5 +1,13 @@
-import { Button, Group, type MantineColor, Stack, Text } from '@mantine/core';
+import {
+  Button,
+  Group,
+  type MantineColor,
+  Mark,
+  Stack,
+  Text,
+} from '@mantine/core';
 import { modals } from '@mantine/modals';
+import { IconTrash, IconX } from '@tabler/icons-react';
 import { useTranslations } from 'next-intl';
 
 export function useModals() {
@@ -28,25 +36,28 @@ export function useModals() {
         children: (
           <Stack>
             <div>
-              <Text span>{t('common.areYouSureAboutThisAction')} </Text>
-              <Text span bg="yellow.5">
-                {t('common.actionCannotBeUndone')}
-              </Text>
+              <Text span>{t('confirmDelete.areYouSureAboutThisAction')} </Text>
+              <Mark>{t('confirmDelete.actionCannotBeUndone')}</Mark>
             </div>
 
             <Group grow>
-              <Button variant="default" onClick={() => modals.close(modalId)}>
-                {t('common.cancel')}
+              <Button
+                variant="default"
+                leftSection={<IconX size={20} />}
+                onClick={() => modals.close(modalId)}
+              >
+                {t('confirmDelete.cancel')}
               </Button>
 
               <Button
                 color={color}
+                leftSection={<IconTrash size={20} />}
                 onClick={() => {
                   onConfirm();
                   modals.close(modalId);
                 }}
               >
-                {t('common.confirm')}
+                {t('confirmDelete.confirm')}
               </Button>
             </Group>
           </Stack>

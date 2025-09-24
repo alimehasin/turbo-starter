@@ -1,12 +1,12 @@
 import { useSetState } from '@mantine/hooks';
-import { DEFAULT_PAGE_SIZE, PAGE_SIZE_OPTIONS } from '@repo/utils/constants';
-import type { UseTRPCQueryResult } from '@trpc/react-query/shared';
+import type { UseQueryResult } from '@tanstack/react-query';
 import type {
   DataTableColumn,
   DataTableProps,
   DataTableSortStatus,
 } from 'mantine-datatable';
 import { useTranslations } from 'next-intl';
+import { DEFAULT_PAGE_SIZE, PAGE_SIZE_OPTIONS } from '@/utils/constants';
 
 interface Pagination {
   page: number;
@@ -19,7 +19,7 @@ interface Sorting {
 }
 
 interface GetTablePropsParams<T extends Record<string, unknown>> {
-  query: UseTRPCQueryResult<{ total: number; data: T[] }, unknown>;
+  query: UseQueryResult<{ total: number; data: T[] }, unknown>;
   columns: DataTableColumn<T>[];
   isPagination?: boolean;
   isSorting?: boolean;
@@ -67,7 +67,7 @@ export function useDataTable({
     let props: DataTableProps<T> = {
       noRecordsText: t('dataTable.noRecords'),
 
-      borderRadius: 'md',
+      borderRadius: 'lg',
       withRowBorders: true,
       withTableBorder: true,
       withColumnBorders: true,
@@ -94,7 +94,9 @@ export function useDataTable({
       props = {
         ...props,
         sortStatus: dtSorting,
-        onSortStatusChange: handleSetDtSorting as (s: DataTableSortStatus<T>) => void,
+        onSortStatusChange: handleSetDtSorting as (
+          s: DataTableSortStatus<T>,
+        ) => void,
       };
     }
 

@@ -79,9 +79,9 @@ export const files = new Elysia({ prefix: '/files' })
 
   .delete(
     '/:id',
-    async ({ t, user, params: { id } }) => {
+    async ({ t, params: { id } }) => {
       const file = await prisma.file.findUnique({
-        where: { id, userId: user.id },
+        where: { id },
       });
 
       if (!file) {

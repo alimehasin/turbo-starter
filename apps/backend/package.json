@@ -8,7 +8,8 @@
     "build": "tsc --noEmit && bun build --target bun --minify-whitespace --minify-syntax --outfile ./dist/index.js src/server.ts",
     "start": "bun ./dist/index.js",
     "typecheck": "tsc --noEmit",
-    "test": "bun test"
+    "test": "bun test",
+    "scripts:create-admin": "bun run scripts/create-admin.ts"
   },
   "dependencies": {
     "@aws-sdk/client-s3": "^3.895.0",
@@ -26,6 +27,7 @@
     "sharp": "^0.34.4"
   },
   "devDependencies": {
+    "@inquirer/prompts": "^7.8.6",
     "@repo/tsconfig": "workspace:*",
     "@types/bun": "^1.2.22",
     "prisma": "^6.16.2",

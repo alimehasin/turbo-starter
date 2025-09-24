@@ -21,6 +21,7 @@
     "scripts:update": "bash ./scripts/update.sh",
     "scripts:cleanup": "bash ./scripts/cleanup.sh",
     "scripts:reinstall": "bash ./scripts/reinstall.sh",
+    "scripts:create-admin": "cd apps/backend && bun run scripts/create-admin.ts",
     "db:generate": "cd apps/backend && bunx prisma generate",
     "db:migrate:dev": "cd apps/backend && bunx prisma migrate dev",
     "db:migrate:deploy": "cd apps/backend && bunx prisma migrate deploy",

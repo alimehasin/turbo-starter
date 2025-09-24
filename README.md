@@ -1,110 +1,67 @@
-# Turbo Starter - Docker Setup
+# Turbo Starter
 
-A full-stack application with backend (Elysia/Bun) and dashboard (Next.js) services.
+A modern full-stack boilerplate with **Elysia.js** backend and **Next.js** frontend, powered by **Bun** and **Turborepo**.
 
 ## 🚀 Quick Start
 
 ```bash
-# Setup and start everything
+# Clone and setup
+git clone <your-repo>
+cd turbo-starter
 make setup
 
-# Access your applications
+# Access applications
+# Backend: http://localhost:3000
 # Dashboard: http://localhost:3001
-# Backend API: http://localhost:3000
 ```
 
-## 📋 Prerequisites
+## 🛠️ Tech Stack
 
-- Docker Engine 20.10+
-- Docker Compose 2.0+
+**Backend:**
 
-## 🛠️ Setup
+- Elysia.js + Bun runtime
+- Prisma ORM + PostgreSQL
+- Better Auth
+- S3 Storage
+- OpenAPI docs
 
-1. **Copy environment file:**
+**Frontend:**
 
-   ```bash
-   make setup-env
-   ```
+- Next.js 15 + React 19
+- Mantine UI components
+- React Query + TanStack
+- i18n internationalization
+- TypeScript
 
-2. **Edit `.env` with your values:**
+**Dev Tools:**
 
-   ```env
-   DATABASE_URL=postgresql://user:password@your-db-host:5432/your-db-name
-   STORAGE_ACCESS_KEY=your-access-key
-   STORAGE_SECRET_KEY=your-secret-key
-   STORAGE_BUCKET_NAME=your-bucket-name
-   ```
+- Turborepo monorepo
+- Biome linting/formatting
+- Docker + Docker Compose
+- Husky git hooks
 
-3. **Build and start:**
-   ```bash
-   make setup
-   ```
-
-## 📚 Commands
-
-### Main Commands
+## 📚 Docker commands
 
 ```bash
-make setup      # Full setup (env + build + up)
-make build      # Build Docker images
-make up         # Start all services
-make down       # Stop all services
+# Main
+make setup      # Full setup
+make up         # Start services
+make down       # Stop services
+
+# Development
+make dev-up     # Start Redis only
 make logs       # View logs
-```
 
-### Development
-
-```bash
-make dev-up     # Start only Redis
-make dev-down   # Stop dev services
-```
-
-### Database
-
-```bash
+# Database
 make migrate    # Run migrations
 make seed       # Seed database
-make studio     # Open Prisma Studio
-```
+make studio     # Prisma Studio
 
-### Cleanup
-
-```bash
-make clean      # Clean Docker resources
+# Cleanup
 make clean-all  # Remove everything
-```
-
-### Utility
-
-```bash
-make ps         # Show running containers
-make restart    # Restart all services
 ```
 
 ## 🌐 Services
 
-- **Backend API:** http://localhost:3000 (Elysia/Bun)
-- **Dashboard:** http://localhost:3001 (Next.js)
-- **Redis:** Port 6379 (Caching)
-
-## 🔍 Troubleshooting
-
-```bash
-# Check status
-make ps
-
-# View logs
-make logs
-
-# Clean and rebuild
-make clean-all
-make build
-```
-
-## 🎯 Quick Reference
-
-- **Start:** `make setup`
-- **Stop:** `make down`
-- **Rebuild:** `make clean-all && make build`
-- **Check:** `make ps`
-- **Debug:** `make logs`
+- **Backend API:** http://localhost:3000
+- **Dashboard:** http://localhost:3001

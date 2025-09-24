@@ -2,6 +2,7 @@
   "name": "@repo/backend",
   "private": true,
   "version": "0.0.0",
+  "packageManager": "bun@1.2.22",
   "scripts": {
     "dev": "bun run --watch src/server.ts",
     "build": "tsc --noEmit && bun build --target bun --minify-whitespace --minify-syntax --outfile ./dist/index.js src/server.ts",

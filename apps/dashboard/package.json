@@ -2,6 +2,7 @@
   "name": "@repo/dashboard",
   "private": true,
   "version": "0.0.0",
+  "packageManager": "bun@1.2.22",
   "scripts": {
     "dev": "next dev --turbopack --port 3001",
     "build": "next build --turbopack",

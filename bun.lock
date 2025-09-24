@@ -40,6 +40,7 @@
         "@inquirer/prompts": "^7.8.6",
         "@repo/tsconfig": "workspace:*",
         "@types/bun": "^1.2.22",
+        "dunna": "^0.12.0",
         "prisma": "^6.16.2",
         "typescript": "^5.9.2",
       },
@@ -919,6 +920,8 @@
     "dotenv-cli": ["dotenv-cli@10.0.0", "", { "dependencies": { "cross-spawn": "^7.0.6", "dotenv": "^17.1.0", "dotenv-expand": "^11.0.0", "minimist": "^1.2.6" }, "bin": { "dotenv": "cli.js" } }, "sha512-lnOnttzfrzkRx2echxJHQRB6vOAMSCzzZg79IxpC00tU42wZPuZkQxNNrrwVAxaQZIIh001l4PxVlCrBxngBzA=="],
 
     "dotenv-expand": ["dotenv-expand@11.0.7", "", { "dependencies": { "dotenv": "^16.4.5" } }, "sha512-zIHwmZPRshsCdpMDyVsqGmgyP0yT8GAgXUnkdAoJisxvf33k7yO6OuoKmcTGuXPWSsm8Oh88nZicRLA9Y0rUeA=="],
+
+    "dunna": ["dunna@0.12.0", "", {}, "sha512-3gHn1OMASftEL5n/Ws298mz0UJSl8gjituyIjsPhoP2VZFDXwfjw98rPLa9g3QwjLE0oP/34bxD5B1G/Nx9Tow=="],
 
     "eastasianwidth": ["eastasianwidth@0.2.0", "", {}, "sha512-I88TYZWc9XiYHRQ4/3c5rjjfgkjhLyW2luGIheGERbNQ6OY7yTybanSpDXZa8y7VUP9YmDcYa+eyq4ca7iLqWA=="],
 

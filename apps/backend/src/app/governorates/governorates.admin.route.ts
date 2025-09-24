@@ -3,11 +3,11 @@ import type { Prisma } from '@prisma/client';
 import { Elysia } from 'elysia';
 import { setup } from '@/setup';
 import { parsePaginationProps, parseSortingProps } from '@/utils/helpers';
-import { GovernorateModel } from './governorates.model';
+import { GovernorateAdminModel } from './governorates.admin.model';
 
 export const governorates = new Elysia({ prefix: '/governorates' })
   .use(setup)
-  .model(GovernorateModel)
+  .model(GovernorateAdminModel)
 
   .get(
     '/',

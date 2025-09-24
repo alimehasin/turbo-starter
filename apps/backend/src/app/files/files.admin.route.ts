@@ -9,7 +9,7 @@ import {
   uploadVideo,
 } from '@/utils/clients/s3/helpers';
 import { HttpError } from '@/utils/error';
-import { FileModel } from './files.model';
+import { FileUserModel } from './files.user.model';
 
 export const files = new Elysia({ prefix: '/files' })
 
@@ -17,7 +17,7 @@ export const files = new Elysia({ prefix: '/files' })
   .use(setup)
   .use(betterAuth)
   .guard({ mustBeAuthed: true })
-  .model(FileModel)
+  .model(FileUserModel)
 
   .post(
     '/upload',

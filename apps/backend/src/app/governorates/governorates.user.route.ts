@@ -1,11 +1,11 @@
 import { prisma } from '@db/client';
 import { Elysia } from 'elysia';
 import { setup } from '@/setup';
-import { GovernorateModel } from './governorates.model';
+import { GovernorateUserModel } from './governorates.user.model';
 
 export const governorates = new Elysia({ prefix: '/governorates' })
   .use(setup)
-  .model(GovernorateModel)
+  .model(GovernorateUserModel)
 
   .get(
     '/',

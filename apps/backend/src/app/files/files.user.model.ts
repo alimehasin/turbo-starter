@@ -2,7 +2,7 @@ import { FileType } from '@prisma/client';
 import { t } from 'elysia';
 import { FilePlain } from '@/generated/prismabox/File';
 
-export const FileModel = {
+export const FileUserModel = {
   UserFileCreateBody: t.Object({
     file: t.File(),
     type: t.Enum(FileType),

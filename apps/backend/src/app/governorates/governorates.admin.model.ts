@@ -2,7 +2,7 @@ import { t } from 'elysia';
 import { GovernoratePlain } from '@/generated/prismabox/Governorate';
 import { paginationSchema, sortingSchema } from '@/utils/schemas';
 
-export const GovernorateModel = {
+export const GovernorateAdminModel = {
   // List
   AdminGovernorateListQuery: t.Object({
     ...paginationSchema,

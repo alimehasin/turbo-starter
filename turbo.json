@@ -4,7 +4,7 @@
   "tasks": {
     "test": {},
     "typecheck": {},
-    "i18n:parse": {},
+    "i18n:extract": {},
     "api:gentype": {},
 
     "build": {

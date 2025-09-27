@@ -15,7 +15,7 @@
     "lint": "biome lint --write .",
     "check": "biome check --write .",
     "typecheck": "turbo run typecheck",
-    "i18n:parse": "turbo run i18n:parse",
+    "i18n:extract": "turbo run i18n:extract",
     "api:gentype": "turbo run api:gentype",
     "scripts:rmdeps": "bash ./scripts/rmdeps.sh",
     "scripts:update": "bash ./scripts/update.sh",

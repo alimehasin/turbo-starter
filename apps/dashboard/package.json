@@ -9,7 +9,7 @@
     "start": "next start --port 3001",
     "typecheck": "tsc --noEmit",
     "api:gentype": "bunx openapi-typescript http://localhost:3000/docs/json -o ./src/types/server/schema.d.ts",
-    "i18n:parse": "i18next 'src/**/*.{js,jsx,ts,tsx}' '../../packages/**/*.{ts,tsx}' --config i18next-parser.config.json"
+    "i18n:extract": "i18next 'src/**/*.{js,jsx,ts,tsx}' '../../packages/**/*.{ts,tsx}' --config i18next-parser.config.json"
   },
   "dependencies": {
     "@mantine/charts": "^8.3.2",

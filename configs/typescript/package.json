@@ -2,7 +2,7 @@
   "name": "@repo/tsconfig",
   "private": true,
   "version": "0.0.0",
-  "packageManager": "bun@1.2.22",
+  "packageManager": "bun@1.2.23",
   "files": [
     "base.json"
   ]
